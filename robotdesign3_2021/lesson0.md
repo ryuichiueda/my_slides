@@ -19,6 +19,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * マニピュレーターCRANE-X7の制御
     * 去年の最終発表: https://lab.ueda.tech/?page=robotdesign3_2020_ros
 
+
+13週目の講義までに<span style="color:red">チームで</span>完成
+
 ---
 
 ## なにが学べるか
@@ -28,6 +31,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * ROSやオープンソース、先輩のソースコードを使いこなして動くものをどんどん作っていく
     * 今年度、昨年度は特に、実機がない状況、互いにリモートな状況でどのように開発を進めるか、がテーマ
         * 次ページ
+
 
 ---
 
@@ -105,10 +109,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 様々な思惑や状況
     * うわ！あいつと一緒の班になった
     * 誰この人？
+    * リーダーちゃんと指示してくれ
     * 勉強したい！ or とにかく楽して単位ほしい<br />　
 * これも想定内でアドバイスを準備
     * 「みんなでがんばろう」は大人になると通用しない
         * 社会人は転職活動しながらチームで仕事
+        * 最終的な成績は個人につく
+
+<span style="color:red">反省: 良い経験だけど、2年生には酷かも</span>
 
 ---
 
