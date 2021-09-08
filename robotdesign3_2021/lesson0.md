@@ -17,8 +17,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 本コースでやること
 
 * マニピュレーターCRANE-X7の制御
-    * ムービー: https://lab.ueda.tech/?page=robotdesign3_2019_ros<br />　
-    * 「今年はリモートでやるのにどうするの？」という話はあとで
+    * 去年の最終発表: https://lab.ueda.tech/?page=robotdesign3_2020_ros
 
 ---
 
@@ -27,7 +26,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * マニピュレーターの制御理論・・・は二の次かも<br />　
 * ソフトウェアの迅速な開発に主眼を置く
     * ROSやオープンソース、先輩のソースコードを使いこなして動くものをどんどん作っていく
-    * 今年度は特に、実機がない状況、互いにリモートな状況でどのように開発を進めるか、がテーマ
+    * 今年度、昨年度は特に、実機がない状況、互いにリモートな状況でどのように開発を進めるか、がテーマ
         * 次ページ
 
 ---
