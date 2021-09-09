@@ -183,4 +183,4 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 最後に
 
-* 去年より負荷は減りますが、チーム運営に意識を置いて参加を
+* 去年より負荷は減ると予想していますが、チーム運営に意識を置いて参加を
