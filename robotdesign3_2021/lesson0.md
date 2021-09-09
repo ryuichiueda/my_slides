@@ -140,7 +140,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 必要な道具
 
 * 各自Linuxのネイティブ環境が準備できること
-    * デュアルブート等
+    * 単独でインストール、デュアルブート等
     * 昨年まではWSLを使おうとしていましたが、実機が動かせないので難しいです。
     * 仮想マシンも難しい。
 
