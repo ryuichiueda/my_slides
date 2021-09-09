@@ -77,7 +77,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## なぜそうなってしまうか
 
-* チーム全体で作業の見通しが立てられない
+* 作業計画を立てるのが難しい
     * ロボットでやりたいことをプレゼンしてもらったが・・・
         * 具体的にどうソフトウェアを設計するかを図などで説明できない
         * スケジュールをどうするかをしっかり説明できない<br />　
@@ -85,7 +85,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 計画段階での質問が少ない
         * プレゼン本番でダメ出しをくらってそのままなんとなく作業入り
         * 「計画を立てる」ということが重要という意識が薄い
-            * 技術的な話のほうが重要だと思っている<br />　
+            * 技術的な話のほうが重要だと<span style="color:red">無意識に</span>思っている<br />　
     * 作業量を減らす交渉をできない
 
 ---
@@ -100,7 +100,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * スライドをまとめる
         * 買い物
 
-<span style="color:red">ただ、技術に聡くないと難しいです</span>
+<span style="color:red">ただ、技術に聡くないとできないです。</span>
+
 
 ---
 
@@ -120,33 +121,47 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ツール
+## 昨年度を踏まえて
 
-* LinuxあるいはWindowsのWSL（Windows Subsystem for Linux）環境
-* ROS、Gazebo
-* Slack、（Backlog？）
-* GitHub
+* Linux、ROS経験者: マネージメントの学習
+    * GitHubやbacklogを通じたチーム開発の基礎を学習
+    * これまで独学で勉強できてきたので技術は二の次
+    * コーディングもやる<br />　
+* コードが書けない人: ご遠慮を
+    * GitHubにコードを書いた形跡がないと単位が出ません
+    * リーダーの負荷を減らすため<br />　
+* 中間の人
+    * チーム開発でのディスカッション+コーディング
+    * できること/できないことをはっきりさせる
+    * コードを書かない仕事もやる
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZMpj_mBggjw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+
+## 必要な道具
+
+* 各自Linuxのネイティブ環境が準備できること
+    * デュアルブート等
+    * 昨年まではWSLを使おうとしていましたが、実機が動かせないので難しいです。
+    * 仮想マシンも難しい。
 
 ---
 
 ## 進め方
 
 * 前半にちょっとした講義、後半作業
-    * 作業時間をとるために前半の講義ビデオは事前に公開することも検討
-* シミュレータを利用して開発
-* 中間発表と期末発表で作成したソフトウェアを実機で動作させる
-    * TAがリモートで
-    * もしかしたら開発中もTAがリモートで動かしてくれるかも
+    * サンプルコードを動かす
+    * 去年の人たちのコードを読む<br />　
+* その後はひたすらチーム開発
+    * シミュレータで開発
+    * 発表は実機で（中間発表と期末発表がある）
 
 ---
 
 ## スケジュール（1/3）
 
 * 第1回: ガイダンス
-* 第2回: WSLとROSのセットアップ
-* 第3回: チーム分け
+* 第2回: ROSのセットアップとCRANE-X7のサンプルコードをシミュレータで動かす
+* 第3回: チーム分けとコードを読む会
     * （この頃ロボットシステム学でGitとGitHubをやります）
 
 ---
@@ -154,8 +169,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## スケジュール（2/3）
 
 * 4〜8回: センサを使わないでロボットに仕事をさせる
-    * 第4回: プレゼン
-    * 第5回: 作業
+    * 第4回: やることを決めて可能性を検討
+    * 第5回: プレゼン
     * 第6回: 作業
     * 第7回: 作業
     * 第8回: 中間発表
@@ -167,23 +182,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## スケジュール（3/3）
 
 * 9〜13回: センサを使ってロボットに仕事をさせる
-    * 第9回: プレゼン
-    * 第10回: 作業
+    * 第9回: やることを決めて可能性を検討
+    * 第10回: プレゼン
     * 第11回: 作業
     * 第12回: 作業
     * 第13回: 最終発表
 
 やりちらかしではなくてプロジェクトとして<br />まとめることを重視（重要なので2回言いました）
-
----
-
-## 向いている人、向いていない人
-
-* 向いている人
-    * ROSの経験を積みたいと考えている人
-    * マニピュレータをぐわんぐわん動かしたい人<br />　
-* 向いていない人
-    * コードを書くのが好きではない
-        * チームで仕事をするので面白い仕事がまわってこないかも
-    * オンライン上のコミュニケーションに興味がない人
 
