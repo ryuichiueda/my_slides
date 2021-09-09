@@ -190,3 +190,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 やりちらかしではなくてプロジェクトとして<br />まとめることを重視（重要なので2回言いました）
 
+---
+
+## 最後に
+
+* 去年より負荷は減りますが、チーム運営に意識を置いて参加を
