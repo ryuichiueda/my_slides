@@ -16,44 +16,24 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* （見ていない人は）イントロダクションのビデオを見る
-  * ビデオを見た人はWSLのインストールをしながら待つ
-* Slackへの参加
-* WSLのインストール
+* （万が一見ていない人がいたら）イントロダクションのビデオを視聴
+  * ここに該当する人はハンド作成コースも検討を<br />　
+* ビデオを見た人は以下をセットアップ<br />（このビデオの内容）
+  * ROS
+  * マニピュレータのシミュレータ<br />　
+* Slack、Backlogへの参加
+  * これはmanabaで指示済みのはず
 
 
 ---
 
 ## ROSのセットアップ
 
-Windows編
-
----
-
-### WSLでのROS環境構築
-
-* 使うツール
-    * WSL: [Windows Subsystem for Linux](https://ja.wikipedia.org/wiki/Windows_Subsystem_for_Linux)
-    * ROS: [robot operating system](http://wiki.ros.org/)
-* 参考にしたサイト
-    * WSL+ROS
-        * [WSL(Windows Subsystem for Linux)でROSを動かす | naonaorange's blog](https://naonaorange.hatenablog.com/entry/2018/11/05/200715)
-        * [WSL: Windows Subsystem for Linuxのインストールと設定 | demura.net](https://demura.net/lecture/15062.html)
-        * [WSL: RvizやGazeboが起動しない | demura.net](https://demura.net/lecture/15304.html)
-        * 注意: 参考になりますが、以後のスライドと設定が微妙に異なります。
-    * SSH接続について
-        * https://yuta0508.hatenablog.com/entry/2018/05/03/195616
-
----
-
-### WSLのインストール
-
-* Ubuntu 18.04 LTSをインストール（左図）
-* 使えるようにシステムを設定（右図）
-
-<img width="56%" src="./figs/ubuntu18_download.png" />
-<img width="40%" src="./figs/wsl_enable.png" />
-
+* 前提: Ubuntu 20.04 LTS or 18.04 LTSのデスクトップ版がネイティブ環境で準備されていること
+  * 準備がまだの人はセットアップから<br />　
+* ROSについてはロボットシステム学のビデオで解説しています
+  * https://www.youtube.com/watch?v=PL85Pw_zQH0
+  * SlackにもURLを貼り付けますね
 
 ---
 
