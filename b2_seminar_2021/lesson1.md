@@ -14,6 +14,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## このスライド
 
-
+* ガイダンス回のおまけ<br />　
+* Linuxのデスクトップ版をどう使うかを説明
+  * 一部主観
+  * 人によっては重要
 
 ---
