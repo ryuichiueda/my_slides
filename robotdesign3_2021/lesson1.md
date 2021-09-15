@@ -18,12 +18,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * （万が一見ていない人がいたら）イントロダクションのビデオを視聴
   * ここに該当する人はハンド作成コースも検討を<br />　
-* ビデオを見た人は以下をセットアップ<br />（このビデオの内容）
-  * ROS
-  * マニピュレータのシミュレータ<br />　
+* ビデオを見た人は以下をセットアップ
+  * Linux環境（これは独力で準備）
+  * ROS（このビデオの内容）
+  * マニピュレータのシミュレータ（このビデオの内容）<br />　
 * Slack、Backlogへの参加
-  * これはmanabaで指示済みのはず
-
+  * これはmanaba$\rightarrow$Slackで指示済み
 
 ---
 
@@ -41,8 +41,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * GitHub上のインストールスクリプトを利用
     * https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu18.04_desktop
+    * https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu20.04_desktop
 
 ```
+### 18.04の場合（20.04なら18を20に書き換え） ###
 $ git clone https://github.com/ryuichiueda/ros_setup_scripts_Ubuntu18.04_desktop.git
 $ cd ros_setup_scripts_Ubuntu18.04_desktop/
 $ sudo apt update
@@ -86,7 +88,6 @@ process[rosout-1]: started with pid [450]
 started core service [/rosout]
 ```
 
-* Windowsがネットワークのアクセスがどうのこうのと文句を言ってきたら「許可」で
 * プログラムの終了は`Ctrl+C`で
 
 ---
@@ -109,7 +110,7 @@ $ catkin_make
 $ vi ~/.bashrc
 ・・・
 source /opt/ros/melodic/setup.bash
-source ~/catkin_ws/devel/setup.bash             #この行を追加
+source ~/catkin_ws/devel/setup.bash       #この行を追加
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
 ・・・
@@ -131,33 +132,6 @@ $ rosdep install -r -y --from-paths --ignore-src crane_x7_ros
 $ ( cd ~/catkin_ws/ && catkin_make )
 ```
 
----
-
-### X Window Systemのインストール
-
-* X Window System: Unix系OSのGUIのシステム
-    * データを受けて絵を受けるOSとは独立したプログラム
-* プロトコルが決まっているのでXならなんでもいいけどここではXmingをインストール
-    * [OSDNのXmingのページ](https://ja.osdn.net/projects/sfnet_xming/)から`Xming-6-9-0-31-setup.exe`をインストール
-    * `Xming-fonts-7-7-0-10-setup.exe`もインストール
-    * 指示は全部デフォルトのままでよいです
-
----
-
-### X Window Systemのセットアップ
-
-* Xmingが立ち上がっていることを確認
-<img width="40%" src="./figs/xserver.png" />
-* `~/.bashrc`に設定を書く
-```
-・・・
-export DISPLAY=localhost:0.0   #0.0は上の絵のポップアップで出てくる数字に合わせる
-export LIBGL_ALWAYS_INDIRECT=0
-export GAZEBO_IP=127.0.0.1
-```
-    * 一番下に書いておけばよいです
-
----
 
 ### RVizの動作確認
 
@@ -168,8 +142,11 @@ $ roscore &
 $ rviz
 ```
 
-<img width="60%" src="./figs/rviz.png" />
+* 次のページのような画面が出現
 
+---
+
+![](./figs/rviz.png)
 
 ---
 
@@ -187,13 +164,10 @@ servers:
 $ roslaunch crane_x7_gazebo crane_x7_with_table.launch
 ```
 
-<img width="45%" src="./figs/gazebo_rviz.jpeg" />
+* 次のページのような画面が出現
 
 ---
 
-### 不具合の証言
+<img width="80%" src="./figs/gazebo.png" />
 
-* すんなりいかない場合もあります
-    * 上田研OB小池さんから
-        * GAZEBOの動作確認の「`~/.ignition/fuel/config.yaml`を編集」のところで、ignitionフォルダが最初がなく、1度Gazeboを立上げたら生成された
-        * 最初`crane_x7_with_table.launch`を起動させたらGazeboの画面がしばらく放置しても真っ黒のままだった。Ctrl+Cした後、`empty_world.launch`を立上げたら普通に表示されたので、もう一度`crane_x7_with_table.launch`を起動したら表示された
+以上で作業は終了です。
