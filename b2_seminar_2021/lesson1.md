@@ -32,7 +32,7 @@
   * GCCを使うため<br />　
 * 今日言いたいこと:
   * <span style="color:red"> （できるなら）ネイティブ環境で使ってみて欲しい</span>
-  * まずはUbuntu
+  * まずはUbuntu（https://www.ubuntulinux.jp/download ）
 
 ---
 
