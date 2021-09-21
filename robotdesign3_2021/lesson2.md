@@ -156,7 +156,7 @@ $ rosrun hand_test pose_groupstate_example.py
 ### <span style="text-transform:none">GitHub</span>へアップ
 
 * `package.xml`を編集してライセンスとauthorを整備
-  * （元のソースのライセンスはややこしいのですがBSDで）
+* `crane_x7_ros`の`LICENSE`ファイルをコピー
 * アップする手順は動画で
 
 ```xml
@@ -170,7 +170,7 @@ $ vi package.xml
 
   <maintainer email="ueda@todo.todo">ueda</maintainer>
 
-  <license>BSD</license>
+  <license>NON-COMMERCIAL LICENSE AGREEMENT</license>
 
   <author email="tiryoh@gmail.com">Daisuke Sato</author>
   <author email="nomura@rt-net.jp">Hiroyuki Nomura</author>
