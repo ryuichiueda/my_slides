@@ -106,17 +106,35 @@ $ rosrun crane_x7_examples gripper_action_example.py
 
 ### 自身のROSパッケージを作る
 
-* 今、ワークスペース（`catkin_ws/src`）下にある`crane_x7_ros`を削除
-* `crane_x7_ros`をGitHubでフォークしてワークスペースにpull
-
+* ワークスペース（`catkin_ws/src`）にROSのパッケージを作る
 
 ```
 $ cd ~/catkin_ws/src/
-$ rm -rf ./crane_x7_ros
-### ↓ryuichiuedaのところは自身のアカウントで ###
-$ git clone https://github.com/ryuichiueda/crane_x7_ros.git
-$ ( cd ~/catkin_ws && catkin_make )
-$ rosdep install -r -y --from-paths --ignore-src crane_x7_ros
+$ catkin_create_pkg hand_test rospy  # hand_testというパッケージを作成
+$ cd hand_test/                      # 作ったパッケージに移動
+### 中身の確認 ###
+$ ls
+CMakeLists.txt  package.xml  src
+```
+
+---
+
+### サンプルのスクリプトを置く
+
+* 手順
+  * `scripts`というディレクトリを作成
+  * `pose_groupstate_example.py`をコピーして置く
+    * ライセンスの確認を
+  * コードの1行目を変更
+    * `#!/usr/bin/env python`を`#!/usr/bin/env python3`に変更
+
+```
+$ mkdir scripts
+$ cd scripts/
+$ wget https://raw.githubusercontent.com/rt-net/crane_x7_ros/master/crane_x7_examples/scripts/pose_groupstate_example.py
+$ chmod +x pose_groupstate_example.py
+$ vi pose_groupstate_example.py
+・・・1行目を編集・・・
 ```
 
 ---
@@ -124,26 +142,53 @@ $ rosdep install -r -y --from-paths --ignore-src crane_x7_ros
 ### 自身のROSパッケージを動かす
 
 * 動かしてみましょう
+  * 注意: `rosrun`では自分のパッケージを指定
+
 ```
+$ ( cd ~/catkin_ws && catkin_make ) 
 $ source ~/.bashrc
 （別の端末を開いて）$ roslaunch crane_x7_gazebo crane_x7_with_table.launch 
-$ rosrun crane_x7_examples pose_groupstate_example.py 
+$ rosrun hand_test pose_groupstate_example.py 
 ```
 
 ---
 
-### 実習
+### <span style="text-transform:none">GitHub</span>へアップ
+
+* `package.xml`を編集してライセンスとauthorを整備
+  * （元のソースのライセンスはややこしいのですがBSDで）
+* アップする手順は動画で
+
+```xml
+$ cd ~/catkin_ws/src/hand_test/
+$ vi package.xml
+<?xml version="1.0"?>
+<package format="2">
+  <name>hand_test</name>
+  <version>0.0.0</version>
+  <description>The hand_test package</description>
+
+  <maintainer email="ueda@todo.todo">ueda</maintainer>
+
+  <license>BSD</license>
+
+  <author email="tiryoh@gmail.com">Daisuke Sato</author>
+  <author email="nomura@rt-net.jp">Hiroyuki Nomura</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+
+</package>
+```
+
+---
+
+### 発展課題
 
 * コードやSRDFなどをいじってロボットに所定の動きをさせてみましょう。
+  * 可能ならSRDFなどを自身のリポジトリへ引っ越し 
 
----
 
-### 終わったらリポジトリへpush
-
-```
-$ git add -A 
-$ git commit -m "Change a sample"
-$ git push
-```
-
-<span style="font-size:50%">・・・なんですけどまだGitHubやってないので次回以降。</span>
+今回は以上です。
