@@ -16,8 +16,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* 講義のイントロダクションを聞く
-* 環境の準備
+* 講義の内容の理解（この動画）
+* 環境の準備（別の動画で）
 
 ---
 
@@ -82,3 +82,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 自著ですがおすすめ。
     * 少しずつLinux（のコマンドライン）が使えるようになっていく構成になっています。後半は難しいです。
 
+
+---
+
+## 環境の準備
+
+* 改めて別の動画で
