@@ -177,3 +177,58 @@ $ pwd                 <- 今いるディレクトリのパスを確認
 $ cd ..
 $ rmdir ./hoge        <- hogeを削除
 ```
+
+---
+
+## ファイルの作成
+
+* <span style="color:red">エディタ</span>を使う
+    * Windowsなら「メモ帳」（`notepad.exe`）、UbuntuのGUIなら`gedit`に相当<br />　
+* 本当は<span style="color:red">Vim</span>を使ってほしいのですが、ここでは<span style="color:red">`nano`</span>で
+    * 次ページ
+    * Vimについては宿題
+
+---
+
+## <span style="text-transform:none">nano</span>を使う
+
+* 手順
+    1. <span style="color:red">`nano hello.py`</span>と端末に打ってエディタを立ち上げ
+    2. 何か書いて保存（この例はPythonのコード）<br />
+<img width=50% src="figs/nano.png" /><br />
+    3. 下の`^O`（Ctrl+O)で保存
+        * `File Name to Write: hello.py`と聞かれるのでEnter
+    4. `^X`（Ctrl+X）で終了
+
+
+---
+
+## ファイルができているか確認
+
+* `ls`で<span style="color:red">ファイル</span>ができているか確認
+* <span style="color:red">`cat`</span>で、書いた内容を確認
+
+```bash
+$ ls hello.py
+hello.py
+$ cat hello.py
+#!/usr/bin/python3
+
+print("hello")
+```
+
+---
+
+## まとめ
+
+* 今回の内容
+    * イントロダクション
+    * Linux環境の準備
+    * ディレクトリの操作、ファイルの作成
+        * 最初はGUIで。徐々にCLIに慣れること<br />　
+* 宿題: エディタのVimを使えるようにする
+    * Vim練習コマンド`vimtutor`を実行
+    * 書いてある内容に従う
+    * `nano`で書いたものをVimで書いてみる
+        * Vimを立ち上げるコマンド: `vi ファイル名`
+        * ファイル名は変えましょう
