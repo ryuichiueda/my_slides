@@ -85,10 +85,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 環境の準備
+## <span style="text-transform:none">Linux</span>環境の準備
 
-* Linux環境を準備
-    * Ubuntu（20.04 LTS or 22.04 LTSを標準とします）
+* Ubuntu（20.04 LTS or 22.04 LTSを標準とします）
     * 特殊なものは自己責任でご使用を<br />　
 * ハードウェア（仮想マシン）環境
     * Windows Subsystem for Linux 2（WSL2）
