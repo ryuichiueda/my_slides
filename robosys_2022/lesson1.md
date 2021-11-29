@@ -141,6 +141,39 @@ Ubuntu$ nautilus /etc/
 ```
         * 最初はCLIでのファイル操作は難しいので、ストレスを感じたらGUIに逃げましょう。（最初から全部GUIはNG）
 
+---
+
+## ファイルとディレクトリ
+
+* 普通の人が使うPC: フォルダの下にファイルや別のフォルダを置いてデータを整理
+    * `nautilus`や`explorer.exe`で観察してみましょう<br />　
+* Linuxの場合: 同じ
+    * 見え方が違う
+```bash
+$ ls /mnt/c/
+$ ls /etc/
+```
+    * `/`でフォルダやファイル名を区切ってファイルの場所を表す
+        * <span style="color:red">「パス」</span>
+        * 都道府県や市町村を`/`で区切って表現しているようなもの
+        * 「フォルダ」は「ディレクトリ」と呼ぶ
 
 
 ---
+
+## ディレクトリの操作
+
+* 使うコマンド
+    * 移動: <span style="color:red">`cd`</span>、作成: <span style="color:red">`mkdir`</span>、削除: <span style="color:red">`rmdir`</span>、確認: <span style="color:red">`pwd`</span>
+
+```bash
+$ cd /etc/            <- /etc/に移動
+$ cd ..               <- /etc/の上に移動（これより上には行けない「root」）
+$ cd                  <- 「/home/ユーザ」に移動（ホームディレクトリ）
+$ mkdir hoge          <- hogeというディレクトリを作成
+$ cd ./hoge           <- 今作ったhogeに移動（「./」: 今いるディレクトリ）
+$ pwd                 <- 今いるディレクトリのパスを確認
+/home/ueda/hoge
+$ cd ..
+$ rmdir ./hoge        <- hogeを削除
+```
