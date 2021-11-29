@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第2回: Linux環境の使い方
+## 第2回: Linux環境の使い方とPythonプログラミングI
 
 千葉工業大学 上田 隆一
 
@@ -16,8 +16,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* Linuxの基本的な仕組みを理解する
 * CLIに慣れる
+* Pythonでプログラムを書く
+* Linuxの基本的な仕組みを理解する
 
 ---
 
