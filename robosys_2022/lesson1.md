@@ -17,7 +17,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 * 講義の内容の理解（この動画）
-* 環境の準備（別の資料か動画で）
+* Linux環境の準備（別の資料か動画で）
+* Linux環境を触る（この動画）
 
 ---
 
@@ -39,8 +40,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 各回の内容（第1〜6回）
 
 * 第1回: イントロダクションと環境の準備
-* 第2回: Linux環境の使い方とPythonプログラミングI
-* 第3回: Linux環境の使い方とPythonプログラミングII
+* 第2回: Linux環境でのプログラミング
+* 第3回: Pythonプログラミングとシェル
 * 第4回: GitとGitHub
 * 第5回: 著作権とライセンス
 * 第6回: ソフトウェアのテスト
@@ -82,16 +83,65 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 自著ですがおすすめ。
     * 少しずつLinux（のコマンドライン）が使えるようになっていく構成になっています。後半は難しいです。
 
-
 ---
 
 ## 環境の準備
 
-* LinuxのCLI（コマンドラインインターフェース）環境を準備
-    * GUI（グラフィックユーザインターフェース）はあってもよいですが、講義ではROSまで使いません。
-        * 慣れるとCLIを使えたほうが楽。小型のロボットだとGUIが面倒。<br />　
-* 次のいずれか
-    * ネイティブのLinux環境（講義ではUbuntuを使用）
-    * Windows Subsystem for Linux 2（これもUbuntu）
-    * Ubuntuをインストールしたラズパイなど
-    * 特殊なものは自己責任でご使用を
+* Linux環境を準備
+    * Ubuntu（20.04 LTS or 22.04 LTSを標準とします）
+    * 特殊なものは自己責任でご使用を<br />　
+* ハードウェア（仮想マシン）環境
+    * Windows Subsystem for Linux 2（WSL2）
+    * PC
+    * 仮想マシン
+    * ラズパイ<br />　
+* WSL2以外はGUI環境つきでインストール
+    * 昨年度までと異なるので注意
+    * 講義は昨年度までと同様CLI（コマンドラインインタフェース）中心
+
+---
+
+## <span style="text-transform:none">Linux</span>環境（CLI）を触る
+
+* WSL（Windows）、Terminal（Mac, Linux）を立ち上げると字を打ち込める画面が出る
+    * <span style="color:red">「端末（terminal）」</span>というもの
+
+![](figs/terminal.png)
+
+---
+
+## 端末でなにをするか？
+
+* 理系の大学生で想定される使用法
+    * プログラムを書いて動かす
+    * レポートやプレゼン資料書き
+    * ウェブサーバやファイルサーバを作る
+    * 上記用途のためにソフトをセットアップしたり整備したり<br />　
+* この講義では「プログラムを書いて動かす」を扱う
+    * 慣れるとレポートやプレゼン資料も端末で手っ取り早く作れる
+        * しばらく端末で頑張ってみることを推奨
+            * 不便もあるので、次のページのようにGUIと組み合わせて少しずつ
+
+---
+
+## はじめての端末
+
+* <span style="color:red">「コマンド（$\fallingdotseq$プログラム）」</span>を呼び出す
+    * 例: <span style="color:red">`ls`</span>（ファイルのリスト表示プログラム）の呼び出し
+```bash
+WSL$ ls /mnt/c/Windows/
+Ubuntu$ ls /etc/
+```
+    * GUIのアプリも立ち上げられる
+```bash
+### エクスプローラーを立ち上げる（上田の経験ではGUIより反応が良い）###
+WSL$ explorer.exe
+WSL$ explorer.exe .
+### Ubuntuで特定のフォルダを開く###
+Ubuntu$ nautilus /etc/
+```
+        * 最初はCLIでのファイル操作は難しいので、ストレスを感じたらGUIに逃げましょう。（最初から全部GUIはNG）
+
+
+
+---
