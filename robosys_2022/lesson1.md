@@ -17,7 +17,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 * 講義の内容の理解（この動画）
-* 環境の準備（別の動画で）
+* 環境の準備（別の資料か動画で）
 
 ---
 
@@ -87,4 +87,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 環境の準備
 
-* 改めて別の動画で
+* LinuxのCLI（コマンドラインインターフェース）環境を準備
+    * GUI（グラフィックユーザインターフェース）はあってもよいですが、講義ではROSまで使いません。
+        * 慣れるとCLIを使えたほうが楽。小型のロボットだとGUIが面倒。<br />　
+* 次のいずれか
+    * ネイティブのLinux環境（講義ではUbuntuを使用）
+    * Windows Subsystem for Linux 2（これもUbuntu）
+    * Ubuntuをインストールしたラズパイなど
+    * 特殊なものは自己責任でご使用を
