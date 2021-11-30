@@ -47,6 +47,8 @@ print(3.14)                 #数字を出力
 
 ## <span style="text-transform:none">hello.py</span>のコード
 
+* 関数
+    * `名前(引数, 引数, ...)`<br />　
 * `"hello"`: 文字列
     * `'hello'`とシングルクォートで囲ってもよい <br />　
 * `print`関数
