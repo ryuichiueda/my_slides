@@ -177,7 +177,7 @@ $ ls /etc/
     * `/`でフォルダやファイル名を区切ってファイルの場所を表す
         * <span style="color:red">「パス」</span>
         * 都道府県や市町村を`/`で区切って表現しているようなもの
-        * 「フォルダ」は「ディレクトリ」と呼ぶ
+        * 「フォルダ」は「<span style="color:red">ディレクトリ</span>」と呼ぶ
 
 
 ---
@@ -247,9 +247,17 @@ print("hello")
     * Linux環境の準備
     * ディレクトリの操作、ファイルの作成
         * 最初はGUIで。徐々にCLIに慣れること<br />　
-* 宿題: エディタのVimを使えるようにする
-    * Vim練習コマンド`vimtutor`を実行
-    * 書いてある内容に従う
-    * `nano`で書いたものをVimで書いてみる
-        * Vimを立ち上げるコマンド: `vi ファイル名`
-        * ファイル名は変えましょう
+* 重要語句
+    * 端末（terminal）、コマンド、シェル、Bash、パス、ディレクトリ、エディタ、Vim、ファイル<br />　
+* 出てきたコマンド
+    * `ls`、`notepad.exe`、`nautilus`、`touch`、`rm`、`cd`、`mkdir`、`rmdir`、`pwd`、`nano`、`cat`
+
+---
+
+## 宿題: エディタの<span style="text-transform:none">Vim</span>を<br />使えるようにする
+
+* Vim練習コマンド`vimtutor`を実行
+* 書いてある内容に従う
+* `nano`で書いたものをVimで書いてみる
+    * Vimを立ち上げるコマンド: `vi ファイル名`
+    * ファイル名は変えましょう
