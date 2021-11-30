@@ -47,6 +47,11 @@ print(3.14)                 #数字を出力
 
 ## <span style="text-transform:none">hello.py</span>のコード
 
+* `"hello"`: 文字列
+    * `'hello'`とシングルクォートで囲ってもよい <br />　
 * `print`関数
     * 字を端末に出力する
-    * C言語の`puts`や`printf`などに相当
+    * C言語の`puts`や`printf`などに相当<br />　
+* Pythonの関数がC言語のものと違う点
+    * 型をあまり気にしなくてよい
+    * `hello.py`では文字列と数字を出力
