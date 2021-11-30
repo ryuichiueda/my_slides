@@ -32,6 +32,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * 通信
         * OSの仕組み
         * ライセンス
+        * オープンソース
         * Git/GitHub
         * テスト
 
@@ -54,7 +55,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 第8回: ROSの通信と型
 * 第9回: Pythonのクラスとオブジェクト
 * 第10回: ROSシステムのテスト
-* 第11回: ROS2
+* 第11回: 選択（動画を選んで視聴）
 * 第12回: 選択（動画を選んで視聴）
 * 第13回: まとめ
 
@@ -112,14 +113,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 端末でなにをするか？
 
 * 理系の大学生で想定される使用法
-    * プログラムを書いて動かす
+    * プログラムを書いて動かす（本講義で主に扱う）
     * レポートやプレゼン資料書き
     * ウェブサーバやファイルサーバを作る
     * 上記用途のためにソフトをセットアップしたり整備したり<br />　
-* この講義では「プログラムを書いて動かす」を扱う
-    * 慣れるとレポートやプレゼン資料も端末で手っ取り早く作れる
-        * しばらく端末で頑張ってみることを推奨
-            * 不便もあるので、次のページのようにGUIと組み合わせて少しずつ
+* 慣れるとプログラミング以外でも便利に
+    * しばらく端末で頑張ってみることを推奨
+        * 不便もあるので、GUIと組み合わせて少しずつ
 
 ---
 
