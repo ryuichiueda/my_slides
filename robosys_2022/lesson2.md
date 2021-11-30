@@ -37,7 +37,7 @@ print(3.14)                 #数字を出力
         * 「`#`」より後ろはコメント
 * 実行
     * <span style="color:red">`python3`</span>コマンドに読み込ませる
-        ```python
+        ```bash
         $ python3 hello.py
         hello
         3.14
@@ -57,3 +57,13 @@ print(3.14)                 #数字を出力
 * Pythonの関数がC言語のものと違う点
     * 型をあまり気にしなくてよい
     * `hello.py`では文字列と数字を出力
+
+---
+
+## <span style="text-transform:none">hello.py</span>のコードの動き方
+
+* コマンド「`python3`」がファイル「`hello.py`」の中身を見て実行
+```bash
+$ python3 hello.py
+```
+    * コマンドは

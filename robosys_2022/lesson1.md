@@ -123,7 +123,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## はじめての端末
+## はじめての端末とコマンド
 
 * <span style="color:red">「コマンド（$\fallingdotseq$プログラム）」</span>を呼び出す
     * 例: <span style="color:red">`ls`</span>（ファイルのリスト表示プログラム）の呼び出し
@@ -140,6 +140,27 @@ WSL$ explorer.exe .
 Ubuntu$ nautilus /etc/
 ```
         * 最初はCLIでのファイル操作は難しいので、ストレスを感じたらGUIに逃げましょう。（最初から全部GUIはNG）
+
+---
+
+## コマンドの書き方
+
+* 「名前 引数 引数 ...」と打ち込む
+    * 例
+```bash
+$ ls /etc/            #lsに引数/etc/を与えて、/etc/のリストを表示
+$ touch a.txt b.txt   #「touch」にa.txt、b.txtという文字列を与えてファイルを作成
+$ ls                  #ファイルができているか確認（引数なしでlsを使用）
+a.txt  b.txt
+$ rm a.txt b.txt      #「rm」にファイル名を与えてファイルを削除
+$ ls                  #lsするとa.txt、b.txtは消えている
+```
+        * <span style="color:red">`touch`</span>: ファイルがなければ新規作成、<span style="color:red">`rm`</span>: ファイルの削除
+* 打ち込んだ文字列を解釈してコマンドを呼び出しているプログラムが存在
+    * 「<span style="color:red">シェル</span>」という種類のプログラム
+    * 今使っているのは「<span style="color:red">Bash</span>」という名前のプログラム
+    * 端末は字を表示している装置
+
 
 ---
 
