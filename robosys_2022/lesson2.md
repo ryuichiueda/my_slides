@@ -76,31 +76,44 @@ $ python3 hello
 
 ## 問題: 次のような需要が存在
 
-* `./a.out`みたいに、次のように実行したくないか
+* `./a.out`みたいに、次のように実行したい
 ```bash
 $ ./hello.py
 ```
-    * なぜそんな需要があるのかは後述<br />　
-* 解決法
-    * <span style="color:red">shebang</span>（「シバン」と呼ぶ）を使用
-    * 次のように`hello.py`を変更（1行目がシバン）
-        ```python
-        #!/usr/bin/python3
-                                #この空行はいらないが、読みやすさのためにあける
-        print("hello")
-        print(3.14)
-        ```
-        * 注意1: インタプリタはパスで指定（<span style="color:red">`which python3`</span>で調査可能）
-        * 注意2: 1行目にはコメントを入れないこと
-        * 注意3: `#!`の前に空白を入れないこと
+    * プログラムを使う側は、インタプリタが何かを意識したくない
+    * 一応「`.py`」と拡張子があるが・・・
+        * Python 2.xかもしれない
+        * 本来いらないはず（`ls`が`ls.py`という名前だとおかしい）<br />　
+* 実行するには2つ作業が必要
+    * シバンによるインタプリタの指定
+    * 実行権限の付与
 
 ---
 
-## <span style="text-transform:none">hello.py</span>の単独実行
+## 作業1: インタプリタの指定
 
-* shebangの他、`hello.py`の<span style="color:red">実行</span>を許可する手続きが必要
-    * 文章かもしれないファイルを実行したら事故が起こるので制限されている
-    * `ls -l`で出てくる1列目のデータに「`x`」がないと実行できない
+* <span style="color:red">shebang</span>（「シバン」と呼ぶ）を使用
+    * 次のように`hello.py`を変更（1行目がシバン）
+        ```python
+        #!/usr/bin/python3
+                          #この空行はいらないが、読みやすさのためにあける
+        print("hello")
+        print(3.14)
+        ```
+    * シバンの書き方
+        * 1行目に「`#!インタプリタ`」と記述
+            * インタプリタはパスで指定（<span style="color:red">`which python3`</span>で調査可能）
+            * インタプリタも含め、<span style="color:red">コマンドはファイル</span>
+        * `#!`の前に空白を入れない
+    * Linuxがシバンを読んでインタプリタを起動
+
+---
+
+## 作業2: 実行権限の付与
+
+* `ls -l`で出る表示の1列目に「`x`」がないと実行できない
+    * <span style="color:red">パーミッション</span>（次ページ）
+    * 事故防止のため
         ```bash
 	$ ./hello.py                            #実行してみる
         bash: ./hello.py: 許可がありません      #できない
@@ -109,15 +122,15 @@ $ ./hello.py
         $ ls -l a.out                           #gccで作ったa.outには最初から存在
         -rwxr-xr-x 1 ueda ueda 16464 11月 30 07:16 a.out
         ```
-    * 手続き: <span style="color:red">`chmod`</span>を使用
-        ```bash
-	$ chmod +x hello.py
-        $ ./hello.py                            #実行できる
-        hello
-        3.14
-        $ ls -l hello.py
-        -rwxrwxr-x 1 ueda ueda 144 11月 30 18:31 hello.py
-        ```
+* 手続き: <span style="color:red">`chmod`</span>を使用
+    ```bash
+    $ chmod +x hello.py
+    $ ./hello.py                            #実行できる
+    hello
+    3.14
+    $ ls -l hello.py
+    -rwxrwxr-x 1 ueda ueda 144 11月 30 18:31 hello.py
+    ```
 
 
 ---
@@ -135,21 +148,28 @@ $ ./hello.py
     * `w`が存在: 書ける
     * `x`が存在: 実行できる
 
-
 ---
 
-## さらなる需要: `./hello.py`の<br />`./`を取りたい
+## <span style="text-transform:none">hello（.py）</span>の実行
 
-* なぜ`hello.py`には、`./`が必要なのか
-    * `ls`などのコマンドも`./hello.py`もプログラム。
-    * shebangでは`/usr/bin/python3`と、パスでインタプリタを呼び出した
-    * `ls`もパスで呼び出せる
-    
-
-    
-    違いは？<br />　
-* 種明かし
-    * シェルが探している
+* こうなればOK
+    ```bash
+    $ ./hello.py
+    hello
+    3.14
+    ### 拡張子を除去してもよい（拡張子をつけるかどうかは場合による） ###
+    $ mv hello.py hello
+    $ ./hello
+    （略）
+    ```
+    * <span style="color:red">`mv`</span>: 移動、名前の変更
+* `PATH`を使ってみる（前回参照）
+    ```bash
+    $ PATH=$PATH:/home/ueda  #PATHの値に「:今いるディレクトリ」と文字列を追加
+    $ hello
+    （略）
+    $ exit                   #シェルを終了すると追加した文字列は消える
+    ```
 
 ---
 

@@ -143,27 +143,6 @@ Ubuntu$ nautilus /etc/
 
 ---
 
-## コマンドの書き方
-
-* 「名前 引数 引数 ...」と打ち込む
-    * 例
-```bash
-$ ls /etc/            #lsに引数/etc/を与えて、/etc/のリストを表示
-$ touch a.txt b.txt   #「touch」にa.txt、b.txtという文字列を与えてファイルを作成
-$ ls                  #ファイルができているか確認（引数なしでlsを使用）
-a.txt  b.txt
-$ rm a.txt b.txt      #「rm」にファイル名を与えてファイルを削除
-$ ls                  #lsするとa.txt、b.txtは消えている
-```
-        * <span style="color:red">`touch`</span>: ファイルがなければ新規作成、<span style="color:red">`rm`</span>: ファイルの削除
-* 打ち込んだ文字列を解釈してコマンドを呼び出しているプログラムが存在
-    * 「<span style="color:red">シェル</span>」という種類のプログラム
-    * 今使っているのは「<span style="color:red">Bash</span>」という名前のプログラム
-    * 端末は字を表示している装置
-
-
----
-
 ## ファイルとディレクトリ
 
 * 普通の人が使うPC: フォルダの下にファイルや別のフォルダを置いてデータを整理
@@ -178,6 +157,48 @@ $ ls /etc/
         * <span style="color:red">「パス」</span>
         * 都道府県や市町村を`/`で区切って表現しているようなもの
         * 「フォルダ」は「<span style="color:red">ディレクトリ</span>」と呼ぶ
+
+---
+
+## コマンドの書き方
+
+* 「名前 引数 引数 ...」と打ち込む
+    * 例
+```bash
+$ ls /etc/            #lsに引数/etc/を与えて、/etc/のリストを表示
+$ touch a.txt b.txt   #「touch」にa.txt、b.txtという文字列を与えてファイルを作成
+$ ls                  #ファイルができているか確認（引数なしでlsを使用）
+a.txt  b.txt
+$ rm a.txt b.txt      #「rm」にファイル名を与えてファイルを削除
+$ ls                  #lsするとa.txt、b.txtは消えている
+```
+        * <span style="color:red">`touch`</span>: ファイルがなければ新規作成、<span style="color:red">`rm`</span>: ファイルの削除<br />　
+* コマンドもファイル
+    * <span style="color:red">`which`</span>で確認可能
+        ```bash
+        $ which ls                #コマンドlsの由来は？
+        /usr/bin/ls               #このファイル
+        $ /usr/bin/ls /etc/       #ファイルを直接指定して実行
+        （出力は省略）
+        ```
+
+---
+
+## シェル
+
+* 打ち込んだ文字列を解釈してコマンドを呼び出しているプログラムが存在
+    * 「<span style="color:red">シェル</span>」という種類のプログラム
+    * 今使っているのは「<span style="color:red">Bash</span>」という名前のプログラム<br />　
+* コマンドを探しているのもシェル
+    * `ls`とユーザが打つ$\rightarrow$`/usr/bin/ls`を探して実行
+        * シェルの<span style="color:red">`PATH`</span>という変数に、探すべきディレクトリのリスト
+        ```bash
+        $ echo $PATH
+        /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+        ```
+        * <span style="color:red">`echo`</span>: 引数で指定した文字列や変数を表示
+        * 変数があるように、シェルはプログラム言語でもある
+
 
 
 ---
@@ -248,9 +269,9 @@ print("hello")
     * ディレクトリの操作、ファイルの作成
         * 最初はGUIで。徐々にCLIに慣れること<br />　
 * 重要語句
-    * 端末（terminal）、コマンド、シェル、Bash、パス、ディレクトリ、エディタ、Vim、ファイル<br />　
+    * 端末（terminal）、コマンド、シェル、Bash、パス、`PATH`、ディレクトリ、エディタ、Vim、ファイル<br />　
 * 出てきたコマンド
-    * `ls`、`notepad.exe`、`nautilus`、`touch`、`rm`、`cd`、`mkdir`、`rmdir`、`pwd`、`nano`、`cat`
+    * `ls`、`notepad.exe`、`nautilus`、`echo`、`touch`、`rm`、`cd`、`mkdir`、`rmdir`、`pwd`、`nano`、`cat`
 
 ---
 
