@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第2回: <span style="text-transform:none">Linux環境での<br />Pythonプログラミング</span>
+## 第2回: <span style="text-transform:none">Linux環境での<br />PythonプログラミングI</span>
 
 千葉工業大学 上田 隆一
 
