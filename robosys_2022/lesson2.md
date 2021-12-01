@@ -185,25 +185,27 @@ $ ./hello.py
 
 ---
 
-## Pythonの変数
+## <span style="text-transform:none">Python</span>の変数
 
 * 要点
     * 値（数字や文字列、その他のもの）に名前を付与できる
+        * 「値を変数に代入」というより「値に名前をつける」
     * 型は書かなくてよい<br />　
 * コードの例（書いて実行してみましょう）
     ```python
     #!/usr/bin/python3
     
-    name = "上田"
-    money = 5
+    name = "上田"   #「上田」という文字列にnameという名前を付ける
+    money = 5       #5という数字にmoneyという名前をつける
     
-    print(name + "の所持金: " + str(money) + "円")
+    print(name + "の所持金: " + str(money) + "円") #文字列をくっつけて出力
+    print("{}の所持金: {}円".format(name, money) ) #発展: こういう書き方も
     ```
-    * 「値を変数に代入」というより「値に名前をつける」と覚える
+    * <span style="color:red">`str`</span>は数字などを文字列に変換する関数
 
 ---
 
-## リストとfor文
+## <span style="text-transform:none">Python</span>のリストと<span style="text-transform:none">for</span>文
 
 * 要点
    * Pythonのリスト: 複数の値を持っておけるもの
@@ -213,7 +215,7 @@ $ ./hello.py
     ```python
     #!/usr/bin/python3
     
-    fruits = ["apple", "banana", "chery" ]  #文字列3つのリストを作成
+    fruits = ["apple", "banana", "chery" ]  #文字列3つのリストにfruitsと名付け
     
     for f in fruits:
         print(f + "はおいしい")
