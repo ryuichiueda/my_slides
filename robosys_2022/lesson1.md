@@ -41,8 +41,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 各回の内容（第1〜6回）
 
 * 第1回: イントロダクションと環境の準備
-* 第2回: Linux環境でのプログラミング
-* 第3回: Pythonプログラミングとシェル
+* 第2回: Linux環境でのPythonプログラミングI
+* 第3回: Linux環境でのPythonプログラミングII
 * 第4回: GitとGitHub
 * 第5回: 著作権とライセンス
 * 第6回: ソフトウェアのテスト

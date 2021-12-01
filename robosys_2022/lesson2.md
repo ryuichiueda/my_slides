@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第2回: <span style="text-transform:none">Linux環境での<br />プログラミング</span>
+## 第2回: <span style="text-transform:none">Linux環境での<br />Pythonプログラミング</span>
 
 千葉工業大学 上田 隆一
 
@@ -115,7 +115,7 @@ $ ./hello.py
     * <span style="color:red">パーミッション</span>（次ページ）
     * 事故防止のため
         ```bash
-	$ ./hello.py                            #実行してみる
+        $ ./hello.py                            #実行してみる
         bash: ./hello.py: 許可がありません      #できない
         $ ls -l hello.py                        #ls -lで確認
         -rw-r--r-- 1 ueda ueda 47 11月 30 06:50 hello.py
@@ -182,3 +182,40 @@ $ ./hello.py
     * パーミッション<br />　
 * 重要語句: インタプリタ、シバン、パーミッション、「パスが通った」
 * コマンド: `python3`、`which`、`chmod`、`mv`
+
+---
+
+## Pythonの変数
+
+* 要点
+    * 値（数字や文字列、その他のもの）に名前を付与できる
+    * 型は書かなくてよい<br />　
+* コードの例（書いて実行してみましょう）
+    ```python
+    #!/usr/bin/python3
+    
+    name = "上田"
+    money = 5
+    
+    print(name + "の所持金: " + str(money) + "円")
+    ```
+    * 「値を変数に代入」というより「値に名前をつける」と覚える
+
+---
+
+## リストとfor文
+
+* 要点
+   * Pythonのリスト: 複数の値を持っておけるもの
+   * Pythonのfor文: リストの要素をひとつずつ処理するもの
+       * for文の中身は右側に余白（<span style="color:red">インデント</span>）<br />　
+* コードの例（書いて実行してみましょう）
+    ```python
+    #!/usr/bin/python3
+    
+    fruits = ["apple", "banana", "chery" ]  #文字列3つのリストを作成
+    
+    for f in fruits:
+        print(f + "はおいしい")
+    ```
+
