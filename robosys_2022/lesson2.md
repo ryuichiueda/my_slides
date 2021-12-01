@@ -20,7 +20,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * C言語をちょっとやったくらいの人を想定
     * 変数、関数、リスト、for文
         * とりあえずこれくらい覚えておけば、できることは結構多い<br />　
-* 後半: プログラムがLinux上でどう動くのか理解
+* 後半: LinuxでPython等のコードを使うときの方法
     * こっちの方が大変
     * 「ロボットシステム学」なので
 
