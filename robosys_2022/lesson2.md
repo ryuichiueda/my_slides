@@ -16,9 +16,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* Pythonでプログラムを動かす
-* プログラムがLinux上でどう動いているのか理解
-    * こっちの方が大事かもしれない
+* 前半: Pythonの入門
+    * C言語をちょっとやったくらいの人を想定
+    * 変数、関数、リスト、for文
+        * とりあえずこれくらい覚えておけば、できることは結構多い<br />　
+* 後半: プログラムがLinux上でどう動いているのか理解
+    * こっちの方が大変
+    * 「ロボットシステム学」なので
+
+---
+
+## 前半: <span style="text-transform:none">Python入門</span>
 
 ---
 
@@ -45,16 +53,62 @@ print(3.14)                 #数字を出力
 
 ---
 
-## <span style="text-transform:none">hello.py</span>のコード
+## <span style="text-transform:none">Python</span>の文字列、数字と関数
 
-* 関数
-    * `名前(引数, 引数, ...)`<br />　
-* `"hello"`: 文字列
-    * `'hello'`とシングルクォートで囲ってもよい <br />　
-* `print`関数
-    * 字を端末に出力する
-    * C言語の`puts`や`printf`などに相当
-    * 文字列も数字も（他のいくつかの型のものも）受け付け
+* 文字列、数字（<span style="color:red">リテラル</span>）
+    * 文字列は`""`や`''`で囲む
+        * `"hello"`、`'hello'`、"That's a pen."
+    * 数字はそのまま記述
+        * `3.14`、`-1`、`5`
+        * `1.23e+100`（1.23かける10の100乗）<br />　
+* 関数の使用
+    * 「`名前(引数, 引数, ...)`」と記述
+    * `print`関数
+        * 字を端末に出力する
+        * C言語の`puts`や`printf`などに相当
+        * 文字列も数字も（他のいくつかの型のものも）受け付け
+
+
+---
+
+## <span style="text-transform:none">Python</span>の変数
+
+* 要点
+    * 値（数字や文字列、その他のもの）に名前を付与できる
+        * 「値を変数に代入」というより「値に名前をつける」
+    * 型は書かなくてよい<br />　
+* コードの例
+    * 適当な名前のファイルに書いて実行してみましょう
+        ```python
+        name = "上田"   #「上田」という文字列にnameという名前を付ける
+        money = 5       #5という数字にmoneyという名前をつける
+        
+        print(name + "の所持金: " + str(money) + "円") #文字列をくっつけて出力
+        print("{}の所持金: {}円".format(name, money) ) #発展: こういう書き方も
+        ```
+        * <span style="color:red">`str`</span>は数字などを文字列に変換する関数
+
+---
+
+## <span style="text-transform:none">Python</span>のリストと<span style="text-transform:none">for</span>文
+
+* 要点
+   * Pythonのリスト: 複数の値を持っておけるもの
+   * Pythonのfor文: リストの要素をひとつずつ処理するもの
+       * for文の中身は右側に余白（<span style="color:red">インデント</span>）<br />　
+* コードの例（この例も試すこと）
+
+```python
+fruits = ["apple", "banana", "chery" ]  #文字列3つのリストをfruitsと命名
+
+for f in fruits:
+    print(f + "はおいしい")
+```
+
+
+---
+
+## 後半: <span style="text-transform:none">Linux</span>とスクリプト
 
 ---
 
@@ -84,7 +138,7 @@ $ ./hello.py
     * 一応「`.py`」と拡張子があるが・・・
         * Python 2.xかもしれない
         * 本来いらないはず（`ls`が`ls.py`という名前だとおかしい）<br />　
-* 実行するには2つ作業が必要
+* 可能とするには2つ作業が必要
     * シバンによるインタプリタの指定
     * 実行権限の付与
 
@@ -174,7 +228,7 @@ $ ./hello.py
 
 ---
 
-## これまでのまとめ
+## まとめ
 
 * Pythonのプログラムを書いて動かした
 * Pythonのプログラムの裏でのLinuxやシェルの挙動を確認
@@ -182,42 +236,4 @@ $ ./hello.py
     * パーミッション<br />　
 * 重要語句: インタプリタ、シバン、パーミッション、「パスが通った」
 * コマンド: `python3`、`which`、`chmod`、`mv`
-
----
-
-## <span style="text-transform:none">Python</span>の変数
-
-* 要点
-    * 値（数字や文字列、その他のもの）に名前を付与できる
-        * 「値を変数に代入」というより「値に名前をつける」
-    * 型は書かなくてよい<br />　
-* コードの例（書いて実行してみましょう）
-    ```python
-    #!/usr/bin/python3
-    
-    name = "上田"   #「上田」という文字列にnameという名前を付ける
-    money = 5       #5という数字にmoneyという名前をつける
-    
-    print(name + "の所持金: " + str(money) + "円") #文字列をくっつけて出力
-    print("{}の所持金: {}円".format(name, money) ) #発展: こういう書き方も
-    ```
-    * <span style="color:red">`str`</span>は数字などを文字列に変換する関数
-
----
-
-## <span style="text-transform:none">Python</span>のリストと<span style="text-transform:none">for</span>文
-
-* 要点
-   * Pythonのリスト: 複数の値を持っておけるもの
-   * Pythonのfor文: リストの要素をひとつずつ処理するもの
-       * for文の中身は右側に余白（<span style="color:red">インデント</span>）<br />　
-* コードの例（書いて実行してみましょう）
-    ```python
-    #!/usr/bin/python3
-    
-    fruits = ["apple", "banana", "chery" ]  #文字列3つのリストにfruitsと名付け
-    
-    for f in fruits:
-        print(f + "はおいしい")
-    ```
 
