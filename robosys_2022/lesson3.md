@@ -16,7 +16,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* Pythonで引数、標準入出力を操作
+* 前半: Pythonで引数を操作
+* 後半: 標準入出力を操作
+
+---
+
+## 前半: 引数の処理
 
 ---
 
@@ -96,4 +101,25 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         nums = [ float(e) for e in sys.argv[1:] ]   #引数を浮動小数点数に変換してリスト作成
         print(sum(nums))                            #リストの和を返すsum関数を利用
         ```
+        * 実行例は省略
 
+
+---
+
+## 後半: 標準入出力
+
+---
+
+## コマンドの出力のファイルへの保存
+
+* 端末への出力は<span style="color:red">「 > ファイル」</span>でファイルに保存可能
+    ```python
+    $ ./plus_c 1 2 3 4 5 6 7 8 9 10 > ans    #ansというファイルに出力を保存
+    $ cat ans                                #ansの中身の確認
+    55.0
+    ```
+    * （出力の）<span style="color:red">リダイレクト</span>と呼ばれる機能<br />　
+* リダイレクト
+    * シェルが機能を提供
+    * コマンド（プログラム）は、とりあえず端末に字を出すようにしておけば、処理結果の保存先を気にしなくてよい
+        * プログラムを書くときは、特に理由がなければ端末に字を出力すること
