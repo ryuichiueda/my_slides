@@ -150,3 +150,24 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         print(line)
     ```
 
+
+$ ./read_stdin < ans
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
