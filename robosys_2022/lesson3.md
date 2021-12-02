@@ -130,3 +130,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## ファイルからの入力
 
 * ファイルの中身は<span style="color:red">「 &lt; ファイル」</span>でコマンドに渡せる
+* Pythonでの受け取り方
+    * <span style="color:red">`sys.stdin`</span>とfor文で1行ずつ受け取る
+    * コードを書く前の準備（ファイルの作成）
+        ```bash
+        $ seq 10 > nums    #リダイレクトをつかってnumsというファイルを作成
+        $ cat nums
+        1
+        2
+        3
+	・・・
+        10
+        ```
+        * <span style="color:red">`seq`</span>: 整数を順に出力するコマンド
+
