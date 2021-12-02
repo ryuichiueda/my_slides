@@ -76,17 +76,21 @@ print(3.14)                 #数字を出力
 * 要点
     * 値（数字や文字列、その他のもの）に名前を付与できる
         * 「値を変数に代入」というより「値に名前をつける」
-    * 型は書かなくてよい<br />　
+    * 型は書かなくてよい
 * コードの例
-    * 適当な名前のファイルに書いて実行してみましょう
-        ```python
-        name = "上田"   #「上田」という文字列にnameという名前を付ける
-        money = 5       #5という数字にmoneyという名前をつける
-        
-        print(name + "の所持金: " + str(money) + "円") #文字列をくっつけて出力
-        print("{}の所持金: {}円".format(name, money) ) #発展: こういう書き方も
-        ```
-        * <span style="color:red">`str`</span>は数字などを文字列に変換する関数
+    ```python
+    name = "上田"   #「上田」という文字列にnameという名前を付ける
+    money = 5       #5という数字にmoneyという名前をつける
+    print(name + "の所持金: " + str(money) + "円") #文字列をくっつけて出力
+    print("{}の所持金: {}円".format(name, money) ) #発展: こういう書き方も
+    ```
+    * <span style="color:red">`str`</span>は数字などを文字列に変換する関数
+    * 実行（`var.py`というファイル名で）
+```bash
+$ python3 var.py
+上田の所持金: 5円
+上田の所持金: 5円
+```
 
 ---
 
@@ -95,15 +99,25 @@ print(3.14)                 #数字を出力
 * 要点
    * Pythonのリスト: 複数の値を持っておけるもの
    * Pythonのfor文: リストの要素をひとつずつ処理するもの
-       * for文の中身は右側に余白（<span style="color:red">インデント</span>）<br />　
-* コードの例（この例も試すこと）
+       * for文の中身は右側に余白（<span style="color:red">インデント</span>）
+* コードの例
+    ```python
+    fruits = ["apple", "banana", "chery" ]  #文字列3つのリストをfruitsと命名
+    
+    for f in fruits:
+        print(f + "はおいしい")
+    ```
+    * 実行（`fruits.py`というファイル名でコードを保存）
+        ```python
+        $ python3 fruits
+        appleはおいしい
+        bananaはおいしい
+        cheryはおいしい
+        ```
 
-```python
-fruits = ["apple", "banana", "chery" ]  #文字列3つのリストをfruitsと命名
+---
 
-for f in fruits:
-    print(f + "はおいしい")
-```
+## リスト要素の取得
 
 
 ---

@@ -22,3 +22,33 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## <span style="text-transform:none">Python</span>での引数の処理
 
+* 要点
+    * システムのことを扱う<span style="color:red">モジュール</span>を読み込む
+    * 引数はリストになっている
+* 例
+    ```python
+    #!/usr/bin/python3
+    import sys             #sysモジュールを読み込み
+    
+    print(sys.argv)        #sysの「下の」argvに引数が入るのでprintしてみる
+    ```
+* 実行（「`args`」という名前でコードを保存して実行）
+    ```bash
+    $ ./args 引数1 引数2 引数3
+    ['./args', '引数1', '引数2', '引数3']    #端末に打った通りにリストに入る
+    ```
+
+
+---
+
+## 引数を使ったコマンドの作成
+
+* 引数の数を足し合わせる`plus`というコマンドを作ってみましょう
+    * とりあえず2つの引数を足す計算のコードを作る
+    * 例
+        ```python
+        #!/usr/bin/python3
+        import sys
+        
+        print( int(sys.argv[1]) + int(sys.argv[2]) )
+        ```
