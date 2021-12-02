@@ -114,11 +114,48 @@ $ python3 var.py
         bananaはおいしい
         cheryはおいしい
         ```
-
 ---
 
 ## リスト要素の取得
 
+* 要点
+    * 基本はC言語と同じ
+    * 負の値を指定すると後ろから要素を指定可能
+* コードの例（`list.py`）
+    ```python
+    fruits = ["apple", "banana", "chery" ]
+    print("最初の要素: " + fruits[0])      #先頭は0番目
+    print("次の要素: " + fruits[1])        #次の要素は1番目
+    print("最後の要素: " + fruits[-1])     #最後の要素
+    ```
+* 実行結果
+    ```bash
+    $ python3 list.py
+    最初の要素: apple
+    次の要素: banana
+    最後の要素: chery
+    ```
+
+---
+
+## リスト要素の範囲指定<br />（スライス）
+
+* リストを部分的に取り出して新たにリストを作成できる
+* コードの例（`list2.py`）
+    ```python
+    fruits = ["a", "b", "c", "d", "e" ]
+    print("0番目から2番目の要素: ", fruits[0:3])
+    print("2番目以降の要素: ", fruits[2:])
+    print("ひとつ飛ばしでリストを作成: ", fruits[0::2])
+    ```
+    * 注意: 文字列とリストは`+`で連結できないので、上のprintでは引数を分けている
+* 実行結果
+    ```bash
+    $ python3 list2.py 
+    0番目から2番目の要素:  ['a', 'b', 'c']
+    2番目以降の要素:  ['c', 'd', 'e']
+    ひとつ飛ばしでリストを作成:  ['a', 'c', 'e']
+    ```
 
 ---
 
@@ -130,7 +167,7 @@ $ python3 var.py
 
 * コマンド「`python3`」がファイル「`hello.py`」の中身を見て実行
 ```bash
-$ python3 hello
+$ python3 hello.py
 ```
     * テキストファイルを読み込んで直接実行: <span style="color:red">インタプリタ</span>
         * 厳密には少し違うけど、とりあえずこの理解で
