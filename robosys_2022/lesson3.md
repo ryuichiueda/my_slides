@@ -138,9 +138,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         $ cat nums
         1
         2
-        3
-	・・・
+        	・・・
         10
         ```
         * <span style="color:red">`seq`</span>: 整数を順に出力するコマンド
+    * コード（`read_stdin`）
+    ```python
+    #!/usr/bin/python3
+    import sys                 #余白の関係で詰めてますが下に1行空行があったほうがよいです
+    for line in sys.stdin:
+        print(line)
+    ```
 
