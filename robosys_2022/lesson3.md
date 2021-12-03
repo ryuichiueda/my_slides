@@ -268,5 +268,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     $ echo あ | ./plus_stdin > ans
     ### もしこれでエラーがansに入ったらエラーに気づかない ###
     ```
-        * 実際はちゃんと画面にエラーが出てくる
+        * 実際はちゃんと画面にエラーが出てくる<br />　
 * ちゃんとしたコマンドはエラーを<span style="color:red">標準エラー出力</span>に出す
+    * 標準出力とは別の出口
