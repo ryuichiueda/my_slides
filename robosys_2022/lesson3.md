@@ -217,22 +217,32 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## パイプによるコマンドの連携
 
-* 横に並んだ数字を足す
-    ```bash
-    $ echo 1 2 3 4 5 > yoko_nums
-    $ cat yoko_nums | tr ' ' '\n'
-    1
-    2
-    3
-    4
-    5
-    $ cat yoko_nums | tr ' ' '\n' | ./plus_stdin
-    15.0
-    ```
+* 例: 横に並んだ数字を足す
+    * 縦並びに変換してから`plus_stdin`に入力
+        ```bash
+        $ echo 1 2 3 4 5 > yoko_nums
+        $ cat yoko_nums | tr ' ' '\n'  #trで空白を改行に
+        1
+        2
+        3
+        4
+        5
+        $ cat yoko_nums | tr ' ' '\n' | ./plus_stdin
+        15.0
+        ```
+        * <span style="color:red">`tr`</span>: 文字の置換コマンド
 
 ---
 
 ## パイプによる連携
 
-* 実はROSも似たような考え方で作られている
+* プログラマーにとっての利点
+    * `plus_stdin`は横並びの数字や文字の混入に対応しなくてよい
+        * 様々な入力に柔軟に対応<span style="color:red">しない</span>
+    * 各コマンドのコードがシンプルに
+    * 既存のコマンドで可能なことはプログラムしなくてよい<br />　
+* <span style="color:red">実はROSも似たような考え方で作られている</span>
+    * 入出力を厳格に
+    * プログラムごとに機能を分ける
+    * 既存のプログラムを再利用しやすく
 
