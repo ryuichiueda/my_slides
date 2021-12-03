@@ -288,8 +288,30 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     for line in sys.stdin:
         try:
             ans += float(line)
-        except:
+        except:                          #stderr: standard errorのこと
             print("数字への変換失敗（不正な入力）", file=sys.stderr)
     print(ans)
     ```
     * 実行例は下に
+
+>>>
+
+* 正常な入力の場合
+    ```bash
+    $ echo 1 2 3 | tr ' ' '\n' | ./plus_err
+    6.0
+    ```
+* 数字ではない入力の場合　　　　　　　　　　　
+    ```bash
+    $ echo あ | ./plus_err 
+    数字への変換失敗（不正な入力）
+    0.0
+    $ echo あ | ./plus_err > ans    #標準出力をファイルへ
+    数字への変換失敗（不正な入力）  #標準エラー出力はファイルに入らない
+    $ echo あ | ./plus_err 2> error  #標準エラー出力をファイルに書き出し
+    0.0
+    $ echo あ | ./plus_err &> error  #出力すべてをファイルに書き出し
+    ```
+    * <span style="color:red">`2>`</span>: 標準エラー出力のリダイレクト
+    * <span style="color:red">`&>`</span>: 標準出力、エラー出力のリダイレクト
+
