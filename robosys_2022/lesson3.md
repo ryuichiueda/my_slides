@@ -231,6 +231,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         15.0
         ```
         * <span style="color:red">`tr`</span>: 文字の置換コマンド
+* 引数か標準入力か
+    * 特別な理由がない限りデータは標準入力から受付
 
 ---
 
