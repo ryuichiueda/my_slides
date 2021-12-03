@@ -313,5 +313,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     $ echo あ | ./plus_err &> error  #出力すべてをファイルに書き出し
     ```
     * <span style="color:red">`2>`</span>: 標準エラー出力のリダイレクト
-    * <span style="color:red">`&>`</span>: 標準出力、エラー出力のリダイレクト
+    * <span style="color:red">`&>`</span>: 標準出力とエラー出力のリダイレクト
+
+
+---
+
+## エラーによる終了と<br />終了ステータス
 
