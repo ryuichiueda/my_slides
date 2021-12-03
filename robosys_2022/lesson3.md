@@ -149,25 +149,90 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     for line in sys.stdin:
         print(line)
     ```
+        * 実行結果は下
+
+>>>
 
 
-$ ./read_stdin < ans
-1
+* 実行結果
+    ```bash
+    $ ./read_stdin < ans
+    1
+    
+    2
+    
+    （略）
+    8
+    
+    9
+    
+    10
+    ```
+    * もとの改行の他に`print`が改行を入れるので、空行が発生
 
-2
+---
 
-3
+## 標準入力からの数字の足し算
 
-4
+* コードの例（`plus_stdin`）
+    ```python
+    #!/usr/bin/python3
+    import sys  
+    
+    ans = 0.0
+    for line in sys.stdin:
+      ans += float(line)
+    
+    print(ans)
+    ```
+    * できる人はリスト内包表記を使ってみましょう
+* 実行
+    ```bash
+    $ ./plus_stdin < nums
+    55.0
+    ```
 
-5
+---
 
-6
+## 標準入力（パイプ）からの数字の足し算
 
-7
+* 需要: `nums`の中を見てから`plus_stdin`を使いたい
+    * 何かデータを処理する前にデータを`cat`する人は多い
+        ```bash
+        $ cat nums
+        1
+        2
+        ・・・
+        $ cat nums    #上矢印ボタンを押すと、直前に打ったcat numsを打ったことに
+```
+* 上矢印を押したあとに、「` | ./plus_stdin`」と打つ
+    ```bash
+    $ cat nums | ./plus_stdin
+    55.0
+    ```
+    * <span style="color:red">`|`</span>: <span style="color:red">パイプ</span>
+        * 左のコマンドの標準出力と、右のコマンドの標準入力を接続
 
-8
+---
 
-9
+## パイプによるコマンドの連携
 
-10
+* 横に並んだ数字を足す
+    ```bash
+    $ echo 1 2 3 4 5 > yoko_nums
+    $ cat yoko_nums | tr ' ' '\n'
+    1
+    2
+    3
+    4
+    5
+    $ cat yoko_nums | tr ' ' '\n' | ./plus_stdin
+    15.0
+    ```
+
+---
+
+## パイプによる連携
+
+* 実はROSも似たような考え方で作られている
+
