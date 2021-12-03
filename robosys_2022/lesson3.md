@@ -16,13 +16,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* Pythonで引数を操作
-* 標準入出力を操作
-* エラーの扱い
+* 前半: Pythonで引数を操作
+* 後半: 標準入出力の操作と理解
 
 ---
 
-## 引数の処理
+## 前半: 引数の処理
 
 ---
 
@@ -107,7 +106,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 標準入出力
+## 後半: 標準入出力
 
 ---
 
@@ -268,4 +267,19 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         ValueError: could not convert string to float: 'あ\n' #余談: エラーはちゃんと読みましょう
         ```
         * 標準出力とは別の出口からエラーが出ていることが分かる
+        * ファイルにリダイレクトする場合は「<span style="color:red">`2>`</span>」で
 
+
+---
+
+## まとめ
+
+* 学んだこと
+    * 引数と標準入力に関してPythonでプログラミング
+        * 他の言語でも、ほぼ同じ
+    * for文やリスト内包表記でリストを操作
+    * 標準入出力でコマンドを連携（ROSに通ずる考え方）<br />　
+* 重要語句
+    * モジュール、sysモジュール、float関数、リスト内包表記、リダイレクト、標準出力、`sys.stdin`、`sys.stdout`、パイプ、標準エラー出力
+* コマンドや記号
+    * `>`、`<`、`2>`、`seq`、`|`、`tr`
