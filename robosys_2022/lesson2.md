@@ -100,12 +100,12 @@ $ python3 var.py
    * Pythonのリスト: 複数の値を持っておけるもの
    * Pythonのfor文: リストの要素をひとつずつ処理するもの
        * for文の中身は右側に余白（<span style="color:red">インデント</span>）
-* コードの例
+* コードの例　　　　　　　　　　　　　　　　　　　　　　　
     ```python
     fruits = ["apple", "banana", "chery" ]  #文字列3つのリストをfruitsと命名
     
     for f in fruits:
-        print(f + "はおいしい")
+        print(f + "はおいしい")             #インデントは半角空白4文字が標準
     ```
     * 実行（`fruits.py`というファイル名でコードを保存）
         ```python

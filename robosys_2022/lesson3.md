@@ -182,7 +182,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     
     ans = 0.0
     for line in sys.stdin:
-      ans += float(line)
+        ans += float(line)
     
     print(ans)
     ```
@@ -251,7 +251,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * プログラムごとに機能を分ける
     * 既存のプログラムを再利用しやすく
 
-
 ---
 
 ## 標準エラー出力
@@ -271,3 +270,26 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * 実際はちゃんと画面にエラーが出てくる<br />　
 * ちゃんとしたコマンドはエラーを<span style="color:red">標準エラー出力</span>に出す
     * 標準出力とは別の出口
+
+---
+
+## <span style="text-transform:none">Python</span>でのエラーの表示
+
+* 要点
+    * なにもしなくてもエラーのメッセージは出てくる
+        * 読んでますか？
+    * エラーは<span style="color:red">`try`</span>で捕まえ、<span style="color:red">`except`</span>で対処
+    * 標準エラー出力には、「ファイル」<span style="color:red">`sys.stderr`</span>に出力
+* 例（`plus_err`）
+    ```python
+    #!/usr/bin/python3
+    import sys               #注意1: 空行を詰めてます
+    ans = 0.0                #注意2: このコードには少し問題がある
+    for line in sys.stdin:
+        try:
+            ans += float(line)
+        except:
+            print("数字への変換失敗（不正な入力）", file=sys.stderr)
+    print(ans)
+    ```
+    * 実行例は下に
