@@ -16,12 +16,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* 前半: Pythonで引数を操作
-* 後半: 標準入出力を操作
+* Pythonで引数を操作
+* 標準入出力を操作
+* エラーの扱い
 
 ---
 
-## 前半: 引数の処理
+## 引数の処理
 
 ---
 
@@ -106,7 +107,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 後半: 標準入出力
+## 標準入出力
 
 ---
 
@@ -209,6 +210,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     ```bash
     $ cat nums | ./plus_stdin
     55.0
+    $ seq 10 | ./plus_stdin  #numsを作らなくても結局これでよい
+    55.0
     ```
     * <span style="color:red">`|`</span>: <span style="color:red">パイプ</span>
         * 左のコマンドの標準出力と、右のコマンドの標準入力を接続
@@ -230,15 +233,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         $ cat yoko_nums | tr ' ' '\n' | ./plus_stdin
         15.0
         ```
-        * <span style="color:red">`tr`</span>: 文字の置換コマンド
-* 引数か標準入力か
-    * 特別な理由がない限りデータは標準入力から受付
+        * <span style="color:red">`tr`</span>: 文字の置換コマンド<br />　
+* 特別な理由がない限りデータは標準入力から受付
+    * 引数や特定のファイルからだと、このような連携ができない
 
 ---
 
-## パイプによる連携
+## プログラマーにとってのパイプの利点
 
-* プログラマーにとっての利点
+* コードがシンプルに
     * `plus_stdin`は横並びの数字や文字の混入に対応しなくてよい
         * 様々な入力に柔軟に対応<span style="color:red">しない</span>
     * 各コマンドのコードがシンプルに
@@ -248,3 +251,22 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * プログラムごとに機能を分ける
     * 既存のプログラムを再利用しやすく
 
+
+---
+
+## 標準エラー出力
+
+* コマンドにはパイプやリダイレクトで渡したくない出力も存在
+    * エラーの際のメッセージなど
+    * 例: `plus_stdin`に文字を入力してみる
+    ```bash
+    $ echo あ | ./plus_stdin 
+    Traceback (most recent call last):
+      File "./plus_stdin", line 6, in <module>
+        ans += float(line)
+    ValueError: could not convert string to float: 'あ\n'
+    $ echo あ | ./plus_stdin > ans
+    ### もしこれでエラーがansに入ったらエラーに気づかない ###
+    ```
+        * 実際はちゃんと画面にエラーが出てくる
+* ちゃんとしたコマンドはエラーを<span style="color:red">標準エラー出力</span>に出す
