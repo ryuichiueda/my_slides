@@ -66,3 +66,45 @@ editor = vim
     * コマンドライン
         * `git`コマンド
         * `gh`コマンド（本講義では扱わず）
+
+---
+
+## <span style="text-transform:none">GitHub</span>でのアカウント作成
+
+<span style="font-size:60%">注意: 変わっているかも知れないので、基本的にGitHubのサイトの英語を読んで手続きを</span>
+
+1. サイトに行き、「Sign up」か「GitHubに登録する」を押す
+2. ユーザ名、email アドレス、パスワードを決めて<br />「Create account」を押す
+    * ユーザ名は恥ずかしくないものを！
+3. 画面指示に従って手続き
+    * プランを選ぶときに"Free"が選択されているのを確認<br />$\rightarrow$"Finish sign up"
+4. 登録したメールアドレスに確認メールが届く<br />$\rightarrow$指示にしたがう
+5. 鍵の登録（次ページ）
+6. （必要ならば）ファイアウォール対策
+
+---
+
+## 鍵の設定（鍵の作成）
+
+* 手元のPCとGitHubとの通信を暗号化するために、<span style="color:red">公開鍵</span>をGitHubに登録
+    * 手元のPCには<span style="color:red">秘密鍵</span>を持っておく
+        * 秘密鍵は文字通り秘密にして他人に見せたり触れたりさせない<br />　
+* 鍵の作り方
+    ```bash
+    $ ssh-keygen
+    （いろいろ聞かれるけどすべてEnterで大丈夫）
+    $ ls ~/.ssh/                   #確認
+    id_rsa      id_rsa.pub         #この2つのファイルがあれば大丈夫
+    ```
+    * `id_rsa.pub`の方が公開鍵
+
+---
+
+## 鍵の設定（GitHubでの作業）
+
+* 右上のユーザのアイコンを押す$\rightarrow$Settings$\rightarrow$SSH and GPG keys$\rightarrow$New SSH key
+    * titleはなんでもいいので鍵の名前を入れる
+        * 例: 「WSL」とか「Ubuntu Note」とか
+    * Keyに`id_rsa.pub`の中身を貼り付け
+        * エディタや端末で開いてマウス等でコピーして貼り付け
+<img width="70%" src="./figs/ssh_keys.png" />
