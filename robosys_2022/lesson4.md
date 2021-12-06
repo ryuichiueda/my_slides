@@ -100,7 +100,7 @@ editor = vim
 
 ---
 
-## 鍵の設定（GitHubでの作業）
+## 鍵の設定（<span style="text-transform:none">GitHub</span>での作業）
 
 * 右上のユーザのアイコンを押す$\rightarrow$Settings$\rightarrow$SSH and GPG keys$\rightarrow$New SSH key
     * titleはなんでもいいので鍵の名前を入れる
@@ -108,3 +108,25 @@ editor = vim
     * Keyに`id_rsa.pub`の中身を貼り付け
         * エディタや端末で開いてマウス等でコピーして貼り付け
 <img width="70%" src="./figs/ssh_keys.png" />
+
+---
+
+## ファイアウォール（回避）の設定
+
+* ホーム下の`.ssh/config`というファイルに次のように記述
+    ```bash
+    $ cat ~/.ssh/config
+    ・・・
+    
+    Host github.com
+          Hostname ssh.github.com
+          User git
+          Port 443
+          IdentityFile ~/.ssh/id_rsa
+    
+    ・・・
+    ```
+    * SSHでデフォルトの22番ポートではなく<br />HTTPSの443番ポートを使う設定
+        * 参考: https://docs.github.com/ja/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
+
+
