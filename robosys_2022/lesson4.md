@@ -59,7 +59,7 @@ editor = vim
 
 * Gitを利用したサービス
     * 「リポジトリ」のホスティングと公開、コミュニケーション
-        * リポジトリ: あるソフトウェアに関するファイルの集まり
+        * <span style="color:red">リポジトリ</span>: あるソフトウェアに関するファイルの集まり
     * 公開しないリポジトリも作成可能<br />　
 * 利用方法
     * ウェブサイト([https://github.co.jp/ ](https://github.co.jp/))
@@ -188,3 +188,65 @@ GitHubに1つ作ってみましょう
         .  ..  .git  README.md
         ```
     * <span style="color:red">注意: </span>鍵、`.git/config`の設定が失敗しているとエラー
+
+---
+
+## リポジトリにコードを追加<br />1: <span style="text-transform:none">git add</span>
+
+* プログラム`plus_stdin`を一つ置く
+    ```bash
+    $ ls
+    README.md  plus_stdin
+    ```
+* <span style="color:red">`git add`</span>で記録の対象として選択
+    * <span style="color:red">ステージングエリア</span>というところに記録される
+        ```bash
+        $ git add plus_stdin
+        $ git status             #ステージングエリアの確認
+        ブランチ main
+        Your branch is up to date with 'origin/main'.
+        
+        コミット予定の変更点:
+          (use "git restore --staged <file>..." to unstage)
+        	new file:   plus_stdin
+        ```
+
+---
+
+## リポジトリにコードを追加<br />2: <span style="text-transform:none">git commit</span>
+
+* <span style="color:red">`git commit`</span>でステージングエリアの情報をリポジトリに反映
+    * この時点で、手元のリポジトリに`plus_stdin`の記録が残る
+    * `git commit`で作った1つの記録を<span style="color:red">コミット</span>と呼ぶ
+        ```bash
+        $ git commit -m "Add a command" #git commit -m "何をしたか短く"
+        [main fa8aab8] Add a command
+         1 file changed, 8 insertions(+)
+         create mode 100755 plus_stdin
+        $ git log -n 1                 #最新のコミット1件を表示
+        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260 (HEAD -> main)
+        Author: Ryuichi Ueda <ryuichiueda@gmail.com>
+        Date:   Tue Dec 7 16:58:54 2021 +0900
+	　
+            Add a command
+        ```
+
+---
+
+## <span style="text-transform:none">GitHub</span>への反映
+
+* 手元のリポジトリをGitHubのリポジトリへ転送
+    * <span style="color:red">プッシュ</span>と呼ぶ
+* <span style="color:red">`git push`</span> 
+    ```bash
+    $ git push   #git push origin mainと打たないといけない場合もある
+    Enumerating objects: 4, done.
+    Counting objects: 100% (4/4), done.
+    Delta compression using up to 16 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 373 bytes | 373.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To github.com:ryuichiueda/robosys2022.git
+       68d342f..fa8aab8  main -> main
+    ```
+
