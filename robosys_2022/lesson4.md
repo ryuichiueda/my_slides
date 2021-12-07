@@ -165,5 +165,26 @@ GitHubに1つ作ってみましょう
     * ライセンスは別の回で追加します
   * "Create repository"ボタンを押す
 * ウェブ画面にリポジトリの画面
-  * READMEができている
+  * `README.md`がひとつ存在したリポジトリができる
 
+---
+
+## リポジトリを手元にコピー
+
+* リポジトリの画面の"Code"をクリック
+* "SSH"を選択してURLをコピー
+  * クリップボードのアイコンをクリックするとコピーできる
+* リポジトリをコピーしたいディレクトリで次の操作
+    * この操作を<span style="color:red">クローン</span>と言う
+        ```bash
+        $ git clone <さっきクリップボードにコピーした文字列をペースト>
+        Cloning into 'robosys2022'...
+        remote: Enumerating objects: 3, done.
+        remote: Counting objects: 100% (3/3), done.
+        remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+        Receiving objects: 100% (3/3), done.
+        $ cd robosys2022/
+        $ ls -a
+        .  ..  .git  README.md
+        ```
+    * <span style="color:red">注意: </span>鍵、`.git/config`の設定が失敗しているとエラー
