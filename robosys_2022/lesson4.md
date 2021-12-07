@@ -71,10 +71,10 @@ editor = vim
 
 ## <span style="text-transform:none">GitHub</span>でのアカウント作成
 
-<span style="font-size:60%">注意: 変わっているかも知れないので、基本的にGitHubのサイトの英語を読んで手続きを</span>
+<span style="font-size:60%">注意: 文言等はよく変更されるので、基本的にサイトの英語を読んで手続きを</span>
 
-1. サイトに行き、「Sign up」か「GitHubに登録する」を押す
-2. ユーザ名、email アドレス、パスワードを決めて<br />「Create account」を押す
+1. トップページで"Sign up"か"GitHubに登録する"を押す
+2. ユーザ名、email アドレス、パスワードを決めて<br />"Create account"を押す
     * ユーザ名は恥ずかしくないものを！
 3. 画面指示に従って手続き
     * プランを選ぶときに"Free"が選択されているのを確認<br />$\rightarrow$"Finish sign up"
@@ -111,7 +111,7 @@ editor = vim
 
 ---
 
-## ファイアウォール（回避）の設定
+## ファイアウォール回避の設定
 
 * ホーム下の`.ssh/config`というファイルに次のように記述
     ```bash
@@ -130,3 +130,10 @@ editor = vim
         * 参考: https://docs.github.com/ja/authentication/troubleshooting-ssh/using-ssh-over-the-https-port
 
 
+---
+
+## <span style="text-transform:none">GitHub</span>へのコードの保存
+
+* やること
+    * これまで講義で作ってきたコードをGitHubにアップロード
+    * コードを消しちゃった人は前回の`plus_stdin`を作りましょう
