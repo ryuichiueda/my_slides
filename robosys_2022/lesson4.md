@@ -137,3 +137,33 @@ editor = vim
 * やること
     * これまで講義で作ってきたコードをGitHubにアップロード
     * コードを消しちゃった人は前回の`plus_stdin`を作りましょう
+        * `plus_stdin`
+            ```python
+            #!/usr/bin/python3
+            import sys
+            
+            ans = 0.0
+            for line in sys.stdin:
+                ans += float(line)
+            
+            print(ans)
+            ```
+
+---
+
+## リポジトリの作成
+
+GitHubに1つ作ってみましょう
+
+* GitHubのサイトでの操作
+  * 右上のアカウントのアイコン横の"+"マークを押して、<br />"New repository"を選択
+  * 必要事項を記入
+    * 名前: robosys202x
+    * Description: 説明を適当に
+    * Publicで
+    * "Add a README file"にチェック
+    * ライセンスは別の回で追加します
+  * "Create repository"ボタンを押す
+* ウェブ画面にリポジトリの画面
+  * READMEができている
+
