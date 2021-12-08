@@ -237,16 +237,54 @@ GitHubに1つ作ってみましょう
 
 * 手元のリポジトリをGitHubのリポジトリへ転送
     * <span style="color:red">プッシュ</span>と呼ぶ
-* <span style="color:red">`git push`</span> 
-    ```bash
-    $ git push   #git push origin mainと打たないといけない場合もある
-    Enumerating objects: 4, done.
-    Counting objects: 100% (4/4), done.
-    Delta compression using up to 16 threads
-    Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 373 bytes | 373.00 KiB/s, done.
-    Total 3 (delta 0), reused 0 (delta 0)
-    To github.com:ryuichiueda/robosys2022.git
-       68d342f..fa8aab8  main -> main
-    ```
+        * 手元（<span style="color:red">ローカルリポジトリ</span>からGitHub（<span style="color:red">リモートリポジトリ</span>）へ
+    * コマンドは<span style="color:red">`git push`</span> 
+        ```bash
+        $ git push   #git push origin mainと打たないといけない場合もある
+        Enumerating objects: 4, done.
+        Counting objects: 100% (4/4), done.
+        Delta compression using up to 16 threads
+        Compressing objects: 100% (3/3), done.
+        Writing objects: 100% (3/3), 373 bytes | 373.00 KiB/s, done.
+        Total 3 (delta 0), reused 0 (delta 0)
+        To github.com:ryuichiueda/robosys2022.git
+           68d342f..fa8aab8  main -> main
+        ```
+    * プッシュしたらGitHub側で反映されたことを確認のこと
 
+---
+
+## <span style="text-transform:none">GitHub</span>を利用した開発
+
+* GitHubにコードをアップした時点で様々な利点
+    * 自分のコードを紛失する可能性が極めて低く
+    * 混乱せずに様々な環境で開発可能に
+    * 自分の力を見せることが可能に
+        * 学科内だと平凡だけど、世の中的にはコードが書けるだけで少数派<br />　
+* 面倒なこと: 少々責任が伴う
+    * ライセンス等の整備（また別の回で）
+    * <span style="color:red">使えないものを使えると言って置かない</span>
+        * 他の人が使うかもしれない
+
+---
+
+## ブランチ
+
+* 今は（おそらく）動く`plus_stdin`がアップされている
+    * 変にいじってコミット、プッシュすると動かないものが最新のコミットになってしまう
+    * 自分でも混乱するし、人に使ってもらっていると迷惑に
+* リポジトリの内容を枝分かれして開発を進める
+  * ブランチ = 枝
+* 今のところブランチは「main」だけ
+  ```bash
+  $ git branch
+  * main
+  ```
+* 開発用ブランチを作りましょう
+  ```bash
+  $ git checkout -b dev
+  Switched to a new branch 'dev'
+  $ git branch
+  * dev
+    main
+  ```
