@@ -302,4 +302,25 @@ GitHubに1つ作ってみましょう
 
 ## <span style="text-transform:none">dev</span>ブランチでの開発
 
+ついでにPythonの文法の勉強
 
+* やること1
+    * `plus_stdin`について、整数の入力を整数に変換するよう改良
+        * 注意: 改良じゃないかもしれません
+        * <span style="color:red">例外処理</span>をしてみましょう
+            * 失敗しそうな処理を<span style="color:red">`try`</span>で囲む
+	    * 下に<span style="color:red">`except`</span>のブロックを作って例外処理
+
+```python
+#!/usr/bin/python3
+import sys
+
+ans = 0   #もともと0.0だったのを0に変更
+for line in sys.stdin:
+    try: 
+        ans += int(line)   #intは文字列を整数に（失敗すると例外発生）
+    except:
+        ans += float(line)
+
+print(ans)
+```
