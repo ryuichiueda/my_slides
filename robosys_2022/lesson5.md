@@ -298,7 +298,7 @@ GitHubに1つ作ってみましょう
   * GitHubはmainブランチを優先して表示するので、ここでの雑な開発は避けたい
 * 開発用ブランチを作りましょう
   ```bash
-  $ git switch -c dev     #git checkout -b devでも可
+  $ git checkout -b dev
   Switched to a new branch 'dev'
   $ git branch
   * dev               #devブランチができて、devが選択状態に
@@ -401,7 +401,7 @@ print(ans)
 * やること3: mainへの<span style="color:red">マージ</span>とGitHubへのプッシュ
     * まずmainブランチに戻って変更内容の確認
         ```bash
-        $ git switch main        # git checkout mainでも可
+        $ git checkout main
         Switched to branch 'main'
         Your branch is up to date with 'origin/main'.
         $ git diff main dev
@@ -426,22 +426,38 @@ print(ans)
 
 ---
 
-## 過去のコードの取り出し
+## 発展
 
-* 昔のコードを一部復活させたいときにやりたくなる
-    * 例: 次の履歴から「Add a command」時のコードを取り出したい
-        ```python
-        $ git log 
-        commit f02a20237590c9e4650f100928c6c2f969c111c3 (HEAD -> main, origin/main, origin/HEAD)
-        （略）
-            Support integer only calculation
-        　
-        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260
-        （略）
-            Add a command
-        　
-        commit 68d342fbb7a9b65e402d0b6f5a7763e56f248937
-        （略）
-            Initial commit
-        ```
-* 取り出すだけなら次の方法で可能
+
+---
+
+## さらに<span style="text-transform:none">dev</span>で開発
+
+ついでにPythonの文法の勉強その2
+
+* 文字列から数字への変換を<span style="color:red">関数</span>に
+* 動作検証が済んだらコミットしてGitHubにプッシュ
+    * プッシュは`git push`だけで可能
+
+<div style="font-size:70%">
+
+```bash
+#!/usr/bin/python3
+import sys
+
+　
+def str_to_num(word):        #def 関数名(引数)
+    try:
+        return int(word)
+    except:
+        return float(word)   #結果はreturnで返す
+        　 
+　
+ans = 0
+for line in sys.stdin:
+    ans += str_to_num(line)  #もともとtry, exceptがあったところを関数に置き換え
+
+print(ans)
+```
+
+</dev>
