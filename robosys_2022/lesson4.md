@@ -289,6 +289,7 @@ GitHubに1つ作ってみましょう
   $ git branch
   * main          #ブランチはmainだけ。「*」は選択状態を表現
   ```
+  * GitHubはmainブランチを優先して表示するので、ここでの雑な開発は避けたい
 * 開発用ブランチを作りましょう
   ```bash
   $ git checkout -b dev
@@ -309,18 +310,112 @@ GitHubに1つ作ってみましょう
         * 注意: 改良じゃないかもしれません
         * <span style="color:red">例外処理</span>をしてみましょう
             * 失敗しそうな処理を<span style="color:red">`try`</span>で囲む
-	    * 下に<span style="color:red">`except`</span>のブロックを作って例外処理
+            * 下に<span style="color:red">`except`</span>のブロックを作って例外処理
+
+<div style="font-size:80%">
 
 ```python
 #!/usr/bin/python3
 import sys
-
+           　　 
 ans = 0   #もともと0.0だったのを0に変更
 for line in sys.stdin:
     try: 
         ans += int(line)   #intは文字列を整数に（失敗すると例外発生）
     except:
         ans += float(line)
-
+           　 
 print(ans)
 ```
+
+</div>
+
+---
+
+## <span style="text-transform:none">dev</span>ブランチでの開発
+
+* やること2
+    * 検証とコミット（とプッシュ）　　　　　　　　　　　　　
+        ```bash
+        ###動作確認###
+        $ seq 5 | ./plus_stdin 
+        15                        #整数として処理されていることを確認
+        $ seq 5 | sed 's/$/.1/' | ./plus_stdin 
+        15.5                      #小数も計算できることを確認
+        ###バグがないことを確認したらコミット###
+        $ git add -A              #-Aで変更を全部ステージングできる
+        $ git status              #ブランチと変更されたファイルを確認
+        ブランチ dev
+        コミット予定の変更点:
+          (use "git restore --staged <file>..." to unstage)
+        	modified:   plus_stdin
+        $ git commit -m "Support integer only calculation"
+        [dev f02a202] Support integer only calculation
+         1 file changed, 5 insertions(+), 2 deletions(-)
+        ###不要だけどGitHubにもプッシュしてみましょう###
+        $ git push --set-upstream origin dev   #origin: GitHubにあるリポジトリのこと
+	（略）
+         * [new branch]      dev -> dev
+        Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+        ```
+
+---
+
+## （寄り道）ブランチの観察
+
+* `git log --graph`で表示してみましょう
+    * 読み取れること
+        * 各コミットは直列な関係にある
+            * 最初のコミット->mainでのコマンド追加->devでの機能追加
+    * 読み方
+        * 各コミットには`f02a2023...`のような番号がついている
+            * <span style="color:red">コミットハッシュ値</span>
+        * ()の中にブランチ名
+            * `HEAD`: いまのディレクトリの内容を指す
+            * `origin/<ブランチ名>`: GitHubのリポジトリのブランチ
+                ```
+                $ git log --graph
+                * commit f02a20237590c9e4650f100928c6c2f969c111c3 (HEAD -> dev, origin/dev)
+                |（略）
+                |     Support integer only calculation
+                |
+                * commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260 (origin/main, origin/HEAD, main)
+                |（略）
+                |     Add a command
+                |
+                * commit 68d342fbb7a9b65e402d0b6f5a7763e56f248937
+                （略）
+                      Initial commit
+                ```
+
+---
+
+## <span style="text-transform:none">dev</span>ブランチでの開発
+
+* やること3
+    * mainブランチへの<span style="color:red">マージ</span>とGitHubへのプッシュ
+        * まずmainブランチに戻って内容の確認（`plus_stdin`がもとに戻る）
+            ```bash
+            $ git checkout main
+            Switched to branch 'main'
+            Your branch is up to date with 'origin/main'.
+            $ cat plus_stdin
+            （略。以前の例外処理のないコードが表示される。）
+            ```
+        * mainブランチにdevブランチの中身をマージ（併合）してGitHubに反映
+            ```bash
+            $ git merge dev
+            Updating fa8aab8..f02a202
+            Fast-forward
+             plus_stdin | 7 +++++--
+             1 file changed, 5 insertions(+), 2 deletions(-)
+            $ cat plus_stdin 
+            （略。例外処理の入ったコードが表示される。）
+            $ git push
+            Total 0 (delta 0), reused 0 (delta 0)
+            To github.com:ryuichiueda/robosys2022.git
+               fa8aab8..f02a202  main -> main
+            ```
+
+
+
