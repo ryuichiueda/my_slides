@@ -44,7 +44,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 第2回: Linux環境でのPythonプログラミングI
 * 第3回: Linux環境でのPythonプログラミングII
 * 第4回: GitとGitHub
-* 第5回: 著作権とライセンス
+* 第5回: 著作権とライセンス（前半は第4回の残り）
 * 第6回: ソフトウェアのテスト
 * 第7回: GitHubでのテスト
 

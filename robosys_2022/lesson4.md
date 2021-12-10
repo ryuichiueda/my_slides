@@ -17,16 +17,21 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 * GitとGitHubを使う
-* Pythonの文法の勉強
+* Pythonの文法の勉強を少し<br />　
+* 目次
+    1. 準備
+    2. GitHubへのコードの保存
+    3. ブランチ
+    4. その他リポジトリの操作
 
-    　
-<div style="font-size:60%">
-Git/GitHubとpythonの新しい文法が同時に出てきて大変なので、ひととおりやったらGit/GitHubとPythonの部分を別々に復習してみてください。
-</div>
 
 ---
 
-## <span style="text-transform:none">Git</span>
+## 1. 準備
+
+---
+
+### <span style="text-transform:none">Git</span>
 
 * 版管理（バージョン管理）システム
     * ファイルの変更履歴を管理するためのシステム
@@ -36,7 +41,7 @@ Git/GitHubとpythonの新しい文法が同時に出てきて大変なので、�
 
 ---
 
-## <span style="text-transform:none">Git</span>のインストール
+### <span style="text-transform:none">Git</span>のインストール
 
 * やること
     1. `sudo apt install git`等
@@ -45,12 +50,12 @@ Git/GitHubとpythonの新しい文法が同時に出てきて大変なので、�
 
 ```bash
 $ sudo apt install git
-###自身の名前とe-mail アドレスを記録しておく###
+####自身の名前とe-mail アドレスを記録しておく###
 $ git config --global user.name "Ryuichi Ueda"
 $ git config --global user.email "ueda@hogehoge.com"
-###エディタも登録しておくとよい###
+####エディタも登録しておくとよい###
 $ git config --global core.editor vim
-###確認###
+####確認###
 $ cat .gitconfig
 [user]
 name = Ryuichi Ueda
@@ -61,7 +66,7 @@ editor = vim
 
 ---
 
-## <span style="text-transform:none">GitHub</span>
+### <span style="text-transform:none">GitHub</span>
 
 * Gitを利用したサービス
     * 「リポジトリ」のホスティングと公開、コミュニケーション
@@ -75,7 +80,7 @@ editor = vim
 
 ---
 
-## <span style="text-transform:none">GitHub</span>でのアカウント作成
+### <span style="text-transform:none">GitHub</span>でのアカウント作成
 
 <span style="font-size:60%">注意: 文言等はよく変更されるので、基本的にサイトの英語を読んで手続きを</span>
 
@@ -90,7 +95,7 @@ editor = vim
 
 ---
 
-## 鍵の設定（鍵の作成）
+### 鍵の設定（鍵の作成）
 
 * 手元のPCとGitHubとの通信を暗号化するために、<span style="color:red">公開鍵</span>をGitHubに登録
     * 手元のPCには<span style="color:red">秘密鍵</span>を持っておく
@@ -106,7 +111,7 @@ editor = vim
 
 ---
 
-## 鍵の設定（<span style="text-transform:none">GitHub</span>での作業）
+### 鍵の設定（<span style="text-transform:none">GitHub</span>での作業）
 
 * 右上のユーザのアイコンを押す$\rightarrow$Settings$\rightarrow$SSH and GPG keys$\rightarrow$New SSH key
     * titleはなんでもいいので鍵の名前を入れる
@@ -117,7 +122,7 @@ editor = vim
 
 ---
 
-## ファイアウォール回避の設定
+### ファイアウォール回避の設定
 
 * ホーム下の`.ssh/config`というファイルに次のように記述
     ```bash
@@ -138,7 +143,7 @@ editor = vim
 
 ---
 
-## <span style="text-transform:none">GitHub</span>へのコードの保存
+## 2. <span style="text-transform:none">GitHub</span>へのコードの保存
 
 * やること
     * これまで講義で作ってきたコードをGitHubにアップロード
@@ -147,17 +152,17 @@ editor = vim
             ```python
             #!/usr/bin/python3
             import sys
-            
+               
             ans = 0.0
             for line in sys.stdin:
                 ans += float(line)
-            
+                 
             print(ans)
             ```
 
 ---
 
-## リポジトリの作成
+### リポジトリの作成
 
 GitHubに1つ作ってみましょう
 
@@ -175,7 +180,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## リポジトリを手元にコピー
+### リポジトリを手元にコピー
 
 * リポジトリの画面の"Code"をクリック
 * "SSH"を選択してURLをコピー
@@ -197,7 +202,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## リポジトリにコードを追加<br />1: <span style="text-transform:none">git add</span>
+### リポジトリにコードを追加<br />1: <span style="text-transform:none">git add</span>
 
 * プログラム`plus_stdin`を一つ置く
     ```bash
@@ -219,7 +224,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## リポジトリにコードを追加<br />2: <span style="text-transform:none">git commit</span>
+### リポジトリにコードを追加<br />2: <span style="text-transform:none">git commit</span>
 
 * <span style="color:red">`git commit`</span>でステージングエリアの情報をリポジトリに反映
     * この時点で、手元のリポジトリに`plus_stdin`の記録が残る
@@ -239,7 +244,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## <span style="text-transform:none">GitHub</span>への反映
+### <span style="text-transform:none">GitHub</span>への反映
 
 * 手元のリポジトリをGitHubのリポジトリへ転送
     * <span style="color:red">プッシュ</span>と呼ぶ
@@ -260,7 +265,11 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## <span style="text-transform:none">GitHub</span>を利用した開発
+## 3. ブランチ
+
+---
+
+### <span style="text-transform:none">GitHub</span>を利用した開発
 
 * GitHubにコードをアップした時点で様々な利点
     * 自分のコードを紛失する可能性が極めて低く
@@ -274,7 +283,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## 動くものを残しながらの開発
+### 動くものを残しながらの開発
 
 * よくあるケース
     * 改良しようと結構手を加えたらコードが動かなくなった<br />　
@@ -286,7 +295,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## ブランチ
+### ブランチ
 
 * リポジトリの内容を枝分かれして開発を進める
   * ブランチ = 枝
@@ -307,7 +316,7 @@ GitHubに1つ作ってみましょう
 
 ---
 
-## <span style="text-transform:none">dev</span>ブランチでの開発
+### <span style="text-transform:none">dev</span>ブランチでの開発
 
 ついでにPythonの文法の勉強
 
@@ -338,7 +347,7 @@ print(ans)
 
 ---
 
-## <span style="text-transform:none">dev</span>ブランチでの開発
+### <span style="text-transform:none">dev</span>ブランチでの開発
 
 * やること2
     * 検証とコミット（とプッシュ）　　　　　　　　　　　　　
@@ -367,7 +376,7 @@ print(ans)
 
 ---
 
-## （寄り道）ブランチの観察
+### （寄り道）ブランチの観察
 
 * `git log --graph`で表示してみましょう
     * 読み取れること
@@ -396,7 +405,7 @@ print(ans)
 
 ---
 
-## <span style="text-transform:none">dev</span>ブランチでの開発
+### <span style="text-transform:none">dev</span>ブランチでの開発
 
 * やること3: mainへの<span style="color:red">マージ</span>とGitHubへのプッシュ
     * まずmainブランチに戻って変更内容の確認
@@ -426,17 +435,21 @@ print(ans)
 
 ---
 
-## 過去のコードの取り出し
+## 4. その他リポジトリの操作
+
+---
+
+### 過去のコードの取り出し（動機）
 
 * 昔のコードを一部復活させたいときにやりたくなる
     * 例: 次の履歴から「Add a command」時のコードを取り出したい
-        ```python
+        ```bash
         $ git log 
         commit f02a20237590c9e4650f100928c6c2f969c111c3 (HEAD -> main, origin/main, origin/HEAD)
         （略）
             Support integer only calculation
         　
-        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260
+        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260   #これの`plus_stdin`を取り出したい
         （略）
             Add a command
         　
@@ -444,4 +457,33 @@ print(ans)
         （略）
             Initial commit
         ```
-* 取り出すだけなら次の方法で可能
+
+---
+
+### 過去のコードの取り出し（方法）
+
+* 取り出すだけなら次の方法で可能　　　　　　　　　
+    ```bash
+    $ git switch -d fa8aab8         #コミットハッシュ値の先頭何桁を指定
+    HEAD is now at fa8aab8 Add a command
+    $ git branch
+    * (HEAD detached at fa8aab8)            #使い捨てのブランチができる
+      dev
+      main
+    $ cat plus_stdin 
+    （略。try、exceptを加える前のコード）
+    $ cp plus_stdin /tmp/                 #必要ならコードのコピーをとる
+    $ git switch -                                            #元に戻る
+    Previous HEAD position was fa8aab8 Add a command
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+    ```
+
+---
+
+### コンフリクト
+
+* Gitを使っていると、コミット同士が矛盾することがある
+    * マージできない<br />　
+
+そういう状況を作ってみましょう。
