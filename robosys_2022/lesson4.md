@@ -392,30 +392,30 @@ print(ans)
 
 ## <span style="text-transform:none">dev</span>ブランチでの開発
 
-* やること3
-    * mainブランチへの<span style="color:red">マージ</span>とGitHubへのプッシュ
-        * まずmainブランチに戻って内容の確認（`plus_stdin`がもとに戻る）
-            ```bash
-            $ git checkout main
-            Switched to branch 'main'
-            Your branch is up to date with 'origin/main'.
-            $ cat plus_stdin
-            （略。以前の例外処理のないコードが表示される。）
-            ```
-        * mainブランチにdevブランチの中身をマージ（併合）してGitHubに反映
-            ```bash
-            $ git merge dev
-            Updating fa8aab8..f02a202
-            Fast-forward
-             plus_stdin | 7 +++++--
-             1 file changed, 5 insertions(+), 2 deletions(-)
-            $ cat plus_stdin 
-            （略。例外処理の入ったコードが表示される。）
-            $ git push
-            Total 0 (delta 0), reused 0 (delta 0)
-            To github.com:ryuichiueda/robosys2022.git
-               fa8aab8..f02a202  main -> main
-            ```
+* やること3: mainへの<span style="color:red">マージ</span>とGitHubへのプッシュ
+    * まずmainブランチに戻って変更内容の確認
+        ```bash
+        $ git checkout main
+        Switched to branch 'main'
+        Your branch is up to date with 'origin/main'.
+        $ git diff main dev
+        （略。mainとdevのコードの違いが表示される）
+        ```
+    * mainにdevの中身をマージ（併合）してGitHubに反映
+        ```bash
+        $ git merge dev
+        Updating fa8aab8..f02a202
+        Fast-forward
+         plus_stdin | 7 +++++--
+         1 file changed, 5 insertions(+), 2 deletions(-)
+        $ cat plus_stdin 
+        （略。例外処理の入ったコードが表示される。）
+        $ git push
+        Total 0 (delta 0), reused 0 (delta 0)
+        To github.com:ryuichiueda/robosys2022.git
+           fa8aab8..f02a202  main -> main
+        ```
+* 安全にmainブランチを更新できた
 
 
 
