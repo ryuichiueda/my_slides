@@ -435,53 +435,6 @@ print(ans)
         ```
 * 安全にmainブランチを更新できた
 
-
----
-
-## 4. その他リポジトリの操作
-
----
-
-### 過去のコードの取り出し（動機）
-
-* 昔のコードを一部復活させたいときにやりたくなる
-    * 例: 次の履歴から「Add a command」時のコードを取り出したい
-        ```bash
-        $ git log 
-        commit f02a20237590c9e4650f100928c6c2f969c111c3 (HEAD -> main, origin/main, origin/HEAD)
-        （略）
-            Support integer only calculation
-        　
-        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260   #これの`plus_stdin`を取り出したい
-        （略）
-            Add a command
-        　
-        commit 68d342fbb7a9b65e402d0b6f5a7763e56f248937
-        （略）
-            Initial commit
-        ```
-
----
-
-### 過去のコードの取り出し（方法）
-
-* 取り出すだけなら次の方法で可能　　　　　　　　　
-    ```bash
-    $ git switch -d fa8aab8         #コミットハッシュ値の先頭何桁を指定
-    HEAD is now at fa8aab8 Add a command
-    $ git branch
-    * (HEAD detached at fa8aab8)            #使い捨てのブランチができる
-      dev
-      main
-    $ cat plus_stdin 
-    （略。try、exceptを加える前のコード）
-    $ cp plus_stdin /tmp/                 #必要ならコードのコピーをとる
-    $ git switch -                                            #元に戻る
-    Previous HEAD position was fa8aab8 Add a command
-    Switched to branch 'main'
-    Your branch is up to date with 'origin/main'.
-    ```
-
 ---
 
 ### 4. コンフリクト
@@ -618,19 +571,67 @@ print(ans)
 
 ---
 
-## 5. その他の操作
+## 5. その他リポジトリの操作
 
-* ローカルリポジトリだけ作ったものをGitHubにアップ
-    * 手順
-        1. GitHubに同名のリポジトリを作成
-        2. `git remote add origin <リポジトリ>`で結びつけ
-    * 注意: メインのブランチをローカルとリモートで合わせること
-        * 手元が`master`なのに、リモートが`main`のときは手元を`main`にするとよい<br />　
-* リポジトリの名前を変えたい
-    * リモート: GitHubのリポジトリのSettingsで変更
-    * ローカル: リポジトリの`.git/config`を編集
-        * 実は変えなくてもリモートにpush可能<br />　
-* あとは自身で理解、調査を！
+---
+
+### 過去のコードの取り出し（動機）
+
+* 昔のコードを一部復活させたいときにやりたくなる
+    * 例: 次の履歴から「Add a command」時のコードを取り出したい
+        ```bash
+        $ git log 
+        commit f02a20237590c9e4650f100928c6c2f969c111c3 (HEAD -> main, origin/main, origin/HEAD)
+        （略）
+            Support integer only calculation
+        　
+        commit fa8aab8a2ade8cd33823f488fbb1bbec6d981260   #これの`plus_stdin`を取り出したい
+        （略）
+            Add a command
+        　
+        commit 68d342fbb7a9b65e402d0b6f5a7763e56f248937
+        （略）
+            Initial commit
+        ```
+
+---
+
+### 過去のコードの取り出し（方法）
+
+* 取り出すだけなら次の方法で可能　　　　　　　　　
+    ```bash
+    $ git switch -d fa8aab8         #コミットハッシュ値の先頭何桁を指定
+    HEAD is now at fa8aab8 Add a command
+    $ git branch
+    * (HEAD detached at fa8aab8)            #使い捨てのブランチができる
+      dev
+      main
+    $ cat plus_stdin 
+    （略。try、exceptを加える前のコード）
+    $ cp plus_stdin /tmp/                 #必要ならコードのコピーをとる
+    $ git switch -                                            #元に戻る
+    Previous HEAD position was fa8aab8 Add a command
+    Switched to branch 'main'
+    Your branch is up to date with 'origin/main'.
+    ```
+
+---
+
+### ローカルリポジトリだけ作ったものを<span style="text-transform:none">GitHub</span>にアップ
+
+* 手順
+    1. GitHubに同名のリポジトリを作成
+    2. `git remote add origin <リポジトリ>`で結びつけ
+* 注意: メインのブランチをローカルとリモートで合わせること
+    * 手元が`master`なのに、リモートが`main`のときは手元を`main`にするとよい<br />　
+
+---
+
+### リポジトリの名前を変えたい
+
+* リモート: GitHubのリポジトリのSettingsで変更
+* ローカル: リポジトリの`.git/config`を編集
+    * 実は変えなくてもリモートにpush可能<br />　
 
 ---
 
@@ -639,7 +640,9 @@ print(ans)
 * Git/GitHub 
     * バージョン管理システム/サービス
         * 今日から必須の道具
-        * レポート等も管理することを強く推奨<br />　
+            * レポート等も管理することを強く推奨
+    * 他にも様々な操作が必要に
+        * 困ったら仕組みから理解してみましょう<br />　
 * Pythonの文法
     * 今回出てきたもの
         * 例外処理
