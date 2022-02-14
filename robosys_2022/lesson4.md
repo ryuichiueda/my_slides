@@ -499,9 +499,64 @@ print(ans)
     $ cd ~/tmp/
     $ git clone git@（略） #略の部分は自分で考えましょう
     ```
-    * ローカルリポジトリが2個に
+    * ローカルリポジトリが2個に　　　　　　　　　　　　　　　　　　
         * 片方をA、もう片方をBと呼びましょう
             * どっちがどっちでもよい
+
+
+---
+
+### コンフリクトを起こす（その1）
+
+* リポジトリAで変更してpush
+    * 数字の処理部分を関数に
+        * Pythonの関数の定義は初出　　　　　　　　　　　　　
+        ```python
+        #!/usr/bin/python3
+        import sys
+        　 
+        　 
+        def tonum(s):   #def 関数の名前(引数)で関数を定義
+            try:
+                return int(s)
+            except:
+                return float(s)
+        　 
+        　 
+        ans = 0
+        for line in sys.stdin:
+                ans += tonum(line)
+        　 
+        print(ans)
+        ```
+        * <span style="color:red">忘れずpushを</span>
+
+
+---
+
+### コンフリクトを起こす（その2）
+
+* リポジトリBで別の変更
+    * リポジトリAの存在を忘れて作業したという状況
+        ```python
+       （略）
+        for line in sys.stdin:
+            line = line.rstrip() #for文の下にこの行を挿入
+       （以下略）
+        ```
+    * コミットしてpushするとエラー
+        ```bash
+        $ git push 
+        To github.com:ryuichiueda/robosys2022
+         ! [rejected]        main -> main (non-fast-forward)
+        error: failed to push some refs to 'git@github.com:ryuichiueda/robosys2022'
+        hint: Updates were rejected because the tip of your current branch is behind
+        hint: its remote counterpart. Integrate the remote changes (e.g.
+        hint: 'git pull ...') before pushing again.
+        hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+        ```
+
+異なる内容はpushして混ぜることができない
 
 
 ---
