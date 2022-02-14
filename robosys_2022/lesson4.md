@@ -561,6 +561,61 @@ print(ans)
 
 ---
 
+### コンフリクトの解消（その1）
+
+* リポジトリBで`git pull`
+    ```bash
+    $ git pull
+    Auto-merging plus_stdin
+    CONFLICT (content): Merge conflict in plus_stdin
+    Automatic merge failed; fix conflicts and then commit the result.
+    ```
+    * 「`CONFLICT`」と出るが`pull`は完了　　　　　　　　　　　
+        ```python
+	#!/usr/bin/python3
+        import sys
+        
+        <<<<<<< HEAD                #これがローカルの最新コミット内容
+        ans = 0
+        for line in sys.stdin:
+            line = line.rstrip()
+        =======                     #a493...までがリモートの最新内容
+        
+        def tonum(s):
+        >>>>>>> a4936f439aed64b3234d533c6e7a3abc7b5d744d
+            try:
+                return int(s)
+        ```
+        * （この例はかなり乱れているが）A, B両方の更新を反映
+
+
+---
+
+### コンフリクトの解消（その2）
+
+* コードを手で修正してコミット、push
+    ```python
+    #!/usr/bin/python3
+    import sys 
+    　
+    　
+    def tonum(s):
+        try:
+            return int(s)
+        except:
+            return float(s)
+    　
+    
+    ans = 0 
+    for line in sys.stdin:
+        line = line.rstrip()
+        ans += tonum(line)
+    　
+    print(ans)
+    ```
+
+---
+
 ### その他の操作
 
 * ローカルリポジトリだけ作ったものをGitHubにアップ
