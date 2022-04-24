@@ -57,7 +57,7 @@ print(3.14)                 #数字を出力
 
 * 文字列、数字（<span style="color:red">リテラル</span>）
     * 文字列は`""`や`''`で囲む
-        * `"hello"`、`'hello'`、"That's a pen."
+        * `"hello"`、`'hello'`、`"That's a pen."`
     * 数字はそのまま記述
         * `3.14`、`-1`、`5`
         * `1.23e+100`（1.23かける10の100乗）<br />　
