@@ -11,6 +11,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
+## 質問
+
+* ロボットにさせてみたい仕事はありますか？
+
+---
+
 ## 「確率ロボティクス」とは 
 
 * 分からないことをロボットで扱うための分野
