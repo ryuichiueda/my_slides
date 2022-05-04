@@ -16,12 +16,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* 前半: Pythonで引数を操作
+* 前半: Python入門
+    * Pythonで引数を操作
+    * if文
 * 後半: 標準入出力の操作と理解
 
 ---
 
-## 前半: 引数の処理
+## 前半: <span style="text-transform:none">Python</span>入門
 
 ---
 
@@ -103,6 +105,57 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         ```
         * 実行例は省略
 
+
+---
+
+## <span style="text-transform:none">if</span>文を使う
+
+* 要点: 次のように書く
+    ```python
+    if 条件1:   #条件1が成り立つと、下の処理が実行される。elif以下の処理はスキップ。
+        処理    #処理はインデントのレベルをひとつ上げて記述
+        ・・・
+    elif 条件2: #条件1に合わない場合は条件2が調べられる。（elifは省略や複数の記述が可能）
+        処理
+        ・・・
+    else:       #ifやelifの条件に合わない場合に下の処理が実行される。
+        処理
+        ・・・
+    ```
+* 練習: if文を使い、次のコードを記述しましょう。
+    * コード（3種類書く）
+        1. 引数の数について負の数をカウントしてprint
+        1. 引数の数について負、非負の数をカウントしてprint
+        1. 引数の数について負、ゼロ、正の数をカウントしてprint
+    * 条件の書き方は、この例題についてはC言語と同じ。
+        * 数`x`に対して、`x < 0.0`、`x == 0.0`、`x > 0.0`、`x >= 0.0`などと記述
+
+---
+
+## 練習の解答
+
+* 3番目のものだけ記述
+    ```python
+    #!/usr/bin/python3
+    import sys
+    
+    minus = 0
+    zero = 0
+    plus = 0
+    for n in sys.argv[1:]:
+        x = float(n)
+    
+        if x < 0.0:
+            minus += 1
+        elif x > 0.0:
+            plus += 1
+        else:
+            zero += 1
+    
+    print("負:", minus)
+    print("０:", zero)
+    print("正:", plus)
+    ```
 
 ---
 
@@ -278,6 +331,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 引数と標準入力に関してPythonでプログラミング
         * 他の言語でも、ほぼ同じ
     * for文やリスト内包表記でリストを操作
+    * if文の書き方
     * 標準入出力でコマンドを連携（ROSに通ずる考え方）<br />　
 * 重要語句
     * モジュール、sysモジュール、float関数、リスト内包表記、リダイレクト、標準出力、`sys.stdin`、`sys.stdout`、パイプ、標準エラー出力
