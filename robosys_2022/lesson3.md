@@ -130,9 +130,16 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## ファイルからの入力
 
 * ファイルの中身は<span style="color:red">「 &lt; ファイル」</span>でコマンドに渡せる
+    * 入力のリダイレクト
 * Pythonでの受け取り方
-    * <span style="color:red">`sys.stdin`</span>とfor文で1行ずつ受け取る
-    * コードを書く前の準備（ファイルの作成）
+    * <span style="color:red">`sys.stdin`</span>とfor文で<span style="color:red">標準入力</span>から行毎に受け取る（`read_stdin`）
+    ```python
+    #!/usr/bin/python3
+    import sys                 #余白の関係で詰めてますが下に1行空行があったほうがよいです
+    for line in sys.stdin:
+        print(line)
+    ```
+    * 実行
         ```bash
         $ seq 10 > nums    #リダイレクトをつかってnumsというファイルを作成
         $ cat nums
@@ -140,16 +147,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         2
         	・・・
         10
+        $ ./read_stdin < nums #実行結果は下
         ```
         * <span style="color:red">`seq`</span>: 整数を順に出力するコマンド
-    * コード（`read_stdin`）
-    ```python
-    #!/usr/bin/python3
-    import sys                 #余白の関係で詰めてますが下に1行空行があったほうがよいです
-    for line in sys.stdin:
-        print(line)
-    ```
-        * 実行結果は下
 
 >>>
 
