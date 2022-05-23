@@ -157,5 +157,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-自分で条項を考えてもよいが、ソフトウェアには標準的なものが存在
+### そもそもなんでコードを公開しているのか？
+
+* 理由は人それぞれだがメリットは多い
+    * 自分の作品を作ったら見せたい
+    * 多くの人に使ってもらうとバグの報告をしてもらえる
+        * UnixやLinuxの例
 
