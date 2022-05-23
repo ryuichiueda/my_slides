@@ -159,7 +159,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ### そもそもなんでコードを<br/>公開しているのか？
 
-理由は人それぞれだがメリットは多い
+理由は人それぞれだがメリットは大きい
 
 * 自分の作品を作ったら見せたい、使ってもらいたい
     * ソフトウェアはたくさんコピーされて使われるものほど高価値
@@ -169,4 +169,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 例: 自分の会社のコードをLinuxに取り込んでもらえるとメリット
 * スクリプト言語は人に使ってもらうとコードを隠せない
 * ・・・
+
+
+---
+
+### 著作権とライセンス
+
+* 「たくさんコピーされて使われるものほど高価値」
 
