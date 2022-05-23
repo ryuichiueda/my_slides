@@ -142,3 +142,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 積極的に使わせてもらいましょう
 
 
+---
+
+## 2. ソフトウェアライセンスについて
+
+
