@@ -108,7 +108,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * `plus_stdin`の冒頭に公開年と名前を表記
     * ふたつの例を挙げますが、<span style="color:red">例2</span>をやってください
-        * 例1
+        * 例1（先頭の`#`はコメントアウト記号。C/C++なら`\\`等書き換え）
         ```python
         #!/usr/bin/python3
         # © 2022 Ryuichi Ueda
@@ -119,7 +119,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * 例2
         ```python
         #!/usr/bin/python3
-        # © 2022 Ryuichi Ueda
+	# SPDX-FileCopyrightText: 2022 Ryuichi Ueda <付けたければメールアドレス>
         
         import sys
         ・・・
@@ -128,5 +128,16 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * Cなどのソースコードなら1行目に書いても大丈夫
 
 
+---
+
+### SPDX
+
+* [Software Package Data Exchange](https://spdx.github.io/spdx-spec/)
+    * ソフトウェアライセンスなどの書き方を統一するプロジェクト
+        * ソフトウェアライセンスについては後半で<br />　
+* [SPDX file tags](https://spdx.github.io/spdx-spec/file-tags/)
+    * 前ページ例2のように、ファイルの権利関係などを記述するためのタグ（目印）
+        * 以前は、コードを書いたら権利について10行くらいコメントを書いていたが、それを大幅に省略
+    * 積極的に使わせてもらいましょう
 
 
