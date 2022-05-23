@@ -85,9 +85,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * 20xx年という西暦年: 公開した年
         * なるべく他人が書き換えられないところに
     * 補足（多い）
-        * 実は書いていなくても<span style="color:red">ベルヌ条約</span>で権利は守られるけど最低でも自分の名前は書いておく
-        * コードみたいに手を入れる場合の公開年は、2020-2022などと範囲指定
-        * ベルヌ条約があるので、「Copyright: 2022 Ryuichi Ueda, all right reserved」みたいに多少違って書いても大丈夫
+        * 実は書いていなくても権利は守られるが最低でも自分の名前は記述
+            * <span style="color:red">ベルヌ条約</span>
+            * 「Copyright: 2022 Ryuichi Ueda, all right reserved」等、多少違って書いても大丈夫
+        * コードのように手を入れるものの公開年は、2020-2022などと範囲指定
 
 大切なこと: いつ、誰が作ったものかを明記！
 
