@@ -208,3 +208,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     3. 盗用、タダ乗りを防止
         * ライセンスの違いは、3の厳しさの度合い
 
+---
+
+### 例1: GPL
+
+* 大雑把な説明
+    * GPLで利用許諾を受けたコードやバイナリを再配布する場合、GPLで利用許諾を出さなければならない<br />　
+* どうなるか
+    * 1行でもGPLで利用したコードがソフトウェアパッケージにあると、全体もGPLに
+
