@@ -186,7 +186,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ### ソフトウェアライセンスの役割
 
-* <span style="color:red">著作権を手元に残したまま</span>、第三者にコードやバイナリを提供
+* <span style="color:red">著作権を手元に残したまま</span>、第三者にコードやバイナリを提供<br />　
 * 大きく分けて2種類
     * 利用を原則禁止にして使用させるもの
         * 例: Microsoft Windowsなどの商用ソフトウェア
