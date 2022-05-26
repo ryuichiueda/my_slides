@@ -242,7 +242,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### GPL、BSDライセンスの<br />代表的なソフトウェア
 
 * GPL
-    * <span style="color:red">Linux</span><br />　
+    * <span style="color:red">Linux</span>と、Linuxに同梱されているソフトウェア<br />　
 * BSD
     * BSD系のUnix、<span style="color:red">ROS</span><br />　
 * 似たソフトウェアでも、ライセンスで普及の戦略が変化
