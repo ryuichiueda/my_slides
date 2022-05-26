@@ -252,3 +252,28 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 似たソフトウェアでも、ライセンスで普及の戦略が変化
     * GPL: 全員でコードをシェアして便利に
     * BSD系のライセンス: 著作者の名誉を守り、企業も使いやすく
+
+---
+
+### リポジトリへのライセンス設定
+
+* 作業
+    * ライセンスの条項を書いたファイルを分かりやすい場所に設置
+    * コードのファイルにSPDXのタグを記述
+
+順番にやってみましょう
+
+---
+
+### リポジトリへのライセンス設定
+
+* ライセンスの条項を書いたファイルの設置
+    * GPLのグループと他では少し違う<br />　
+* GPL 3.0（や、他のGPL）の場合
+    * https://www.gnu.org/licenses/gpl-3.0.txt にあるテキストをそのまま`COPYING`というファイルに保存
+        1. `curl https://www.gnu.org/licenses/gpl-3.0.txt > COPYING`
+        2. 特に理由がなければ`COPYING`をリポジトリの一番上に置く<br />　
+* 3条項BSD（や、他のBSD、多くのライセンス）の場合
+    * https://opensource.org/licenses/BSD-3-Clause の「`Copyright ... SUCH DAMAGE.`」の部分を`LICENSE`に保存
+    * `LICENSE`の`Copyright <YEAR> <COPYRIGHT HOLDER>`を書き換え
+        * 自分の名義に
