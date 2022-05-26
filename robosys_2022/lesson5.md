@@ -228,10 +228,23 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### 例2: BSDライセンス
 
 * BSD: Berkeley Software Distribution
-    * Unixの一種
+    * Unixの一種<br />　
 * 特徴
     * 再配布の際にコードは公開しなくてよい
+        * GPLのように「秘密無く全部公開」にはならない
     * 代わりに、いくつかの事項を義務付け
     * 項目数によっていくつか種類が存在
-        * 3条項BSDライセンス、3条項BSDライセンス、（廃止）4条項BSDライセンス
         * 参考: [オープンソースライセンスの日本語参考訳](https://licenses.opensource.jp/) by オープンソース・グループ・ジャパン（CC-BY 4.0）
+        * 3条項BSDライセンス、3条項BSDライセンス、4条項BSDライセンス
+
+---
+
+### GPL、BSDライセンスの<br />代表的なソフトウェア
+
+* GPL
+    * Linux<br />　
+* BSD
+    * BSD系のUnix<br />　
+* 似たソフトウェアでも、ライセンスで普及の戦略が変化
+    * GPL: 全員でコードをシェアして便利に
+    * BSD系のライセンス: 著作者の名誉を守り、企業も使いやすく
