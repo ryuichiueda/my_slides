@@ -242,9 +242,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### GPL、BSDライセンスの<br />代表的なソフトウェア
 
 * GPL
-    * <span style="color:red">Linux</span>と、Linuxに同梱されているソフトウェア<br />　
+    * <span style="color:red">Linux</span>（カーネル、主要なコマンド、デバイスドライバ）
+        * 主要なコマンドは別のプロジェクトから持ってきたGPLのもの
+        * デバイスドライバのコードが読めないとデバッグに支障<br />　
 * BSD
-    * BSD系のUnix、<span style="color:red">ROS</span><br />　
+    * BSD系のUnix、<span style="color:red">ROS</span>
+        * BSD系のUnixにはGPLのコマンドは原則同梱されない
+        * 企業は使いやすい（「GPLだと使いにくい」と言うと語弊があるが）<br />　
 * 似たソフトウェアでも、ライセンスで普及の戦略が変化
     * GPL: 全員でコードをシェアして便利に
     * BSD系のライセンス: 著作者の名誉を守り、企業も使いやすく
