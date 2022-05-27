@@ -260,6 +260,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 作業
     * ライセンスの条項を書いたファイルを分かりやすい場所に設置
     * コードのファイルにSPDXのタグを記述
+    * `README`にも記述
 
 順番にやってみましょう
 
@@ -277,3 +278,61 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * https://opensource.org/licenses/BSD-3-Clause の「`Copyright ... SUCH DAMAGE.`」の部分を`LICENSE`に保存
     * `LICENSE`の`Copyright <YEAR> <COPYRIGHT HOLDER>`を書き換え
         * 自分の名義に
+
+---
+
+### スクリプトへの記述
+
+* GPL 3.0の場合
+    ```python
+    #!/usr/bin/python3
+    # SPDX-FileCopyrightText: 2022 Ryuichi Ueda 　　　　　
+    # SPDX-License-Identifier: GPL-3.0
+    
+    import sys
+    ・・・
+    ```
+* 3条項BSDの場合
+    ```python
+    #!/usr/bin/python3
+    # SPDX-FileCopyrightText: 2022 Ryuichi Ueda 　　　　　
+    # SPDX-License-Identifier: BSD-3-Clause
+    
+    import sys
+    ・・・
+    ```
+
+---
+
+### `README`への記述
+
+* 下の方に明快に（特に決まった書式はない）
+    * 最低限、次のように書いておくとよいでしょう。
+        ```python
+        * このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+        * © 2022 Ryuichi Ueda
+        ```
+* 利用しているライブラリやコード、<br />ドキュメントの著作権のリストも記述
+    * ライセンスに縛られてなくても、書いておくのがよいでしょう
+        ```python
+        * このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+        * このパッケージは、aaa由来のコード（© 2022 Hoge Fuge）を利用しています。
+        * このパッケージのコードは、下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを、本人の許可を得て自身の著作としたものです。
+            * [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
+        * © 2022 Ryuichi Ueda
+        ```
+    * このスライドにちょくちょく出てる「CC-BY-SA 4.0」とかって何？
+        * 以前の動画をご覧ください（クリエイティブ・コモンズのパート）
+
+---
+
+## まとめ
+
+* 著作権、ライセンス
+    * ややこしいが、自分を含めて作った人を守る仕組みと考えると理解可能<br />　
+* ルールを理解、実践すれば、人の作ったものを利用可能
+    * むしろ積極利用して、<span style="color:red">より良いもの</span>を作成
+    * レポートや課題についても、特に指示がなければ可能
+        * ただし、評価の対象は自身の<span style="color:red">コントリビューション</span>
+            * コントリビューション（貢献）: 自分自身で作った「より良い」なにか
+            * しかも、自身のコントリビューションはなんなのか、既存のものと区別して明記のこと。（研究室で論文を書くときにも訓練します。）
