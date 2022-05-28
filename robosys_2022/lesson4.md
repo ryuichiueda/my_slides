@@ -38,7 +38,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 版管理（バージョン管理）システム
     * ファイルの変更履歴を管理するためのシステム
     * コードや文章を書くときは必須と言っても過言ではない<br />　
-* Linus Torvalds が作成
+* Linus Torvalds氏が作成
     * Linuxの共同開発のため
 
 ---
@@ -72,23 +72,25 @@ editor = vim
 ### <span style="text-transform:none">GitHub</span>
 
 * Gitを利用したサービス
-    * 「リポジトリ」のホスティングと公開、コミュニケーション
+    * 「リポジトリ」のホスティングと公開，コミュニケーション
         * <span style="color:red">リポジトリ</span>: あるソフトウェアに関するファイルの集まり
     * 公開しないリポジトリも作成可能<br />　
 * 利用方法
     * ウェブサイト([https://github.co.jp/ ](https://github.co.jp/))
     * コマンドライン
         * `git`コマンド
-        * `gh`コマンド（本講義では扱わず）
+        * `gh`コマンド（本講義では扱わず）<br />　
+* 注意: 他にも同様のサービスは存在
+    * GitLab, Bitbucketなど
 
 ---
 
 ### <span style="text-transform:none">GitHub</span>でのアカウント作成
 
-<span style="font-size:60%">注意: 文言等はよく変更されるので、基本的にサイトの英語を読んで手続きを</span>
+<span style="font-size:60%">注意: 文言等はよく変更されるので，基本的にサイトの英語を読んで手続きを</span>
 
 1. トップページで"Sign up"か"GitHubに登録する"を押す
-2. ユーザ名、email アドレス、パスワードを決めて<br />"Create account"を押す
+2. ユーザ名，email アドレス，パスワードを決めて<br />"Create account"を押す
     * ユーザ名は恥ずかしくないものを！
 3. 画面指示に従って手続き
     * プランを選ぶときに"Free"が選択されているのを確認<br />$\rightarrow$"Finish sign up"
@@ -100,7 +102,7 @@ editor = vim
 
 ### 鍵の設定（鍵の作成）
 
-* 手元のPCとGitHubとの通信を暗号化するために、<span style="color:red">公開鍵</span>をGitHubに登録
+* 手元のPCとGitHubとの通信を暗号化するために，<span style="color:red">公開鍵</span>をGitHubに登録
     * 手元のPCには<span style="color:red">秘密鍵</span>を持っておく
         * 秘密鍵は文字通り秘密にして他人に見せたり触れたりさせない<br />　
 * 鍵の作り方
@@ -170,7 +172,7 @@ editor = vim
 GitHubに1つ作ってみましょう
 
 * GitHubのサイトでの操作
-  * 右上のアカウントのアイコン横の"+"マークを押して、<br />"New repository"を選択
+  * 右上のアカウントのアイコン横の"+"マークを押して，<br />"New repository"を選択
   * 必要事項を記入
     * 名前: robosys202x
     * Description: 説明を適当に
@@ -201,7 +203,7 @@ GitHubに1つ作ってみましょう
         $ ls -a
         .  ..  .git  README.md
         ```
-    * <span style="color:red">注意: </span>鍵、`.git/config`の設定が失敗しているとエラー
+    * <span style="color:red">注意: </span>鍵，`.git/config`の設定が失敗しているとエラー
 
 ---
 
@@ -230,7 +232,7 @@ GitHubに1つ作ってみましょう
 ### リポジトリにコードを追加<br />2: <span style="text-transform:none">git commit</span>
 
 * <span style="color:red">`git commit`</span>でステージングエリアの情報をリポジトリに反映
-    * この時点で、手元のリポジトリに`plus_stdin`の記録が残る
+    * この時点で，手元のリポジトリに`plus_stdin`の記録が残る
     * `git commit`で作った1つの記録を<span style="color:red">コミット</span>と呼ぶ
         ```bash
         $ git commit -m "Add a command" #git commit -m "何をしたか短く"
@@ -278,7 +280,7 @@ GitHubに1つ作ってみましょう
     * 自分のコードを紛失する可能性が極めて低く
     * 混乱せずに様々な環境で開発可能に
     * 自分の力を見せることが可能に
-        * たとえ学科内だと平凡でも、世の中的にはコードが書けるだけで少数派<br />　
+        * たとえ学科内だと平凡でも，世の中的にはコードが書けるだけで少数派<br />　
 * 面倒なこと: 少々責任が伴う
     * ライセンス等の整備（また別の回で）
     * <span style="color:red">使えないものを使えると言って置かない</span>
@@ -305,15 +307,15 @@ GitHubに1つ作ってみましょう
 * 今のところブランチは「main」だけ
   ```bash
   $ git branch
-  * main          #ブランチはmainだけ。「*」は選択状態を表現
+  * main          #ブランチはmainだけ．「*」は選択状態を表現
   ```
-  * GitHubはmainブランチを優先して表示するので、ここでの雑な開発は避けたい
+  * GitHubはmainブランチを優先して表示するので，ここでの雑な開発は避けたい
 * 開発用ブランチを作りましょう
   ```bash
   $ git switch -c dev     #git checkout -b devでも可
   Switched to a new branch 'dev'
   $ git branch
-  * dev               #devブランチができて、devが選択状態に
+  * dev               #devブランチができて，devが選択状態に
     main
   ```
 
@@ -324,7 +326,7 @@ GitHubに1つ作ってみましょう
 ついでにPythonの文法の勉強
 
 * やること1
-    * `plus_stdin`について、整数の入力を整数に変換するよう改良
+    * `plus_stdin`について，整数の入力を整数に変換するよう改良
         * 注意: 改良じゃないかもしれません
         * <span style="color:red">例外処理</span>をしてみましょう
             * 失敗しそうな処理を<span style="color:red">`try`</span>で囲む
@@ -417,7 +419,7 @@ print(ans)
         Switched to branch 'main'
         Your branch is up to date with 'origin/main'.
         $ git diff main dev
-        （略。mainとdevのコードの違いが表示される）
+        （略．mainとdevのコードの違いが表示される）
         ```
     * mainにdevの中身をマージ（併合）してGitHubに反映
         ```bash
@@ -427,7 +429,7 @@ print(ans)
          plus_stdin | 7 +++++--
          1 file changed, 5 insertions(+), 2 deletions(-)
         $ cat plus_stdin 
-        （略。例外処理の入ったコードが表示される。）
+        （略．例外処理の入ったコードが表示される．）
         $ git push
         Total 0 (delta 0), reused 0 (delta 0)
         To github.com:ryuichiueda/robosys2022.git
@@ -439,10 +441,10 @@ print(ans)
 
 ### 4. コンフリクト
 
-* Gitを使っていると、コミット同士が矛盾することがある
+* Gitを使っていると，コミット同士が矛盾することがある
     * マージできない<br />　
 
-そういう状況を作ってみましょう。
+そういう状況を作ってみましょう．
 
 ---
 
@@ -455,7 +457,7 @@ print(ans)
     $ git clone git@（略） #略の部分は自分で考えましょう
     ```
     * ローカルリポジトリが2個に　　　　　　　　　　　　　　　　　　
-        * 片方をA、もう片方をBと呼びましょう
+        * 片方をA，もう片方をBと呼びましょう
             * どっちがどっちでもよい
 
 
@@ -548,7 +550,7 @@ print(ans)
 
 ### コンフリクトの解消（その2）
 
-* コードを手で修正してコミット、push
+* コードを手で修正してコミット，push
     ```python
     #!/usr/bin/python3
     import sys 
@@ -607,7 +609,7 @@ print(ans)
       dev
       main
     $ cat plus_stdin 
-    （略。try、exceptを加える前のコード）
+    （略．try，exceptを加える前のコード）
     $ cp plus_stdin /tmp/                 #必要ならコードのコピーをとる
     $ git switch -                                            #元に戻る
     Previous HEAD position was fa8aab8 Add a command
@@ -623,7 +625,7 @@ print(ans)
     1. GitHubに同名のリポジトリを作成
     2. `git remote add origin <リポジトリ>`で結びつけ
 * 注意: メインのブランチをローカルとリモートで合わせること
-    * 手元が`master`なのに、リモートが`main`のときは手元を`main`にするとよい<br />　
+    * 手元が`master`なのに，リモートが`main`のときは手元を`main`にするとよい<br />　
 
 ---
 
