@@ -322,7 +322,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         * © 2022 Ryuichi Ueda
         ```
     * このスライドにちょくちょく出てる「CC-BY-SA 4.0」とかって何？
-        * 以前の動画をご覧ください（クリエイティブ・コモンズのパート）
+        * 昨年度までの動画をご覧ください（クリエイティブ・コモンズのパート）
 
 ---
 
