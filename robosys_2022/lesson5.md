@@ -196,7 +196,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-### フリーソフトウェア/オープンソースのライセンスの仕組み
+### フリーソフトウェア/オープンソースの<br />ライセンスの仕組み
 
 * 統一的なものがいくつか存在
     * GNU一般公衆ライセンス（GPL）、BSD license、<br />MIT license、Apache license・・・
