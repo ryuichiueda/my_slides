@@ -31,7 +31,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### 著作権の基本
 
 * あたりまえですが
-    * 他人の作った文章や絵、写真やその他著作物を勝手に<br />コピーして利用してはいけません
+    * 他人の作った文章や絵，写真やその他著作物を勝手に<br />コピーして利用してはいけません
     * 盗む人がいると作った人が泣きを見る$\Rightarrow$<span style="color:red">保護されるべき</span>
 
 * でも・・・
@@ -53,12 +53,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ### 本科目の課題提出で見られる光景2
 
-* <span style="color:red">自分の著作と主張していない状態</span>で、仲間や他人に自分のコードを写させる/写される
+* <span style="color:red">自分の著作と主張していない状態</span>で，仲間や他人に自分のコードを写させる/写される
     * 自分で書いたことを主張していない時点で課題は0点
         * たとえ被害者であっても0点になることも
     * 仲間に不正をさせたら0点どころか失格<br />　
 * 「信じてください」は通用しないことがある
-    * 何かあったときに提示するために、客観的な証拠を残していく
+    * 何かあったときに提示するために，客観的な証拠を残していく
         * GitHubにいつpushしたか等
         * 「†エビデンス†」というやつ🍤
     * 正しく手続きする
@@ -71,8 +71,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 他人のウェブサイトの図や絵をREADMEに勝手に転用
     * きれいな図や絵を作るのは結構時間がかかる$\rightarrow$タダ乗り
-        * やっちゃった本人は「引用」と言うけど、それは盗用
-    * GitHubでコレをやるといろいろまずいので、上田やTAが盗用元を探し当てて事前に検挙するなど、多大な負担とストレス<br />　
+        * やっちゃった本人は「引用」と言うけど，それは盗用
+    * GitHubでコレをやるといろいろまずいので，上田やTAが盗用元を探し当てて事前に検挙するなど，多大な負担とストレス<br />　
 * 転載しても大丈夫な場合がある
     * 著作権に詳しくなりましょう
 
@@ -87,10 +87,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 補足（多い）
         * 実は書いていなくても権利は守られるが最低でも自分の名前は記述
             * <span style="color:red">ベルヌ条約</span>
-            * 「Copyright: 2022 Ryuichi Ueda, all right reserved」等、多少違って書いても大丈夫
-        * コードのように手を入れるものの公開年は、2020-2022などと範囲指定
+            * 「Copyright: 2022 Ryuichi Ueda, all right reserved」等，多少違って書いても大丈夫
+        * コードのように手を入れるものの公開年は，2020-2022などと範囲指定
 
-大切なこと: いつ、誰が作ったものかを明記！
+大切なこと: いつ，誰が作ったものかを明記！
 
 ---
 
@@ -100,7 +100,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 注意
     * この程度のコードには著作権は発生しないかもしれない
-    * 上田が書いたコードを写しているので、本来は上田の名前にすべきかもしれないが、ここではみなさんの著作物とします。
+    * 上田が書いたコードを写しているので，本来は上田の名前にすべきかもしれないが，ここではみなさんの著作物とします．
 
 
 ---
@@ -108,8 +108,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### 作業: コードに著作権表示
 
 * `plus_stdin`の冒頭に公開年と名前を表記
-    * ふたつの例を挙げますが、<span style="color:red">例2</span>をやってください
-        * 例1（先頭の`#`はコメントアウト記号。C/C++なら`\\`等書き換え）
+    * ふたつの例を挙げますが，<span style="color:red">例2</span>をやってください
+        * 例1（先頭の`#`はコメントアウト記号．C/C++なら`\\`等書き換え）
         ```python
         #!/usr/bin/python3
         # © 2022 Ryuichi Ueda
@@ -137,8 +137,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * ソフトウェアライセンスなどの書き方を統一するプロジェクト
         * ソフトウェアライセンスについては後半で<br />　
 * [SPDX file tags](https://spdx.github.io/spdx-spec/file-tags/)
-    * 前ページ例2のように、ファイルの権利関係などを記述するためのタグ（目印）
-        * 以前は、コードを書いたら権利について10行くらいコメントを書いていたが、それを大幅に省略
+    * 前ページ例2のように，ファイルの権利関係などを記述するためのタグ（目印）
+        * 以前は，コードを書いたら権利について10行くらいコメントを書いていたが，それを大幅に省略
     * 積極的に使わせてもらいましょう
 
 
@@ -147,13 +147,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 2. ソフトウェアライセンス
 
 * ライセンス: 利用許諾
-    * 書いたソフトウェアを「利用」してもらうときに、著作者が発行
+    * 書いたソフトウェアを「利用」してもらうときに，著作者が発行
     * 利用: コードやコンパイルされたバイナリを<br />製品や他のリポジトリに加える行為
         * 人の作ったものの一部を「自分のもの」の一部として第三者に提供すること
         * 個人的にダウンロードして使うのは「使用」なので「利用」ではない
-    * コードを公開する場合や公開されているものを利用する場合、詳しくなっておくとよい
+    * コードを公開する場合や公開されているものを利用する場合，詳しくなっておくとよい
 
-<span style="font-size:50%">でもなんで我々、GitHubにコードを公開してるんだろ？</span>
+<span style="font-size:50%">でもなんで我々，GitHubにコードを公開してるんだろ？</span>
 
 ---
 
@@ -165,7 +165,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 公開されているコードに自分のコードを組み込んでもらいたい
         * 例: 自分の会社のコードをLinuxに取り込んでもらえるとメリット
     * スクリプト言語は人に使ってもらうとコードを隠せない
-    * 自分の作品を作ったら見せたい、使ってもらいたい
+    * 自分の作品を作ったら見せたい，使ってもらいたい
         * ソフトウェアはたくさんコピーされて使われるものほど高価値
 
 ---
@@ -176,7 +176,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 著作権と両立できるだろうか？
     * 著作権 = copyright = コピーの権利（著作権者に帰属）<br />　
 * ある逸話
-    * プリンタドライバの作者が、自由に使ってもらうために<br />著作権を放棄
+    * プリンタドライバの作者が，自由に使ってもらうために<br />著作権を放棄
     * プリンタ会社がそれを拾って著作権を主張
 
 これをやられると作者も使えなくなる
@@ -185,12 +185,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ### ソフトウェアライセンスの役割
 
-* <span style="color:red">著作権を手元に残したまま</span>、第三者にコードやバイナリを提供<br />　
+* <span style="color:red">著作権を手元に残したまま</span>，第三者にコードやバイナリを提供<br />　
 * 大きく分けて2種類
     * 利用を原則禁止にして使用させるもの
         * 例: Microsoft Windowsなどの商用ソフトウェア
     * <span style="color:red">利用を許可（促進）するもの</span>
-        * フリーソフトウェア、オープンソースと呼ばれるソフトウェア
+        * フリーソフトウェア，オープンソースと呼ばれるソフトウェア
 
 以後は後者の話
 
@@ -199,15 +199,15 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### フリーソフトウェア/オープンソースの<br />ライセンスの仕組み
 
 * 統一的なものがいくつか存在
-    * GNU一般公衆ライセンス（GPL）、BSD license、<br />MIT license、Apache license・・・
+    * GNU一般公衆ライセンス（GPL），BSD license，<br />MIT license，Apache license・・・
     * どれかを選んで自分のソフトウェアに適用するのが基本
-    * 自作でもよいが、完璧に書いて人に理解してもらうのは困難<br />　
+    * 自作でもよいが，完璧に書いて人に理解してもらうのは困難<br />　
 * ライセンスの基本的な役割
     1. 免責（「利用は自己責任で」という文言）
     2. 著作者に権利を残す
     3. 利用を促進する仕組み
-    4. 盗用、タダ乗りを防止
-        * ライセンスの違いは、4の厳しさの度合い
+    4. 盗用，タダ乗りを防止
+        * ライセンスの違いは，4の厳しさの度合い
 
 ---
 
@@ -215,9 +215,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 大雑把な説明
     * 「コピーレフト」の考え方をライセンスにしたもの
-        * 著作物の自由な利用、改変、再配布を妨げない
-    * GPLで利用許諾を受けたコードやバイナリの再配布$\rightarrow$GPLを適用し、コードを公開する義務
-        * そうしないと「自由な利用、改変、再配布」を妨げる<br />　
+        * 著作物の自由な利用，改変，再配布を妨げない
+    * GPLで利用許諾を受けたコードやバイナリの再配布$\rightarrow$GPLを適用し，コードを公開する義務
+        * そうしないと「自由な利用，改変，再配布」を妨げる<br />　
 * どうなるか
     * ちょっとでもGPL適用のコードやバイナリが再配布物に存在<br /><span style="color:red">$\rightarrow$全体もGPL</span>
         * GPLのものを利用して作ったものなので
@@ -232,26 +232,26 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 特徴
     * 再配布の際にコードは公開しなくてよい
         * GPLのように「秘密無く全部公開」にはならない
-    * 代わりに、いくつかの事項を義務付け
+    * 代わりに，いくつかの事項を義務付け
     * 項目数によっていくつか種類が存在
         * 参考: [オープンソースライセンスの日本語参考訳](https://licenses.opensource.jp/) by オープンソース・グループ・ジャパン（CC-BY 4.0）
-        * 3条項BSDライセンス、3条項BSDライセンス、4条項BSDライセンス
+        * 3条項BSDライセンス，3条項BSDライセンス，4条項BSDライセンス
 
 ---
 
-### GPL、BSDライセンスの<br />代表的なソフトウェア
+### GPL，BSDライセンスの<br />代表的なソフトウェア
 
 * GPL
-    * <span style="color:red">Linux</span>（カーネル、主要なコマンド、デバイスドライバ）
+    * <span style="color:red">Linux</span>（カーネル，主要なコマンド，デバイスドライバ）
         * 主要なコマンドは別のプロジェクトから持ってきたGPLのもの
         * デバイスドライバのコードが読めないとデバッグに支障<br />　
 * BSD
-    * BSD系のUnix、<span style="color:red">ROS</span>
+    * BSD系のUnix，<span style="color:red">ROS</span>
         * BSD系のUnixにはGPLのコマンドは原則同梱されない
         * 企業は使いやすい（「GPLだと使いにくい」と言うと語弊があるが）<br />　
-* 似たソフトウェアでも、ライセンスで普及の戦略が変化
+* 似たソフトウェアでも，ライセンスで普及の戦略が変化
     * GPL: 全員でコードをシェアして便利に
-    * BSD系のライセンス: 著作者の名誉を守り、企業も使いやすく
+    * BSD系のライセンス: 著作者の名誉を守り，企業も使いやすく
 
 ---
 
@@ -270,11 +270,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * ライセンスの条項を書いたファイルの設置
     * GPLのグループと他では少し違う<br />　
-* GPL 3.0（や、他のGPL）の場合
+* GPL 3.0（や，他のGPL）の場合
     * https://www.gnu.org/licenses/gpl-3.0.txt にあるテキストをそのまま`COPYING`というファイルに保存
         1. `curl https://www.gnu.org/licenses/gpl-3.0.txt > COPYING`
         2. 特に理由がなければ`COPYING`をリポジトリの一番上に置く<br />　
-* 3条項BSD（や、他のBSD、多くのライセンス）の場合
+* 3条項BSD（や，他のBSD，多くのライセンス）の場合
     * https://opensource.org/licenses/BSD-3-Clause の「`Copyright ... SUCH DAMAGE.`」の部分を`LICENSE`に保存
     * `LICENSE`の`Copyright <YEAR> <COPYRIGHT HOLDER>`を書き換え
         * 自分の名義に
@@ -307,17 +307,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### `README`への記述
 
 * 下の方に明快に（特に決まった書式はない）
-    * 最低限、次のように書いておくとよいでしょう。
+    * 最低限，次のように書いておくとよいでしょう．
         ```python
-        * このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+        * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
         * © 2022 Ryuichi Ueda
         ```
-* 利用しているライブラリやコード、<br />ドキュメントの著作権のリストも記述
-    * ライセンスに縛られてなくても、書いておくのがよいでしょう
+* 利用しているライブラリやコード，<br />ドキュメントの著作権のリストも記述
+    * ライセンスに縛られてなくても，書いておくのがよいでしょう
         ```python
-        * このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
-        * このパッケージは、aaa由来のコード（© 2022 Hoge Fuge）を利用しています。
-        * このパッケージのコードは、下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを、本人の許可を得て自身の著作としたものです。
+        * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
+        * このパッケージは，aaa由来のコード（© 2022 Hoge Fuge）を利用しています．
+        * このパッケージのコードは，下記のスライド（CC-BY-SA 4.0 by Ryuichi Ueda）のものを，本人の許可を得て自身の著作としたものです．
             * [ryuichiueda/my_slides robosys_2022](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2022)
         * © 2022 Ryuichi Ueda
         ```
@@ -328,22 +328,22 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## まとめ1
 
-著作権、ライセンスについて学習、練習した。
+著作権，ライセンスについて学習，練習した．
 
-* ややこしいが、自分を含めて作った人を守る仕組みと考えると理解可能<br />　
-* 何かの製作の際、他人の権利を侵害するかもしれないと思ったら、まず周囲や先生に相談
+* ややこしいが，自分を含めて作った人を守る仕組みと考えると理解可能<br />　
+* 何かの製作の際，他人の権利を侵害するかもしれないと思ったら，まず周囲や先生に相談
     * 正しく怖がる
 
 ---
 
 ## まとめ2
 
-* ルールを理解し、遵守すれば、利用できる素材は多い
-    * むしろ積極利用して、<span style="color:red">より良いもの</span>の作成を<br />　
-* レポートや課題についても、他者のものを利用可能
-    * 引用や、著作権・ライセンスの問題をクリアしたものを流用することで高度な文章、製作物ができる。
-    * ただし、評価の対象は自身の<span style="color:red">コントリビューション</span>
+* ルールを理解し，遵守すれば，利用できる素材は多い
+    * むしろ積極利用して，<span style="color:red">より良いもの</span>の作成を<br />　
+* レポートや課題についても，他者のものを利用可能
+    * 引用や，著作権・ライセンスの問題をクリアしたものを流用することで高度な文章，製作物ができる．
+    * ただし，評価の対象は自身の<span style="color:red">コントリビューション</span>
         * コントリビューション（貢献）: 自分自身で作った「より良い」なにか
-        * 自身のコントリビューションは何か、既存のものと区別して明記しないと0点になるので高難易度
+        * 自身のコントリビューションは何か，既存のものと区別して明記しないと0点になるので高難易度
 
-研究室で論文を書くときにも訓練します。
+研究室で論文を書くときにも訓練します．
