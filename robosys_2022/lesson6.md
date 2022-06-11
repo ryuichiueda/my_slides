@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第6回: 
+## 第6回: ソフトウェアのテスト
 
 千葉工業大学 上田 隆一
 
@@ -14,70 +14,57 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 標準エラー出力
+## 今日やること
 
-* コマンドにはパイプやリダイレクトで渡したくない出力も存在
-    * エラーの際のメッセージなど
-    * 例: `plus_stdin`に文字を入力してみる
-    ```bash
-    $ echo あ | ./plus_stdin 
-    Traceback (most recent call last):
-      File "./plus_stdin", line 6, in <module>
-        ans += float(line)
-    ValueError: could not convert string to float: 'あ\n'
-    $ echo あ | ./plus_stdin > ans
-    ### もしこれでエラーがansに入ったらエラーに気づかない ###
-    ```
-        * 実際はちゃんと画面にエラーが出てくる<br />　
-* ちゃんとしたコマンドはエラーを<span style="color:red">標準エラー出力</span>に出す
-    * 標準出力とは別の出口
+* コマンドの終了ステータス
+* シェルの変数
+* 簡単なシェルスクリプト
+* 初歩的なテスト
 
 ---
 
-## <span style="text-transform:none">Python</span>でのエラーの表示
-
-* 要点
-    * なにもしなくてもエラーのメッセージは出てくる
-        * 読んでますか？
-    * エラーは<span style="color:red">`try`</span>で捕まえ、<span style="color:red">`except`</span>で対処
-    * 標準エラー出力には、「ファイル」<span style="color:red">`sys.stderr`</span>に出力
-* 例（`plus_err`）
-    ```python
-    #!/usr/bin/python3
-    import sys               #注意1: 空行を詰めてます
-    ans = 0.0                #注意2: このコードには少し問題がある
-    for line in sys.stdin:
-        try:
-            ans += float(line)
-        except:                          #stderr: standard errorのこと
-            print("数字への変換失敗（不正な入力）", file=sys.stderr)
-    print(ans)
-    ```
-    * 実行例は下に
-
->>>
-
-* 正常な入力の場合
-    ```bash
-    $ echo 1 2 3 | tr ' ' '\n' | ./plus_err
-    6.0
-    ```
-* 数字ではない入力の場合　　　　　　　　　　　
-    ```bash
-    $ echo あ | ./plus_err 
-    数字への変換失敗（不正な入力）
-    0.0
-    $ echo あ | ./plus_err > ans    #標準出力をファイルへ
-    数字への変換失敗（不正な入力）  #標準エラー出力はファイルに入らない
-    $ echo あ | ./plus_err 2> error  #標準エラー出力をファイルに書き出し
-    0.0
-    $ echo あ | ./plus_err &> error  #出力すべてをファイルに書き出し
-    ```
-    * <span style="color:red">`2>`</span>: 標準エラー出力のリダイレクト
-    * <span style="color:red">`&>`</span>: 標準出力とエラー出力のリダイレクト
-
+## 1. コマンドの終了ステータス
 
 ---
 
-## エラーによる終了と<br />終了ステータス
+### コマンドの正常終了・異常終了
+
+* コマンドは人に対してだけでなく、<br />シェルにエラーの有無を伝達
+    * <span style="color:red">終了ステータス</span>と呼ばれる整数値で
+* シェルはコマンドの終了ステータスを記録
+    * <span style="color:red">`$?`</span>という変数に
+    * 例: `ls`の出力
+        ```
+$ ls /etc/passwd   # 存在するファイルをls
+/etc/passwd
+$ echo $?
+0                  # $?という変数にゼロが入っている。
+$ ls aaaaaaaa      # 存在しないファイルをls
+ls: 'aaaaaaaa' にアクセスできません: そのようなファイルやディレクトリはありません
+$ echo $?
+2                  # ゼロでない値が入る。
+        ```
+
+---
+
+### `plus_stdin`の終了ステータス
+
+* これまで書いてきた`plus_stdin`も終了ステータスを<br />シェルに伝達
+    * Pythonが裏でやっているので、任せておいて問題ない
+    ```
+$ seq 3 | ./plus_stdin    # 正常な入力
+6
+$ echo $?
+0
+$ echo あ | ./plus_stdin  # ひらがなを入力してエラーを起こさせる
+（エラーの表示。省略。）
+$ echo $?
+1
+    ```
+
+なんのために終了ステータスがあるか: あとで説明
+
+---
+
+## 2. シェルの変数
 
