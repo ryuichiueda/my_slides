@@ -334,6 +334,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * if文の書き方
     * 標準入出力でコマンドを連携（ROSに通ずる考え方）<br />　
 * 重要語句
-    * モジュール、sysモジュール、float関数、リスト内包表記、リダイレクト、標準出力、`sys.stdin`、`sys.stdout`、パイプ、標準エラー出力
+    * モジュール、sysモジュール、float関数、リスト内包表記、if文、リダイレクト、標準出力、標準入力、`sys.stdin`、パイプ、標準エラー出力
 * コマンドや記号
     * `>`、`<`、`2>`、`seq`、`|`、`tr`
