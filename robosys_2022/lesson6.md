@@ -178,6 +178,17 @@ $ echo $?
 
 ---
 
+### 実行結果
+
+```bash
+$ ./yamada.bash
+10行目が違うよ
+$ echo $?
+1
+```
+
+---
+
 ## 6. 初歩的なテスト
 
 やっと本題
@@ -275,19 +286,42 @@ $ echo $?
 
 ---
 
-### 人間にも成否が分かるように改良
+### さらなる改良
 
 
-* とりあえず14にしておいて動作確認
+* 改良点
+    * 人間にも成否が分かるように/テスト項目を追加可能に
+* さきほど習得した関数を利用
+    * 前回学んだ著作権やライセンスの設定も
     ```bash
     #!/bin/bash
+    # SPDX-FileCopyrightText: 2022 Ryuichi Ueda
+    # SPDX-License-Identifier: BSD-3-Clause
     
-    ng () {                   #関数は
+    ng () {
     	echo NG at Line $1
-    	exit 1
+    	res=1
     }
     
-    out=$(seq 5 | ./plus)
+    res=0
     
+    ### I/O TEST ###
+    out=$(seq 5 | ./plus)
     [ "${out}" = 14 ] || ng ${LINENO}
+    
+    exit $res
     ```
+
+---
+
+
+### 動作確認
+
+* 失敗した行と終了ステータスを確認
+    ```bash
+    ./test.bash
+    NG at Line 12
+    $ echo $?
+    1
+    ```
+    * 動作確認したらテストコマンドで比較する数を`15`に戻しておく
