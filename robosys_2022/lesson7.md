@@ -56,12 +56,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 抜け目のないテストにより
   * デバッグやリリースの際の手間の削減が可能
   * 「動いているシステムは怖くていじれない」からの脱却
-    * 「継続的インテグレーション」「継続的デリバリー」<br />「継続的デプロイ」<br />　
+    * 「継続的インテグレーション（CI）」「継続的デリバリー（CD）」<br />「継続的デプロイ」
+    * CircleCIやTravis CIのサービス（<span style="color:red">CI/CDサービス</span>）のテスト機能: CIやCDを実現するためのもの<br />　
 * <span style="color:red">「自動」でテストできることがキモ</span>
-  * 自動化の仕組み: テストの終了ステータスが0なら<br />自動化のプログラムを起動
+  * 自動化の仕組み: テストの終了ステータスが0<br />$\rightarrow$自動化のプログラムを起動
 
 ---
 
 ### <span style="text-transform:none">GitHub Actions</span>
 
 * GitHubのCI/CDサービス
+  * CircleCIやTravis CIより後発だが、GitHubにくっついていて使いやすいため、この講義で利用
