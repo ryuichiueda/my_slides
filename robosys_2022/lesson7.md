@@ -34,12 +34,18 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-### CI/CDサービス
+### テストのできるウェブサービス
 
-* CI: continuous integration、継続的インテグレーション
-  * 常に
-* CD: continuous delivery、継続的デリバリー
-
+* そういうものが存在
+  * [CircleCI](https://circleci.com/ja/)
+  * [Travis CI](https://www.travis-ci.com/)
+  * ・・・<br />　
+* 基本的な動作
+  1. GitHub等にpushされたコードをテスト
+    * GitHub等のページに結果が表示されるように手配
+  2. テストが通ったらコードをビルド
+    * リリースしてユーザーが利用可能に
+    * あるいは<span style="color:red">動いている本番のシステムに反映</span>
 
 ---
 
