@@ -100,3 +100,11 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
           - name: All test             #このジョブの名前
             run: bash -xv ./test.bash  #テストのシェルスクリプトを走らせる
     ```
+
+---
+
+### 動作確認
+
+* pushすると次のように黄色い丸の表示
+<img src="./figs/guthub_actions_running.png" width="50%" />
+
