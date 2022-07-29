@@ -68,9 +68,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * GitHubのCI/CDサービス
   * CircleCIやTravis CIより後発だが、GitHubにくっついていて使いやすいため、この講義で利用
   * テストをするときの使い方
-    * リポジトリに`.github/workflows`というデイレクトリを作成
-    * その中に$\circ\circ$`.yml`というファイルを作り、テストの手続きを記述
+    * リポジトリに`.github/workflows`というディレクトリを作成
+    * その中に$\circ\circ$`.yml`というファイル（ワークフローファイル）を作成
       * とりあえず`test.yml`で
+    * テストの手続きを記述（次ページ）
  ```bash
 $ mkdir .github    #robosys2022のリポジトリのトップディレクトリで
 $ cd .github/      #.githubディレクトリは隠れディレクトリになるので注意（lsで出てこない。ls -aで出る。）
