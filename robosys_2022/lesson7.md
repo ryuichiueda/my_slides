@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第7回: GitHubでのテスト
+## 第7回: <span style="text-transform:none">GitHub</span>でのテスト
 
 千葉工業大学 上田 隆一
 
@@ -89,6 +89,7 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
     * データをテキストファイルに記述したりやりとりしたりするときに使われる形式でROSでもよく用いられる。
     * インデントは半角空白2つが基本
       * 下のレベルのものが子のデータに。「`-`」は配列の要素。
+
     ```yaml
       name: test        #name: ワークフローの名前
       on: push          #on: いつこのワークフローを走らせるか
@@ -103,8 +104,27 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
 
 ---
 
-### 動作確認
+### <span style="text-transform:none">push</span>$\rightarrow$ワークフローの自動実行
 
-* pushすると次のように黄色い丸の表示
-<img src="./figs/guthub_actions_running.png" width="50%" />
+* リポジトリのページに小さな記号
+  * <span style="color:orange">$\bullet$</span>: 実行中、<span style="color:green">$\checkmark$</span>: テスト成功、<span style="color:red">$\times$</span>: テスト失敗<br />
+<img src="./figs/github_actions_running.png" width="55%" />
+* 記号を左クリックすると小窓が出現
+  * 「Details」を押してみましょう。<br />
+<img src="./figs/github_actions_ok.png" width="60%" />
+
+---
+
+### ワークフローのログ確認
+
+* Detailsを押すと行われた処理のシェルの出力が閲覧可能
+  * 「All test」をクリックすると`test.bash`のログ
+<img src="./figs/testlog.png" width="60%" />
+* 全項目の終了ステータスが0なら<span style="color:green">$\checkmark$</span>の表示
+
+---
+
+### 発展: 複数のPythonのバージョンを試す
+
+
 
