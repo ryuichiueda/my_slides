@@ -88,6 +88,7 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
   * YAML（YAML Ain't a Markup Language.）形式
     * データをテキストファイルに記述したりやりとりしたりするときに使われる形式でROSでもよく用いられる。
     * インデントは半角空白2つが基本
+      * 下のレベルのものが子のデータに。「`-`」は配列の要素。
     ```yaml
       name: test        #name: ワークフローの名前
       on: push          #on: いつこのワークフローを走らせるか
