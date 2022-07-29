@@ -24,7 +24,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 前回体験
   * 自分で使うソフトウェアならこれくらいで十分<br />　
-* もっといろんな人に使われる/使ってもらいたい場合は？
+* 仕事や人の使うソフトウェアの場合は？
   * 様々な環境に対応する必要性
     * Pythonのバージョン
     * Linuxだけじゃなく、他のOSは？
@@ -67,3 +67,19 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * GitHubのCI/CDサービス
   * CircleCIやTravis CIより後発だが、GitHubにくっついていて使いやすいため、この講義で利用
+  * テストをするときの使い方
+    * リポジトリに`.github/workflows`というデイレクトリを作成
+    * その中に$\circ\circ$`.yml`というファイルを作り、テストの手続きを記述
+      * とりあえず`test.yml`で
+ ```bash
+$ mkdir .github    #robosys2022のリポジトリのトップディレクトリで
+$ cd .github/      #.githubディレクトリは隠れディレクトリになるので注意（lsで出てこない。ls -aで出る。）
+$ mkdir workflows
+$ cd workflows/
+$ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができているとOK
+ ```
+
+---
+
+### テストの手続きの記述
+
