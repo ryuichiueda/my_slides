@@ -16,7 +16,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* GitHub Actions
+* 1. GitHub Actions
+* 2. READMEの整備
+
+---
+
+## 1. <span style="text-transform:none">GitHub Actions</span>
 
 ---
 
@@ -35,7 +40,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-### テストの（も）できるウェブサービス
+### テストが（も）できるウェブサービス
 
 * そういうものが存在
   * [CircleCI](https://circleci.com/ja/)
@@ -86,7 +91,8 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
 
 * 下の例のように記述
   * YAML（YAML Ain't a Markup Language.）形式
-    * データをテキストファイルに記述したりやりとりしたりするときに使われる形式でROSでもよく用いられる。
+    * データをテキストファイルに記述するときに使われる形式のひとつ
+      * ROSでも随所に利用される。
     * インデントは半角空白2つが基本
       * 下のレベルのものが子のデータに。「`-`」は配列の要素。
 
@@ -124,7 +130,95 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
 
 ---
 
-### 発展: 複数のPythonのバージョンを試す
+### 複数バージョンの<span style="text-transform:none">Python</span>を試す
+
+* ジョブに`strategy/matrix/python-version`を追加
+  ```yaml
+  ・・・
+  jobs:
+    test:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          python-version: ["3.7", "3.8", "3.9", "3.10"]
+      steps:
+        ・・・
+  ```
+  * 実行してみると、全バージョンに対してテストが走る
+<img src="./figs/multi_version.png" width="45%" />
+
+---
+
+## 2. READMEの整備
+
+* README: このソフトを使ってもらうときに最初に読んでもらうドキュメント
+  * 練習リポジトリの中ある`README.md`がソレ
+  ```markdown
+  # robosys2022
+  ロボットシステム学の練習リポジトリ
+  ```
+    * Markdownという形式で記述
+  * GitHubだとこのように表示される<br /><img src="./figs/readme_md.png" width="70%" />
+    * 今のところ不親切
 
 
+---
 
+### READMEに書くこと
+
+* 全て書く必要はないが、ユーザが困らないように（[例](https://github.com/ryuichiueda/GlueLang)）
+  * 何をするためのソフトか
+  * 使い方
+    * ダウンロード、インストール、起動する手順、簡単な使い方
+  * どんな環境で使えるか
+    * OS/Pythonのバージョン/他に必要なソフトウェアやライブラリ
+  * テストの結果（後述）
+  * 権利関係・謝辞
+    * 著作権、ライセンス（利用しているソフトウェアについても）
+    * 手伝ってくれた人のリストと手伝いの中身
+  * その他必要なこと
+
+---
+
+### テスト結果やテストに対する記述
+
+
+* README.mdの例
+  ```md
+  # plusコマンド
+  ![test](https://github.com/ryuichiueda/robosys2022/actions/workflows/test.yml/badge.svg)
+  ↑ テスト結果を反映したバッジの画像が埋め込まれる。（ryuichiueda等は各自変更を。）
+  
+  標準入力から読み込んだ数字を足す。
+  
+  （ここに前ページの項目をいろいろ書く）
+  
+  ## 必要なソフトウェア
+  * Python
+    * テスト済み: 3.7〜3.10
+
+  ## テスト環境
+  * Ubuntu
+
+  © 2022 Ryuichi Ueda
+  ```
+
+---
+
+### <span style="text-transform:none">GitHub</span>上での表示
+
+<img src="./figs/readme_with_badge.png" width="70%" />
+
+
+---
+
+## まとめ
+
+* GitHub Actions
+  * pushしたときに自動でテスト$\rightarrow$結果を表示
+    * ユーザに状況を伝達
+  * 終了ステータスを利用
+    * 最新のサービスでも基本的な仕組みに依存<br />　
+* READMEの整備
+  * リポジトリのソフトを安心して広く使ってもらうために必須
+  * ある程度フォーマットは決まっているものの、<br />ユーザへの気配り重視で記述しましょう。
