@@ -343,7 +343,7 @@ setup(
         * [クラスなしで記述する方法](https://qiita.com/l1sum/items/b7393c34fb0127826f74)
 * `~/ros2_ws/src/mypkg/mypkg`に`talker.py`を書く
   * コードの前半
-    * オブジェクト: 今は様々な機能を持つ変数と考える。
+    * オブジェクト: 今のところは様々な機能を持つ変数と考えて良い
   ```python
     1 import rclpy                     #ROS2のクライアントのためのライブラリ
     2 from rclpy.node import Node      #ノードを実装するためのNodeクラス（クラスは第10回で）
@@ -360,18 +360,18 @@ setup(
 >>>
 
 * コードの後半
-
-```python
- 10 def cb():          #17行目で定期実行されるコールバック関数
- 11     global n       #関数を抜けてもnがリセットされないようにしている
- 12     msg = Int16()  #メッセージの「オブジェクト」
- 13     msg.data = n
- 14     pub.publish(msg)
- 15     n += 1
- 16
- 17 node.create_timer(0.5, cb)  #タイマー設定
- 18 rclpy.spin(node)            #実行（無限ループ）
-```
+    * Pythonでは「変数」、「代入」という言葉を使わないが、今は仮に使用
+    ```python
+     10 def cb():          #17行目で定期実行されるコールバック関数
+     11     global n       #関数を抜けてもnがリセットされないようにしている
+     12     msg = Int16()  #メッセージの「オブジェクト」
+     13     msg.data = n   #msgオブジェクトがdataという変数を持っているのでそこにnを代入
+     14     pub.publish(msg)        #メッセージ送信
+     15     n += 1
+     16
+     17 node.create_timer(0.5, cb)  #タイマー設定
+     18 rclpy.spin(node)            #実行（無限ループ）
+  ```
 
 ---
 
@@ -381,7 +381,7 @@ setup(
     * `package.xml`に利用するモジュールを登録
 ```
 ・・・
-  <license>BSD</license>
+  <license>BSD-3-Clause</license>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 ・・・
@@ -431,7 +431,7 @@ data: 14
 
 ---
 
-### サブスクライバの記述
+### サブスクライバを持つノードの記述
 
 * これはクラスを使って作ってみましょう（`listener.py`）
 ```python
