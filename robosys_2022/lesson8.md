@@ -143,15 +143,16 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ## 動作確認
 
-* パブリッシャを持つサンプルノードの起動
-```bash
-端末1$ ros2 run demo_nodes_py talker
-・・・
-[INFO] [talker]: Publishing: "Hello World: 61"
-[INFO] [talker]: Publishing: "Hello World: 62"
-・・・
-```
-* リスナーを持つサンプルノードの起動
+* ひとつプログラムを立ち上げ
+  ```bash
+  端末1$ ros2 run demo_nodes_py talker
+  ・・・
+  [INFO] [talker]: Publishing: "Hello World: 61"
+  [INFO] [talker]: Publishing: "Hello World: 62"
+  ・・・
+  ```
+  * 「"Hello World: 数字"を発行」と言っている
+* もうひとつプログラムを立ち上げ
 ```bash
 端末2$ ros2 run demo_nodes_py listener
 ・・・
@@ -159,8 +160,22 @@ ros2 is an extensible command-line tool for ROS 2.
 [INFO] [listener]: I heard: [Hello World: 56]
 ・・・
 ```
+  * 「"Hello World: 数字"を聞いた」と言っている
 
 で、これは何をしているのか？
+
+---
+
+## ROSの通信
+
+* 基本1: プログラムのことを「ノードと呼ぶ」
+* 基本2: ノードは互いに通信する<br />　
+* これで何ができるか？
+  * ロボットの各機能を別のプログラムとして実装できる
+    * 例1: 画像処理のプログラムとナビゲーションのプログラムの連携
+      * 画像処理のプログラムは独立したソフトウェアとして公開可能
+    * 例2: レーザースキャナをA社からB社に交換
+      * A社とB社が同じ出力をするノードを作っていると、交換が容易
 
 ---
 
