@@ -179,6 +179,20 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
+## 通信の様子
+
+* 別々の端末で3つのプログラムを実行
+  * GUIのツールを使える人だけ
+    ```bash
+    端末1$ ros2 run demo_nodes_py talker
+    端末2$ ros2 run demo_nodes_py listener
+    端末3$ ros2 run rqt_graph rqt_graph
+    ```
+
+<img src="./figs/rqt_graph.png" width="50%" />
+
+---
+
 ## ROS2のパッケージを作る
 
 Pythonのものを作ってみましょう（[参考](https://index.ros.org/doc/ros2/Tutorials/Developing-a-ROS-2-Package/#python-packages)）
