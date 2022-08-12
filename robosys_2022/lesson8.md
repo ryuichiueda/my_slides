@@ -190,8 +190,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ### ROSの通信の基本
 
-* 別々の端末で3つのプログラムを実行
-  * GUIのツールを使える人だけ
+* GUIツールで構造を確認（使える環境の人だけ）
     ```bash
     端末1$ ros2 run demo_nodes_py talker
     端末2$ ros2 run demo_nodes_py listener
@@ -199,11 +198,12 @@ ros2 is an extensible command-line tool for ROS 2.
     ```
     <img src="./figs/rqt_graph_s.png" width="50%" />
 * ノード（楕円）がデータの流路（矢印）で連結
-  * `/chatter`: 流路の名前で「トピック」と呼ばれる
-  * ノードから出る矢印: 「パブリッシャ」
-  * ノードに入る矢印: 「リスナー」
+  * `/chatter`: 流路の名前で「<span style="color:red">トピック</span>」と呼ばれる
+    * 流れるデータは「<span style="color:red">メッセージ</span>」
+  * ノードから出る矢印: 「<span style="color:red">パブリッシャ</span>」
+  * ノードに入る矢印: 「<span style="color:red">リスナー</span>」
 * ノードはいくつもパブリッシャとリスナーを持てる
-* <span style="color:red">トピックは型を持つ</span>
+* <span style="color:red">メッセージは型を持つ</span>
 
 ---
 
@@ -336,24 +336,25 @@ setup(
 
 ### パブリッシャを持つノードの作成
 
-* ミニマムなものを書いてみる
-    * スクリプトの置き場は`~/ros2_ws/src/mypkg/mypkg`
+* 機能: ランダムな数字をトピック`/countup`を通じて送信
+  * メッセージの型は16ビット符号つき整数
     * 参考にしたページ
         * [パブリッシャの書き方](https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber/#write-the-publisher-node)
         * [クラスなしで記述する方法](https://qiita.com/l1sum/items/b7393c34fb0127826f74)
-* コードの前半（`talker.py`）
-
-```python
-  1 import rclpy
-  2 from rclpy.node import Node
-  3 from std_msgs.msg import Int16   #通信の型（16ビットの符号付き整数）
-  4
-  5 rclpy.init()
-  6 node = Node("talker")                               #ノード作成
-  7 pub = node.create_publisher(Int16, "countup", 10)   #パブリッシャ作成
-  8 n = 0 #カウント用変数
-  9
-```
+* `~/ros2_ws/src/mypkg/mypkg`に`talker.py`を書く
+  * コードの前半
+    * オブジェクト: 今は様々な機能を持つ変数と考える。
+  ```python
+    1 import rclpy                     #ROS2のクライアントのためのライブラリ
+    2 from rclpy.node import Node      #ノードを実装するためのNodeクラス（クラスは第10回で）
+    3 from std_msgs.msg import Int16   #通信の型（16ビットの符号付き整数）
+    4
+    5 rclpy.init()
+    6 node = Node("talker")            #ノード作成（nodeという「オブジェクト」を作成）
+    7 pub = node.create_publisher(Int16, "countup", 10)   #パブリッシャのオブジェクト作成
+    8 n = 0 #カウント用変数
+    9
+  ```
 （下に続く）
 
 >>>
@@ -361,9 +362,9 @@ setup(
 * コードの後半
 
 ```python
- 10 def cb():                  #定期的に呼ぶコールバック関数
- 11     global n
- 12     msg = Int16()
+ 10 def cb():          #17行目で定期実行されるコールバック関数
+ 11     global n       #関数を抜けてもnがリセットされないようにしている
+ 12     msg = Int16()  #メッセージの「オブジェクト」
  13     msg.data = n
  14     pub.publish(msg)
  15     n += 1
