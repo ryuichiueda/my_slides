@@ -193,7 +193,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
-## ROS2のパッケージを作る
+## ROS2のノードを作成
 
 Pythonのものを作ってみましょう（[参考](https://index.ros.org/doc/ros2/Tutorials/Developing-a-ROS-2-Package/#python-packages)）
 
@@ -211,6 +211,7 @@ Pythonのものを作ってみましょう（[参考](https://index.ros.org/doc/
 
 ## ワークスペースの作成
 
+* ワークスペース: 作業場
 * とりあえずディレクトリを作るだけ
 
 ```bash
@@ -225,33 +226,33 @@ ros2_ws/
 
 ## 初期状態のパッケージを作る
 
-* 空のパッケージを一つ作る
+* パッケージ: ROSのプログラムの配布単位
+    * GitHubのリポジトリにほぼ相当
+    * なかにいくつかのノードのプログラムを入れる
     * `ros2 pkg create`を使う
-    * 下の例: mypkgというパッケージを作成
-
-```bash
-$ cd ~/ros2_ws/src/
-$ ros2 pkg create mypkg --build-type ament_python
-going to create a new package
-package name: mypkg
-・・・
-creating ./mypkg/test/test_pep257.py
-$ tree
-.
-└── mypkg
-    ├── mypkg
-    │   └── __init__.py
-    ├── package.xml
-    ├── resource
-    │   └── mypkg
-    ├── setup.cfg
-    ├── setup.py
-    └── test
-        ├── test_copyright.py
-        ├── test_flake8.py
-        └── test_pep257.py
-4 directories, 8 files
-```
+      * 下の例: mypkgというパッケージを作成
+        ```bash
+        $ cd ~/ros2_ws/src/
+        $ ros2 pkg create mypkg --build-type ament_python
+        going to create a new package
+        package name: mypkg
+        ・・・
+        $ tree
+        .
+        └── mypkg
+            ├── mypkg
+            │   └── __init__.py
+            ├── package.xml
+            ├── resource
+            │   └── mypkg
+            ├── setup.cfg
+            ├── setup.py
+            └── test
+                ├── test_copyright.py
+                ├── test_flake8.py
+                └── test_pep257.py
+        4 directories, 8 files
+        ```
 
 ---
 
