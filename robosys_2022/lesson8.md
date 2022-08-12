@@ -52,14 +52,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROS化されている<br />重要ソフトウェア
+## ROS化されている<br />重要なソフトウェア
+
+* 移動ロボットの制御ソフトウェア
   * gmapping, cartographer, ナビゲーションメタパッケージ
     * 地図生成（次のページにデモ）、位置推定、経路生成<br />　
+* マニピュレータのソフトウェア
   * MoveIt!
     * 腕の動作計画 腕先の位置を入力→関節角を計算（逆運動学）<br />　
-  * 各種センサのインタフェース
-    * すぐ使える
-    * 以前は（特にLinuxでは）自分でシリアル通信のプログラムを書くなどの苦労があった
+* 各種センサのインタフェース
+  * すぐ使える
+  * 以前は（特にLinuxでは）自分でシリアル通信のプログラムを書くなどの苦労があった
 
 ---
 
@@ -74,7 +77,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROSを使ったマニピュレーションの様子
+## ROSを使った<br />マニピュレーションの様子
 
 * https://twitter.com/i/status/1201399538541400064
   * 2年生有志作
@@ -83,29 +86,31 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
+## ROSのバージョン
 
-## ROS2
-
-* ROS（ROS1）の次のバージョン（互換性は基本なし）<br />　
-* なぜ開発されたか
-    * ROSが普及して使用される場面が増加<br />
-    $\rightarrow$当初想定していなかった場面も増加
-        * セキュリティー、製品化、シビアな通信環境、・・・
-
-アーキテクチャから作り直し
+* ROS1（もともとROSと呼ばれていたもの）
+  * オリジナルのROS
+  * 主に研究のフレームワークとして発達
+  * まだまだ使われる/研究室でも使う
+    * 習得は2021年までの講義資料でどうぞ（https://youtu.be/PL85Pw_zQH0 ）<br />　
+* ROS2（今回扱うもの）
+  * ROSが普及して、当初想定していなかった利用場面が増加
+    * セキュリティー、製品化、シビアな通信環境、・・・
+  * アーキテクチャから作り直し
+    * ROS1とは基本的に互換性なし
 
 ---
 
 ## ROS2のインストールの準備
 
 * ROS1がすでにインストールされている場合
-  * 方法1: 別のmicroSDカードを準備する
+  * 方法1: 別の環境を準備する
   * 方法2:
     * `.bashrc`から関係する記述をコメントアウト
     * ターミナルを出る
 
-```
-$ tail ~/.bashrc
+```bash
+$ vi ~/.bashrc
 （略）
 #source /opt/ros/noetic/setup.bash     ←ここから関係する設定をコメントアウト
 #source ~/catkin_ws/devel/setup.bash
@@ -138,8 +143,6 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ## 動作確認
 
-roscoreは不要
-
 * パブリッシャを持つサンプルノードの起動
 ```bash
 端末1$ ros2 run demo_nodes_py talker
@@ -156,6 +159,8 @@ roscoreは不要
 [INFO] [listener]: I heard: [Hello World: 56]
 ・・・
 ```
+
+で、これは何をしているのか？
 
 ---
 
