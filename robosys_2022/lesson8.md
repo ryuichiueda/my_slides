@@ -21,7 +21,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 3. ROSのノードと通信の基礎
 4. ROS2プログラミング
 5. まとめ
-
 * 参考図書
     * 近藤 豊: [ROS2ではじめよう 次世代ロボットプログラミング](https://gihyo.jp/book/2019/978-4-297-10742-0), 技術評論社, 2019. 
 
@@ -204,6 +203,7 @@ ros2 is an extensible command-line tool for ROS 2.
   * ノードから出る矢印: 「パブリッシャ」
   * ノードに入る矢印: 「リスナー」
 * ノードはいくつもパブリッシャとリスナーを持てる
+* <span style="color:red">トピックは型を持つ</span>
 
 ---
 
@@ -212,6 +212,8 @@ ros2 is an extensible command-line tool for ROS 2.
 * 先ほど動かしたtalker、listenerに相当するノードを作成
   * 言語: Python
   * [参考](https://index.ros.org/doc/ros2/Tutorials/Developing-a-ROS-2-Package/#python-packages)
+* いろいろ作法が細かいので、コードを書く以外のことの意図も確認
+  * 誰が作ったパッケージも同じような構造にするため
 
 ---
 
@@ -332,7 +334,7 @@ setup(
 
 ---
 
-### パブリッシャの作成
+### パブリッシャを持つノードの作成
 
 * ミニマムなものを書いてみる
     * スクリプトの置き場は`~/ros2_ws/src/mypkg/mypkg`
