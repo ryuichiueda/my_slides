@@ -16,19 +16,22 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* ROS2
+1. ROSの概要の理解
+2. ROS2のインストール
+3. ROSのノードと通信の基礎
+4. ROS2プログラミング
+5. まとめ
+
 * 参考図書
     * 近藤 豊: [ROS2ではじめよう 次世代ロボットプログラミング](https://gihyo.jp/book/2019/978-4-297-10742-0), 技術評論社, 2019. 
-    * 岡田 浩之: [ロボットプログラミングROS2入門 ](https://www.it-book.co.jp/books/107.html), 科学情報出版, 2020. <br />　
-* この講義では使えるようになるのが目標
-    * 難しい話はしません
-    * やること
-        * インストール
-        * パッケージ作成
 
 ---
 
-## <span style="text-transform:none">ROS: robot operating system
+## 1. ROSの概要
+
+---
+
+### <span style="text-transform:none">ROS: robot operating system
 
 * ロボットのソフトウェアコンポーネントを作って動作させるためのフレームワーク/ミドルウェア
   * OSでは無い
@@ -40,7 +43,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## どんなものか
+### どんなものか
 
 * 本体: プロセス間通信をつかさどる
   * プロセス同士をpublish-subscribeモデルや<br />client-serverモデルでつなぐ
@@ -52,7 +55,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROS化されている<br />重要なソフトウェア
+### ROS化されている<br />重要なソフトウェア
 
 * 移動ロボットの制御ソフトウェア
   * gmapping, cartographer, ナビゲーションメタパッケージ
@@ -66,7 +69,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROSを使ったSLAMの応用例
+### ROSを使ったSLAMの応用例
 
 * コントローラでロボットに移動経路を教え、<br />そのあとロボットが自律で経路を移動
     * 移動経路を教えているときにロボットは<br />SLAMで地図を作り、通った位置を記録
@@ -77,7 +80,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROSを使った<br />マニピュレーションの様子
+### ROSを使った<br />マニピュレーションの様子
 
 * https://twitter.com/i/status/1201399538541400064
   * 2年生有志作
@@ -86,7 +89,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROSのバージョン
+### ROSのバージョン
 
 * ROS1（もともとROSと呼ばれていたもの）
   * オリジナルのROS
@@ -101,13 +104,16 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## ROS2のインストールの準備
+## 2. ROS2のインストール
 
-* ROS1がすでにインストールされている場合
-  * 方法1: 別の環境を準備する
-  * 方法2:
-    * `.bashrc`から関係する記述をコメントアウト
-    * ターミナルを出る
+---
+
+### ROS1がすでにインストールされている場合
+
+* 方法1: 別の環境を準備する
+* 方法2:
+  * `.bashrc`から関係する記述をコメントアウト
+  * ターミナルを出る
 
 ```bash
 $ vi ~/.bashrc
@@ -120,7 +126,7 @@ $ vi ~/.bashrc
 
 ---
 
-## ROS2のインストール
+### ROS2のインストール
 
 * [インストールスクリプト](https://github.com/ryuichiueda/ros2_setup_scripts/blob/master/setup.bash)
     * 手順は次の通り
@@ -141,7 +147,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
-## 動作確認
+### 動作確認
 
 * ひとつプログラムを立ち上げ
   ```bash
@@ -166,7 +172,11 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
-## ROSの通信
+## 3. ROSのノードと通信の基礎
+
+---
+
+### ROSのノードの基本
 
 * 基本1: プログラムのことを「ノードと呼ぶ」
 * 基本2: ノードは互いに通信する<br />　
@@ -179,7 +189,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
-## 通信の様子
+### ROSの通信の基本
 
 * 別々の端末で3つのプログラムを実行
   * GUIのツールを使える人だけ
@@ -188,28 +198,24 @@ ros2 is an extensible command-line tool for ROS 2.
     端末2$ ros2 run demo_nodes_py listener
     端末3$ ros2 run rqt_graph rqt_graph
     ```
-
-<img src="./figs/rqt_graph.png" width="50%" />
-
----
-
-## ROS2のノードを作成
-
-Pythonのものを作ってみましょう（[参考](https://index.ros.org/doc/ros2/Tutorials/Developing-a-ROS-2-Package/#python-packages)）
-
-* これからやること
-    * ワークスペースを作る 
-    * 初期状態のパッケージを作る
-    * パッケージ情報の記述
-    * パッケージのビルド
-    * パブリッシャの実装
-    * サブスクライバの実装
-    * ローンチファイルの実装
-
+    <img src="./figs/rqt_graph_s.png" width="50%" />
+* ノード（楕円）がデータの流路（矢印）で連結
+  * `/chatter`: 流路の名前で「トピック」と呼ばれる
+  * ノードから出る矢印: 「パブリッシャ」
+  * ノードに入る矢印: 「リスナー」
+* ノードはいくつもパブリッシャとリスナーを持てる
 
 ---
 
-## ワークスペースの作成
+## 4. ROS2プログラミング
+
+* 先ほど動かしたtalker、listenerに相当するノードを作成
+  * 言語: Python
+  * [参考](https://index.ros.org/doc/ros2/Tutorials/Developing-a-ROS-2-Package/#python-packages)
+
+---
+
+### ワークスペースの作成
 
 * ワークスペース: 作業場
 * とりあえずディレクトリを作るだけ
@@ -224,47 +230,43 @@ ros2_ws/
 
 ---
 
-## 初期状態のパッケージを作る
+### 初期状態のパッケージを作る
 
 * パッケージ: ROSのプログラムの配布単位
     * GitHubのリポジトリにほぼ相当
     * なかにいくつかのノードのプログラムを入れる
-    * `ros2 pkg create`を使う
-      * 下の例: mypkgというパッケージを作成
-        ```bash
-        $ cd ~/ros2_ws/src/
-        $ ros2 pkg create mypkg --build-type ament_python
-        going to create a new package
-        package name: mypkg
-        ・・・
-        $ tree
-        .
-        └── mypkg
-            ├── mypkg
-            │   └── __init__.py
-            ├── package.xml
-            ├── resource
-            │   └── mypkg
-            ├── setup.cfg
-            ├── setup.py
-            └── test
-                ├── test_copyright.py
-                ├── test_flake8.py
-                └── test_pep257.py
-        4 directories, 8 files
-        ```
+* `ros2 pkg create`を使う
+  * 下の例: mypkgというパッケージを作成
+      ```bash
+      $ cd ~/ros2_ws/src/
+      $ ros2 pkg create mypkg --build-type ament_python
+      going to create a new package
+      package name: mypkg
+      ・・・
+      $ tree
+      .
+      └── mypkg
+          ├── mypkg
+          │   └── __init__.py
+          ├── package.xml
+          ├── resource
+          │   └── mypkg
+          ├── setup.cfg
+          ├── setup.py
+          └── test
+      （略）
+      ```
 
 ---
 
-## パッケージ情報の記述1
+### パッケージ情報の記述1
 
 * `package.xml`を編集する
     * パッケージマニフェストというもの
     * パッケージの情報を記述したファイル
-        * 説明（description）、メンテナ、ライセンスをちゃんと書く
+        * 説明（description）、メンテナ（maintainer、管理する人）、ライセンスをちゃんと書く
 
-```
-$ head package.xml
+```xml
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/..."?>
 <package format="3">
@@ -272,7 +274,7 @@ $ head package.xml
   <version>0.0.0</version>
   <description>a package for practice</description>
   <maintainer email="ryuichiueda@example.com">Ryuichi Ueda</maintainer>
-  <license>BSD</license>
+  <license>BSD-3-Clause</license>
 
   <test_depend>ament_copyright</test_depend>
 ・・・
@@ -280,14 +282,13 @@ $ head package.xml
 
 ---
 
-## パッケージ情報の記述2
+### パッケージ情報の記述2
 
 * `setup.py`の編集
     * Pythonのモジュールで使われるインストールスクリプト
         * 変更箇所は`package.xml`と同じ
 
 ```
-$ cat setup.py
 from setuptools import setup
 
 package_name = 'mypkg'
@@ -299,34 +300,39 @@ setup(
     maintainer='Ryuichi Ueda',
     maintainer_email='ryuichiueda@gmail.com',
     description='a package for practice',
-    license='BSD',
+    license='BSD-3-Clause',
 ・・・
 ```
 
 ---
 
-## パッケージのビルド
+### パッケージをビルド
 
-```bash
-### ビルド ###
-$ cd ~/ros2_ws/
-$ colcon build
-Starting >>> mypkg
-Finished <<< mypkg [2.46s]
-
-Summary: 1 package finished [2.97s]
-### パスを通す ###
-$ source install/setup.bash
-$ source install/local_setup.bash
-### パスが通っているか確認 ###
-$ ros2 pkg list | grep mypkg
-mypkg
-
-```
+* ビルド作業
+  * `colcon`というコマンドを使用
+  ```bash
+  $ cd ~/ros2_ws/
+  $ colcon build
+  （略。警告が出るけどとりあえず気にしない）
+  Summary: 1 package finished [0.69s]
+    1 package had stderr output: mypkg 
+  ```
+* `ros2_ws`下のパッケージを利用可能に
+  * `~/.bashrc`の末尾に2行追加
+    ```bash
+    source ~/ros2_ws/install/setup.bash
+    source ~/ros2_ws/install/local_setup.bash
+    ```
+* `source`して確認
+  ```bash
+  $ source ~/.bashrc
+  $ ros2 pkg list | grep mypkg
+  mypkg
+  ```
 
 ---
 
-## パブリッシャの作成
+### パブリッシャの作成
 
 * ミニマムなものを書いてみる
     * スクリプトの置き場は`~/ros2_ws/src/mypkg/mypkg`
@@ -338,7 +344,7 @@ mypkg
 ```python
   1 import rclpy
   2 from rclpy.node import Node
-  3 from std_msgs.msg import Int16
+  3 from std_msgs.msg import Int16   #通信の型（16ビットの符号付き整数）
   4
   5 rclpy.init()
   6 node = Node("talker")                               #ノード作成
@@ -366,7 +372,7 @@ mypkg
 
 ---
 
-## パッケージの設定と実行
+### パッケージの設定と実行
 
 * パッケージに`talker.py`や依存するモジュールを登録
     * `package.xml`に利用するモジュールを登録
@@ -422,7 +428,7 @@ data: 14
 
 ---
 
-## サブスクライバの記述
+### サブスクライバの記述
 
 * これはクラスを使って作ってみましょう（`listener.py`）
 ```python
@@ -445,7 +451,7 @@ data: 14
 
 ---
 
-## <span style="text-transform:none">talker</span>と<span style="text-transform:none">listener</span>の実行
+### <span style="text-transform:none">talker</span>と<span style="text-transform:none">listener</span>の実行
 
 ```
 ### setup.pyへの記述やビルドの手続きを済ませておく ###
@@ -458,89 +464,11 @@ data: 14
 
 ---
 
-## ローンチファイル（準備）
+## 5. まとめ
 
-* ROS2ではPythonで記述
-* 準備
-    * ディレクトリを作成
-```
-$ cd ~/ros2_ws/src/mypkg/
-$ mkdir launch
-```
-    * `setup.py`にローンチファイルの場所を記述
-```
-  2 import os
-  3 from glob import glob
-（中略）
- 11     data_files=[
-（中略）
- 15        (os.path.join('share', package_name), glob('launch/*.launch.py'))
- 16     ],
-```
-    * `package.xml`に依存関係を記述
-```
- 12   <exec_depend>launch_ros</exec_depend>
-```
-
----
-
-## ローンチファイル（記述）
-
-* コードを書く
-    * 名前は`talk_listen.listen.py`などとつけて、さきほど作った`launch`ディレクトリに置き、実行権限を与える
-```
-  1 import launch
-  2 import launch.actions
-  3 import launch.substitutions
-  4 import launch_ros.actions
-  5
-  6
-  7 def generate_launch_description():
-  8
-  9     talker = launch_ros.actions.Node(
- 10         package='mypkg',
- 11         node_executable='talker',
- 12         )
- 13     listener = launch_ros.actions.Node(
- 14         package='mypkg',
- 15         node_executable='listener',
- 16         output='screen'
- 17         )
- 18
- 19     return launch.LaunchDescription([talker, listener])
-```
-
----
-
-## ローンチファイル（実行）
-
-* `colcon build`して実行
-    * バグ: 出力がバッファリングされて一定量溜まらないと表示されない（調査中）
-
-```
-$ ros2 launch mypkg talk_listen.launch.py
-[INFO] [launch]: All log files can be found below /home/ubuntu/.ros/log/2020-04-22-08-45-13-332489-ubuntu-17148
-[INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [talker-1]: process started with pid [17158]
-[INFO] [listener-2]: process started with pid [17159]
-（かなり遅れてlistener.pyの出力がまとめて表示される場合あり）
-（Ctrl+Cで終了）
-```
-
-
----
-
-## まとめ
-
-* ROS2
-  * ROS1より洗練されている
-    * `roscore`（ROSマスタ）がいらない
-    * PythonのパッケージがPythonのモジュールの作り方に準拠
-    * ・・・<br />　
-  * 基本的な考え方はROS1と変わらない
-    * トピック、サービス
-    * 疎結合
-    * 規格化したパッケージ
-    * ・・・<br />　
+* ROS（ROS2）
+  * トピック、サービス
+  * 疎結合
+  * 規格化したパッケージ
+  * ・・・<br />　
 * 操作方法だけでなく、考え方をしっかりおさえておくと後の変化に早く対応可能
-
