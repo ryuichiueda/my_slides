@@ -360,13 +360,12 @@ setup(
 >>>
 
 * コードの後半
-    * Pythonでは「変数」、「代入」という言葉を使わないが、今は仮に使用
     ```python
      10 def cb():          #17行目で定期実行されるコールバック関数
      11     global n       #関数を抜けてもnがリセットされないようにしている
      12     msg = Int16()  #メッセージの「オブジェクト」
-     13     msg.data = n   #msgオブジェクトがdataという変数を持っているのでそこにnを代入
-     14     pub.publish(msg)        #メッセージ送信
+     13     msg.data = n   #msgオブジェクトの持つdataにnを結び付け
+     14     pub.publish(msg)        #pubの持つpublishでメッセージ送信
      15     n += 1
      16
      17 node.create_timer(0.5, cb)  #タイマー設定
