@@ -57,7 +57,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### ROS化されている<br />重要なソフトウェア
 
 * 移動ロボットの制御ソフトウェア
-  * gmapping, cartographer, ナビゲーションメタパッケージ
+  * gmapping, Cartographer, ナビゲーションメタパッケージ
     * 地図生成（次のページにデモ）、位置推定、経路生成<br />　
 * マニピュレータのソフトウェア
   * MoveIt!
@@ -68,14 +68,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-### ROSを使ったSLAMの応用例
+### ROSを使った移動ロボットの制御
 
 * コントローラでロボットに移動経路を教え、<br />そのあとロボットが自律で経路を移動
-    * 移動経路を教えているときにロボットは<br />SLAMで地図を作り、通った位置を記録
+  * 地図と経路を計算するCartographerを利用
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eVHkHOCsHns" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-* ポイント: SLAMのコードは一切書いてない
+* ポイント: Cartographerの部分は一切手を入れていない
 
 ---
 
@@ -190,7 +190,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ### ROSの通信の基本
 
-* GUIツールで構造を確認（使える環境の人だけ）
+* GUIツールで構造を確認
     ```bash
     端末1$ ros2 run demo_nodes_py talker
     端末2$ ros2 run demo_nodes_py listener
@@ -336,7 +336,7 @@ setup(
 
 ### パブリッシャを持つノードの作成
 
-* 機能: ランダムな数字をトピック`/countup`を通じて送信
+* 機能: 数字をカウントしてトピック`/countup`を通じて送信
   * メッセージの型は16ビット符号つき整数
     * 参考にしたページ
         * [パブリッシャの書き方](https://index.ros.org/doc/ros2/Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber/#write-the-publisher-node)
@@ -375,15 +375,15 @@ setup(
 
 ---
 
-### パッケージの設定と実行
+### パッケージの設定
 
 * パッケージに`talker.py`や依存するモジュールを登録
     * `package.xml`に利用するモジュールを登録
 ```
 ・・・
   <license>BSD-3-Clause</license>
-  <exec_depend>rclpy</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rclpy</exec_depend>            <-追加
+  <exec_depend>std_msgs</exec_depend>         <-追加
 ・・・
 ```
     * `setup.py`にスクリプト（正確にはエントリポイント）を登録
@@ -397,67 +397,78 @@ setup(
 ・・・
 ```
 
-* 実行（下のスライド）
 
->>>
-
-```
-$ chmod +x talker.py
-### 依存関係の確認 ###
-$ cd ~/ros2_ws
-$ sudo rosdep install -i --from-path src --rosdistro foxy -y
-### ビルド ###
-$ colcon build
-Starting >>> mypkg
-Finished <<< mypkg [2.55s]
-
-Summary: 1 package finished [3.06s]
-### インストール ###
-$ . install/setup.bash
-### 実行 ###
-$ ros2 run mypkg talker
-（なにも表示されない）
-```
-
-```
-### 別の端末でサブスクライブする ###
-$ ros2 topic echo /countup
-data: 13
 ---
-data: 14
+
+### ビルド
+
+* 他に利用するパッケージを確認してインストール
+    * `humble`はUbuntu 22.04用のROS2のバージョン
+    * 20.04の場合は`foxy`
+    ```bash
+    $ cd ~/ros2_ws
+    $ sudo rosdep install -i --from-path src --rosdistro humble -y 
+    ```
+* ビルド
+    * `colcon build`して、その後`source`で設定を読み直し
+    ```bash
+    $ colcon build
+    Starting >>> mypkg
+    Finished <<< mypkg [2.55s]
+    
+    Summary: 1 package finished [3.06s]
+    $ source ~/.bashrc
+    ```
+
 ---
-・・・
-```
+
+### 実行とメッセージの確認
+
+* `ros2 run`で実行 
+  ```
+  $ ros2 run mypkg talker
+  （なにも表示されない）
+  ```
+* 別の端末で`ros2`を使ってサブスクライブする
+  ```
+  $ ros2 topic echo /countup
+  data: 13
+  ---
+  data: 14
+  ---
+  ・・・
+  ```
+
 
 ---
 
 ### サブスクライバを持つノードの記述
 
-* これはクラスを使って作ってみましょう（`listener.py`）
+* 機能: `/countup`からメッセージをもらって表示
+  * `listener.py`という名前で
 ```python
   1 import rclpy
   2 from rclpy.node import Node
   3 from std_msgs.msg import Int16
   4
-  5 class ListenerNode(Node): #Nodeクラスの継承
-  6
-  7     def __init__(self): #初期化
-  8         super().__init__("Listener")
-  9         self.create_subscription(Int16, "countup", self.cb, 10)
- 10
- 11     def cb(self, msg):
- 12         self.get_logger().info("Listen: %d" % msg.data)
- 13
- 14 rclpy.init()
- 15 rclpy.spin( ListenerNode() ) #ノードをspinにしかける
+  5 def cb(msg):
+  6     global node
+  7     node.get_logger().info("Listen: %d" % msg.data)
+  8
+  9 rclpy.init()
+ 10 node = Node("listener")
+ 11 pub = node.create_subscription(Int16, "countup", cb, 10)
+ 12 rclpy.spin(node)
 ```
 
 ---
 
 ### <span style="text-transform:none">talker</span>と<span style="text-transform:none">listener</span>の実行
 
+* `listener.py`について`setup.py`への記述
+  * さきほどコメントに書いた部分の`#`を消す
+* `colcon build`を済ませておく
 ```
-### setup.pyへの記述やビルドの手続きを済ませておく ###
 端末1$ ros2 run mypkg talker
 端末2$ ros2 run mypkg listener
 [INFO] [Listener]: Listen: 142
@@ -470,8 +481,7 @@ data: 14
 ## 5. まとめ
 
 * ROS（ROS2）
-  * トピック、サービス
-  * 疎結合
-  * 規格化したパッケージ
-  * ・・・<br />　
-* 操作方法だけでなく、考え方をしっかりおさえておくと後の変化に早く対応可能
+  * 独立したプログラム（プロセス、ノード）を連携<br />　
+* パッケージを作り、ふたつのノードを記述
+  * 単にプログラムを走らせるだけでなく、様々な手続き
+    * 最初は煩わしいが、人に使ってもらうモジュールを作りやすい。
