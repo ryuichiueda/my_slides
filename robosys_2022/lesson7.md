@@ -49,7 +49,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 基本的な動作
   1. GitHub等にpushされたコードをテスト
     * GitHub等のページに結果が表示されるように手配
-  2. テストが通ったらコードをビルド
+  2. テストが通ったら次のアクションに
     * リリースしてユーザーが利用可能に
     * あるいは<span style="color:red">動いている本番のシステムに反映</span>
 
@@ -90,23 +90,24 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
 ### テストの手続きの記述
 
 * 下の例のように記述
-  * YAML（YAML Ain't a Markup Language.）形式
+  * YAML（YAML Ain't a Markup Language）形式
     * データをテキストファイルに記述するときに使われる形式のひとつ
       * ROSでも随所に利用される。
     * インデントは半角空白2つが基本
-      * 下のレベルのものが子のデータに。「`-`」は配列の要素。
+      * 「キー: 値」でデータを作る。インデントされているものは全体が値
+      * 「`-`」は配列の要素
 
-    ```yaml
-      name: test        #name: ワークフローの名前
-      on: push          #on: いつこのワークフローを走らせるか
-      jobs:             #走らせたい処理（ジョブ）のリスト
-        test:           #testというジョブを作る
-          runs-on: ubuntu-latest   #どの環境で動かすか
-          steps:                   #手続きの記述
-          - uses: actions/checkout@v3  #https://github.com/actions/checkoutのバージョン3を使用
-          - name: All test             #このジョブの名前
-            run: bash -xv ./test.bash  #テストのシェルスクリプトを走らせる
-    ```
+```yaml
+  name: test        #name: ワークフローの名前
+  on: push          #on: いつこのワークフローを走らせるか
+  jobs:             #走らせたい処理（ジョブ）のリスト
+    test:           #testというジョブを作る
+      runs-on: ubuntu-latest   #どの環境で動かすか
+      steps:                   #手続きの記述
+      - uses: actions/checkout@v3  #https://github.com/actions/checkoutのバージョン3を使用
+      - name: All test             #このジョブの名前
+        run: bash -xv ./test.bash  #テストのシェルスクリプトを走らせる
+```
 
 ---
 
@@ -214,7 +215,7 @@ $ touch test.yml   #「./robosys2022/.github/workflows/test.yml」ができて�
 
 ## まとめ
 
-* GitHub Actions
+* CI/CDサービスのひとつを利用
   * pushしたときに自動でテスト$\rightarrow$結果を表示
     * ユーザに状況を伝達
   * 終了ステータスを利用
