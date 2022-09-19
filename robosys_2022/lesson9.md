@@ -34,5 +34,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ###  launchファイルの作成
 
+* パッケージのディレクトリに`launch`ディレクトリを作成
 
+```bash
+$ cd ~/ros2_ws/src/mypkg/
+$ mkdir launch
+$ cd launch/
+```
 
