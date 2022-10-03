@@ -17,7 +17,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 1. launchファイル（前回の続き）
-2. トピックの型
+2. 独自のメッセージ型の作成
 3. サービス
 4. パラメータ、actionlib
 
@@ -86,7 +86,7 @@ $ mkdir launch
 
 ---
 
-## ローンチファイル（実行）
+### ローンチファイル（実行）
 
 * `colcon build`して実行
 ```bash
@@ -98,4 +98,19 @@ $ ros2 launch mypkg talk_listen.launch.py
 （かなり遅れてlistener.pyの出力がまとめて表示される場合あり）
 （Ctrl+Cで終了）
 ```
+
+
+---
+
+## 2. 独自のメッセージ型の作成
+
+* 前回の通信: ひとつ整数を送受信するだけ
+* 意味のあるひとかたまりのデータをまとめて送るには？
+  * 意味のあるひとかたまりのデータ: 構造体に相当するもの<br />　
+* 方法
+  * 既存の型を利用
+    * `$ ros2 interface list`で一覧表示可能
+  * 自分で型を作成
+    * やってみましょう
+
 
