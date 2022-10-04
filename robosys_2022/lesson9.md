@@ -176,3 +176,10 @@ $ ros2 launch mypkg talk_listen.launch.py
   uint8 age
   ```
 
+---
+
+### <span style="text-transform:none">Person</span>型の利用
+
+* 
+
+
