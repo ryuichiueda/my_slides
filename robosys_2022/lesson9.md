@@ -99,7 +99,6 @@ $ ros2 launch mypkg talk_listen.launch.py
 （Ctrl+Cで終了）
 ```
 
-
 ---
 
 ## 2. 独自のメッセージ型の作成
@@ -110,7 +109,70 @@ $ ros2 launch mypkg talk_listen.launch.py
 * 方法
   * 既存の型を利用
     * `$ ros2 interface list`で一覧表示可能
-  * 自分で型を作成
+  * 自分で型（と型のためのパッケージ）を作成
     * やってみましょう
 
+---
+
+### <span style="text-transform:none">msg</span>ファイルの作成
+
+* 型を定義するパッケージを作成
+  ```bash
+  $ cd ~/ros2_ws/src
+  $ ros2 pkg create --build-type ament_cmake person_msg
+  $ cd person_msg
+  ### package.xmlを前回のように編集 ###
+  $ mkdir msg
+  $ cd msg
+  ```
+* `msg`下に、次のような`Person.msg`というファイルを設置
+    ```
+    string name
+    uint8 age
+    ```
+   * このファイルから、各言語で使える構造体のようなものが生成される
+
+---
+
+### ビルドの準備
+
+* パッケージのトップディレクトリにある`CMakeList.txt`を編集
+  * `find_package(ament_cmake REQUIRED)`の下あたりに、次の4行を記述
+    ```cmake
+    find_package(rosidl_default_generators REQUIRED)
+    rosidl_generate_interfaces(${PROJECT_NAME}
+      "msg/Person.msg"
+    )
+    ```
+* `package.xml`も編集
+  * `buildtool_depend`の下あたりに、次の3行を追加
+    ```xml
+    <build_depend>rosidl_default_generators</build_depend>
+    <exec_depend>rosidl_default_runtime</exec_depend>
+    <member_of_group>rosidl_interface_packages</member_of_group>
+    ```
+
+---
+
+### ビルド
+
+* ビルドして環境に反映
+  ```bash
+  $ cd ~/ros2_ws
+  $ colcon build
+  （略）
+  ---
+  Finished <<< mypkg [0.57s]
+  Finished <<< person_msg [2.32s]                     
+  
+  Summary: 2 packages finished [2.51s]
+    1 package had stderr output: mypkg
+  ```
+* `source`して、型が利用できるようになっているか確認
+  ```bash
+  $ source ~/.bashrc
+  $ ros2 interface show person_msg/msg/Person
+  string name
+  uint8 age
+  ```
 
