@@ -21,7 +21,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 3. サービスの実装
 4. パラメータ、actionlib
 
-こまめにGitHubにpushしながら進めましょう
+* 注意
+  * こまめにGitHubにpushしながら進めましょう
+  * 動画ではGitを使いませんので各自で
 
 ---
 
