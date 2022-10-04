@@ -232,8 +232,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 * トピックは基本的にいつpublishしてもよいし、<br />いつsubscribeしてもよい
   * ノード同士が干渉することがない<br />　
-* ノードとノードが直接データや仕事の依頼をやりとりしたいときは？
-  * サービスの利用<br />　
+* ノード同士が直接、仕事の依頼やデータをやりとりしたいときは？$\Rightarrow$<span style="color:red">サービスの利用</span><br />　
 * サービス
   * あるノードが別のノードに仕事を依頼する仕組み<br />　
 * サービスを実装してみましょう
@@ -312,7 +311,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ---
 
-### 動作確認
+### コマンドによる動作確認
 
 * `ros2 service`を使用
 * `talker`を立ち上げてからサービスの存在を確認し、<br />呼び出してみる
@@ -338,6 +337,55 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ### ノードからのサービス呼び出し
 
+* `listener.py`を次のように書き換え
+  * サービスとは関係ないですが、処理を`main`関数内に記述のこと
+    * `setup.py`内の`listner:main`という記述に合わせるため
+  * 前半
+    ```python
+      1 import rclpy
+      2 from rclpy.node import Node
+      3 from person_msgs.srv import Query
+      4
+      5 def main():
+      6     rclpy.init()
+      7     node = Node("listener")
+      8     client = node.create_client(Query, 'query') #サービスのクライアントの作成
+      9     while not client.wait_for_service(timeout_sec=1.0): #サービスの待ち待ち
+     10         node.get_logger().info('待機中')
+     11
+     12     req = Query.Request()
+     13     req.name = "上田隆一"
+     14     future = client.call_async(req) #非同期でサービスを呼び出し
+     15
+    ```
+    * 後半（下）に続く
 
+>>>
+
+* 後半
+  * 後始末は、このノードが無限ループではないので記述（本当は無限ループでも記述したほうがよい）
+    ```python
+     16     while rclpy.ok():
+     17         rclpy.spin_once(node) #一回だけサービスを呼び出したら終わり
+     18         if future.done():     #終わっていたら
+     19             try:
+     20                 response = future.result() #結果を受取り
+     21             except:
+     22                 node.get_logger().info('呼び出し失敗')
+     23             else: #このelseは「exceptじゃなかったら」という意味のelse
+     24                 node.get_logger().info("age: {}".format(response.age))
+     25
+     26             break #whileを出る
+     27
+     28     node.destroy_node() #ノードの後始末
+     29     rclpy.shutdown()    #ノードの後始末
+     30
+     31 if __name__ == '__main__': #ライブラリと区別するためのPythonの記法
+     32     main()
+    ```
+
+---
+
+### 動作確認
 
 
