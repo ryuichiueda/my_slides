@@ -230,12 +230,12 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ## 3. サービスの実装
 
-* トピックは基本的にデータ垂れ流し（非同期）
-  * 同期処理が必要なときはどうする？<br />　
-* サービスの利用
-  * 同期処理用の仕組み
-  * あるノードが、別のノードに仕事を依頼
-    * 依頼した方は依頼が終わるまで待つ<br />　
+* トピックは基本的にいつpublishしてもよいし、<br />いつsubscribeしてもよい
+  * ノード同士が干渉することがない<br />　
+* ノードとノードが直接データや仕事の依頼をやりとりしたいときは？
+  * サービスの利用<br />　
+* サービス
+  * あるノードが別のノードに仕事を依頼する仕組み<br />　
 * サービスを実装してみましょう
 
 ---
@@ -284,4 +284,60 @@ $ ros2 launch mypkg talk_listen.launch.py
   ---
   uint8 age
    ```
+
+---
+
+### サービスのためのコールバック関数の実装
+
+* `talker`側に、サービスが呼び出されたときの処理を書く
+  * `talker.py`
+    ```python
+      1 import rclpy
+      2 from rclpy.node import Node
+      3 from person_msgs.srv import Query #使う型を変更
+      4 
+      5 def cb(request, response):
+      6     if request.name == "上田隆一":
+      7         response.age = 44
+      8     else:
+      9         response.age = 255
+     10 
+     11     return response
+     12 
+     13 rclpy.init()
+     14 node = Node("talker")
+     15 srv = node.create_service(Query, "query", cb) #サービスの作成
+     16 rclpy.spin(node)
+    ```
+
+---
+
+### 動作確認
+
+* `ros2 service`を使用
+* `talker`を立ち上げてからサービスの存在を確認し、<br />呼び出してみる
+  ```bash
+  ### 確認 ###
+  $ ros2 service list
+  /query                  <- 表示されるか確認
+（以下略）
+  ### 実行 ###
+  $ ros2 service call /query person_msgs/srv/Query "name: 上田隆一"
+  requester: making request: person_msgs.srv.Query_Request(name='上田隆一')
+  
+  response:
+  person_msgs.srv.Query_Response(age=44)
+  
+  $ ros2 service call /query person_msgs/srv/Query "name: しらない 人"
+  （略）
+  response:
+  person_msgs.srv.Query_Response(age=255)
+  ```
+
+---
+
+### ノードからのサービス呼び出し
+
+
+
 
