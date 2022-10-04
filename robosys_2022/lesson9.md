@@ -18,7 +18,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 1. launchファイル（前回の続き）
 2. 独自のメッセージ型の作成
-3. サービス
+3. サービスの実装
 4. パラメータ、actionlib
 
 ---
@@ -207,7 +207,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 ---
 
 ### <span style="text-transform:none">Person型の利用（subscribe）</span>
-  
+
 * `listener.py`でPerson型のメッセージを受信、表示
   ```python
    1 import rclpy
@@ -225,4 +225,63 @@ $ ros2 launch mypkg talk_listen.launch.py
   13 rclpy.spin(node)
   ```
   * `ros2 launch`で動作確認を
+
+---
+
+## 3. サービスの実装
+
+* トピックは基本的にデータ垂れ流し（非同期）
+  * 同期処理が必要なときはどうする？<br />　
+* サービスの利用
+  * 同期処理用の仕組み
+  * あるノードが、別のノードに仕事を依頼
+    * 依頼した方は依頼が終わるまで待つ<br />　
+* サービスを実装してみましょう
+
+---
+
+### 実装するサービス
+
+* 人の名前を送ったら、その人の年齢を返すサービス
+  * `listener`が依頼する側
+  * `talker`が依頼する側
+
+---
+
+### <span style="text-transform:none">srvファイルの作成</span>
+
+* 準備: `person_msgs`に`srv`というディレクトリを作成
+  * `msg`と同じところに
+  * 中に、次のような`Query.srv`を置く
+    ```
+    string name
+    ---
+    uint8 age
+    ```
+    * `---`の上: サービスを呼び出すときに呼び出し側が渡すデータ
+    * `---`の下: サービスの実行後に呼び出し側が受け取るデータ
+
+
+---
+
+### ビルド
+
+* `CMakeList.txt`に`Query.srv`を追加
+  ```cmake
+   15 rosidl_generate_interfaces(${PROJECT_NAME}
+   16   "msg/Person.msg"
+   17   "srv/Query.srv"   # 追加
+   18 )
+   ```
+* ビルド、`source`、確認
+  ```bash
+  $ cd ~/ros2_ws/
+  $ colcon build
+  （略）
+  $ source ~/.bashrc 
+  $ ros2 interface show person_msgs/srv/Query
+  string name
+  ---
+  uint8 age
+   ```
 
