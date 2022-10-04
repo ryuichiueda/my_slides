@@ -21,6 +21,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 3. サービスの実装
 4. パラメータ、actionlib
 
+こまめにGitHubにpushしながら進めましょう
+
 ---
 
 ## 1. <span style="text-transform:none">launchファイル</span>
@@ -388,4 +390,50 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ### 動作確認
 
+* 順番を変えて立ち上げてみましょう
+  * `talker`を先、`listener`を後: 年齢が受け取れる
+    ```bash
+    $ ros2 run mypkg listener
+    [INFO] [1664865500.552181002] [listener]: 待機中
+    [INFO] [1664865501.554913737] [listener]: 待機中
+    [INFO] [1664865501.806117977] [listener]: age: 44
+    ```
+  * `listener`を先、`talker`を後: 「待機中」が出たあと年齢が受け取れる
+    ```bash
+    $ ros2 run mypkg listener
+    [INFO] [1664865501.806117977] [listener]: age: 44
+    ```
 
+---
+
+## 4. パラメータ、アクション
+
+* トピック、サービスの他のデータや処理の受け渡し方法
+  * パラメータ: 定数やたまに変更するデータ
+    * センサの周波数など
+      ```bash
+      $ ros2 param list
+      /talker:
+        use_sim_time
+      $ ros2 param get /talker use_sim_time 
+      Boolean value is: False
+      ```
+* アクション
+  * サービスの長時間版
+    * 呼び出し側が、途中の経過の観察やキャンセルできる
+  * 使用例
+    * ナビゲーション（目的地を指定して終わるまで待つ）
+    * マニピュレータの姿勢変更（最終的な姿勢を指定して終わるまで待つ）
+  * トピックやサービスを組み合わせて実装される
+
+---
+
+## まとめ
+
+* やったこと
+  * ローンチファイルを作成
+  * 独自のメッセージの型、サービスを実装
+  * パラメータ、アクションの把握（紹介のみ）
+* 確認
+  * 本日扱ったふたつのパッケージがGitHubにpushされていること
+    * コミットの履歴も残っていること
