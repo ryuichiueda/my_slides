@@ -178,8 +178,51 @@ $ ros2 launch mypkg talk_listen.launch.py
 
 ---
 
-### <span style="text-transform:none">Person</span>型の利用
+### <span style="text-transform:none">Person型の利用（publish）</span>
 
-* 
+* `talker.py`からPerson型のメッセージを送信
+    ```python
+     1 import rclpy
+     2 from rclpy.node import Node
+     3 from person_msgs.msg import Person #使う型を変更
+     4 
+     5 rclpy.init()
+     6 node = Node("talker")
+     7 pub = node.create_publisher(Person, "person", 10) #変更
+     8 n = 0
+     9 def cb():
+    10     global n
+    11     msg = Person()         #受信するデータの型を変更
+    12     msg.name = "上田隆一"  #msgファイルに書いた「name」
+    13     msg.age = n            #msgファイルに書いた「age」
+    14     pub.publish(msg)
+    15     n += 1
+    16 
+    17 node.create_timer(0.5, cb)
+    18 rclpy.spin(node)
+    ```
+   * ビルドして実行し、`ros2 topic echo`で確認のこと
+  
 
+---
+
+### <span style="text-transform:none">Person型の利用（subscribe）</span>
+  
+* `listener.py`でPerson型のメッセージを受信、表示
+  ```python
+   1 import rclpy
+   2 from rclpy.node import Node
+   3 from person_msgs.msg import Person
+   4
+   5 def cb(msg):
+   6     global node
+   7     node.get_logger().info("Listen: %s" % msg) #変更
+   8
+   9 rclpy.init()
+  10 node = Node("listener")
+  11 pub = node.create_subscription(Person, "person", cb, 10) #変更
+  12
+  13 rclpy.spin(node)
+  ```
+  * `ros2 launch`で動作確認を
 
