@@ -38,7 +38,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 各回の内容（第1〜6回）
+## 各回の内容（第1〜7回）
 
 * 第1回: イントロダクションと環境の準備
 * 第2回: Linux環境でのPythonプログラミングI
@@ -50,7 +50,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 各回の内容（第7〜13回）
+## 各回の内容（第8〜13回）
 
 * 第8回: ROSのノードと通信の基本
 * 第9回: ROSの通信と型
