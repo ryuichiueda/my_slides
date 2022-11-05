@@ -53,4 +53,45 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         Switched to a new branch 'lesson8'     <- このあと動作確認しましょう
         ```
 
+---
+
+## 2. テストの記述
+
+* ノードを立ち上げ、`listener`の出力を検査
+    * たぶん非標準なのですがシェルスクリプトで
+    * `test`ディレクトリにシェルスクリプトを設置
+         ```bash
+         $ cd ~/ros2_ws/src/mypkg   # パッケージのトップディレクトリへ
+         $ cd test                  # testディレクトリに移動
+         $ vi test.bash             # 記述（次ページ）
+         ```
+    * `test`ディレクトリには他のテストがすでに存在しているので、あとで見ておきましょう
+
+
+---
+
+### <span style="text-transform:none">test.bash</span>の内容
+
+* 10秒間ノードを実行して、`listener`が出力するべき行を探すという簡単なものを書く
+    * 出力されているべき行: `[listener-2] ...: Listen: 10`という行
+    * 書いたら動作確認を
+        * `grep`の行を変えて終了ステータスを観察するなど
+
+```bash
+1 #!/bin/bash
+2
+3 cd ~/ros2_ws
+4 colcon build
+5 source ~/.bashrc
+6 timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
+7
+8 cat /tmp/mypkg.log |
+9 grep 'Listen: 10'
+```
+
+---
+
+## 3. <span style="text-transform:none">GitHubでの`test.bash`</span>の実行
+
+
 
