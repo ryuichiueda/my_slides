@@ -76,22 +76,44 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * 出力されているべき行: `[listener-2] ...: Listen: 10`という行
     * 書いたら動作確認を
         * `grep`の行を変えて終了ステータスを観察するなど
-
-```bash
-1 #!/bin/bash
-2
-3 cd ~/ros2_ws
-4 colcon build
-5 source ~/.bashrc
-6 timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
-7
-8 cat /tmp/mypkg.log |
-9 grep 'Listen: 10'
-```
+        ```bash
+         1 #!/bin/bash
+         2
+         3 dir=~
+         4 [ "$1" != "" ] && dir="$1"   #引数があったら、そちらをホームに変える。
+         5
+         6 cd $dir/ros2_ws
+         7 colcon build
+         8 source $dir/.bashrc
+         9 timeout 10 ros2 launch mypkg talk_listen.launch.py > /tmp/mypkg.log
+        10
+        11 cat /tmp/mypkg.log |
+        12 grep 'Listen: 10'
+        ```
 
 ---
 
 ## 3. <span style="text-transform:none">GitHubでの`test.bash`</span>の実行
 
-
+* ワークフローファイル（`test.yml`）を準備
+    * どこに置いていいかわからない場合は第7回を復習
+    * 講師の作ったコンテナイメージを利用<br />（参考: https://youtu.be/Utvf4YmMJpk ）
+        * ROS2がインストール済み
+        ```bash
+         1 name: test
+         2 on: push
+         3 jobs:
+         4   test:
+         5     runs-on: ubuntu-22.04
+         6     container: ryuichiueda/ubuntu22.04-ros2:latest #ネット上にあるコンテナを利用
+         7     steps:
+         8       - uses: actions/checkout@v2
+         9       - name: build and test
+        10         run: |
+        11           rsync -av ./ /root/ros2_ws/src/mypkg/    # リポジトリの下をros2_ws下にコピー
+        12           cd /root/ros2_ws
+        13           rosdep update                                            #14行目のために必要
+        14           rosdep install -i --from-path src --rosdistro humble -y  #不要だけど念のため
+        15           bash -xv ./src/mypkg/test/test.bash /root
+        ```
 
