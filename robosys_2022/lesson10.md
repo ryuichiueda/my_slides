@@ -67,7 +67,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
          ```
     * `test`ディレクトリには他のテストがすでに存在しているので、あとで見ておきましょう
 
-
 ---
 
 ### <span style="text-transform:none">test.bash</span>の内容
@@ -95,7 +94,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 3. <span style="text-transform:none">GitHubでの`test.bash`</span>の実行
 
-* ワークフローファイル（`test.yml`）を準備
+* ROSのようなミドルウェア上で動くソフトのテスト
+    * 環境を整備しないとソフトが動かないので面倒<br />　
+* CIサイトでの方法
+    * その1: 毎回インストールする
+    * その2: インストール済みのものをもってくる
+
+---
+
+## ワークフローファイルの準備
+
+* `test.yml`という名前で
     * どこに置いていいかわからない場合は第7回を復習
     * 講師の作ったコンテナイメージを利用<br />（参考: https://youtu.be/Utvf4YmMJpk ）
         * ROS2がインストール済み
@@ -116,4 +125,4 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         14           rosdep install -i --from-path src --rosdistro humble -y  #不要だけど念のため
         15           bash -xv ./src/mypkg/test/test.bash /root
         ```
-
+        * 実行例: https://github.com/ryuichiueda/mypkg/actions/runs/3398928719
