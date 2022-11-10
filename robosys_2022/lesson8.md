@@ -202,7 +202,7 @@ ros2 is an extensible command-line tool for ROS 2.
     * 流れるデータは「<span style="color:red">メッセージ</span>」
   * ノードから出る矢印: 「<span style="color:red">パブリッシャ</span>」
   * ノードに入る矢印: 「<span style="color:red">サブスクライバー</span>」
-* ノードはいくつもパブリッシャとサブスクライバーを持てる
+* ノードは複数のパブリッシャとサブスクライバーを持てる
 * <span style="color:red">メッセージは型を持つ</span>
 
 ---
