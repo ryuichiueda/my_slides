@@ -201,8 +201,8 @@ ros2 is an extensible command-line tool for ROS 2.
   * `/chatter`: 流路の名前で「<span style="color:red">トピック</span>」と呼ばれる
     * 流れるデータは「<span style="color:red">メッセージ</span>」
   * ノードから出る矢印: 「<span style="color:red">パブリッシャ</span>」
-  * ノードに入る矢印: 「<span style="color:red">リスナー</span>」
-* ノードはいくつもパブリッシャとリスナーを持てる
+  * ノードに入る矢印: 「<span style="color:red">サブスクライバー</span>」
+* ノードはいくつもパブリッシャとサブスクライバーを持てる
 * <span style="color:red">メッセージは型を持つ</span>
 
 ---
