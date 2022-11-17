@@ -123,8 +123,8 @@ $ ros2 launch mypkg talk_listen.launch.py
 * 型を定義するパッケージを作成
   ```bash
   $ cd ~/ros2_ws/src
-  $ ros2 pkg create --build-type ament_cmake person_msg
-  $ cd person_msg
+  $ ros2 pkg create --build-type ament_cmake person_msgs
+  $ cd person_msgs
   ### package.xmlを前回のように編集 ###
   $ mkdir msg
   $ cd msg
@@ -167,7 +167,7 @@ $ ros2 launch mypkg talk_listen.launch.py
   （略）
   ---
   Finished <<< mypkg [0.57s]
-  Finished <<< person_msg [2.32s]                     
+  Finished <<< person_msgs [2.32s]                     
   
   Summary: 2 packages finished [2.51s]
     1 package had stderr output: mypkg
@@ -175,7 +175,7 @@ $ ros2 launch mypkg talk_listen.launch.py
 * `source`して、型が利用できるようになっているか確認
   ```bash
   $ source ~/.bashrc
-  $ ros2 interface show person_msg/msg/Person
+  $ ros2 interface show person_msgs/msg/Person
   string name
   uint8 age
   ```
