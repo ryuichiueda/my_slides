@@ -36,4 +36,6 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * クラスを使う
   * 例: `node = Node("talker")`
-    * `Node`というクラスがあり、「`Node`というのはこういう属性を持つよ」とどこかに定義されている
+    * 「`Node`というのはこういう属性を持つよ」とどこかに定義されている
+      * この定義を書いたものがクラス
+      * どこかに`class Node...`と書いたスクリプトがある。<br />（余力のある人は`grep`とかで探してみましょう）
