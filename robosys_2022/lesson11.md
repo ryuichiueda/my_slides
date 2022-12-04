@@ -20,7 +20,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## <span style="text-transform:none">Python</span>のオブジェクト
+## オブジェクトとクラス
+
+---
+
+### <span style="text-transform:none">Python</span>のオブジェクト
 
 * ドットをつけると持っている変数や関数が使える
   * 例: 
@@ -32,10 +36,17 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## オブジェクトの作り方
+### オブジェクトの作り方
 
 * クラスを使う
   * 例: `node = Node("talker")`
     * 「`Node`というのはこういう属性を持つよ」とどこかに定義されている
       * この定義を書いたものがクラス
       * どこかに`class Node...`と書いたスクリプトがある。<br />（余力のある人は`grep`とかで探してみましょう）
+
+---
+
+## クラスの作成
+
+* `talker.py`をクラスを使った記述に変更
+
