@@ -34,8 +34,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * `msg.data = n`
     * `pub.publish(msg)`
   * 注意: オブジェクトの持っている変数や関数は、<br />正確には「属性」（attribute）と呼ばれる<br />　
-
-ひとつのオブジェクトで関連する属性を<br />まとめて管理可能
+* ひとつのオブジェクトで関連する属性を<br />まとめて管理可能
+  * ROS2のノードと同様、機能をうまく切り分けていくと<br />分かりやすいソフトウェアに
 
 ---
 
@@ -45,7 +45,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   * 例: `node = Node("talker")`
     * 「`Node`というのはこういう属性を持つよ」とどこかに定義されている
       * この定義を書いたものがクラス
-      * どこかに`class Node...`と書いたスクリプトがある。<br />（余力のある人は`grep`とかで探してみましょう）
+      * どこかに`class Node...`と書いたスクリプトがある。<br />（余力のある人は`grep`とかで探してみましょう）<br />　
+  * 遺言
+    * うまくクラスを使えるようになるには長い経験が必要
+    * 人のコードを使うときに、どういう属性のまとめ方をしているか<br />観察を
 
 ---
 
