@@ -17,10 +17,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 * 作ってきたROS2のパッケージのコードをクラスで整理
+  1. オブジェクトとクラスの説明
+  1. 実践
+  1. まとめ
 
 ---
 
-## オブジェクトとクラス
+## 1. オブジェクトとクラス
 
 ---
 
@@ -36,7 +39,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-### オブジェクトの作り方
+### 2. オブジェクトの作り方
 
 * クラスを使う
   * 例: `node = Node("talker")`
@@ -46,7 +49,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## クラスの作成
+## 3. クラスの作成
 
 * `talker.py`をクラスを使った記述に変更
 
