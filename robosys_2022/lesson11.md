@@ -108,5 +108,29 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ### メソッドの追加
 
 * `cb`関数も`Talker`の<span style="color:red">メソッド</span>にしてしまいましょう
-  * メソッド: オブジェクト内の変数などを操作するための<br />関数（のようなもの）
+  * メソッド: オブジェクト内の変数などを操作するための<br />関数（のようなもの）<br />　
+* 手順
+  * 1. まず、`create_timer`をメソッドに
+    * いきなり`cb`をメソッドにすると難しいので
+  * 2. その後、`cb`をメソッドに
+
+
+---
+
+### `create_timer`の移動
+
+```python
+  5 class Talker():
+  6     def __init__(self):
+  （中略）
+  9
+ 10     def set_timer(self, node):     #nodeは外にあるので引数でもらう
+ 11         node.create_timer(0.5, cb) #cbはグローバルなものを使用
+（中略）
+ 19 rclpy.init()
+ 20 node = Node("talker")
+ 21 talker = Talker()
+ 22 talker.set_timer(node)  #メソッドの呼び出し
+ 23 rclpy.spin(node)
+```
 
