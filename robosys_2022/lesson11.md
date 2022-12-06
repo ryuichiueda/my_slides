@@ -160,6 +160,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * パブリッシャに関する処理はすべて`Talker`クラス内に<br />記述されている状態
   * 要約されたコードになって読みやすく
+  * 浮いていたグローバルな変数`n`もオブジェクト内に移動
 
 ```python
  17 rclpy.init()
@@ -170,6 +171,27 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * ただし、変なクラスを作るとかえって読みにくくなるので、考えることが必要
   * なにをまとめると分かりやすいコードになるのか
+
+---
+
+### クラスの外側のコードの整理<br />（おまけ）
+
+* 次のように`main`関数を書いておくとよい
+  * グローバル変数がなくなって見通しが良く
+  * `setup.py`で`talker:main`がエントリーポイントだと言っているので（必要ないかもしれないが）合わせておく
+
+```python
+ 17 def main():
+ 18     rclpy.init()
+ 19     node = Node("talker")
+ 20     talker = Talker(node)
+ 21     rclpy.spin(node)
+ 22
+ 23 if __name__ == '__main__':
+ 24     main()
+```
+
+
 
 ---
 
