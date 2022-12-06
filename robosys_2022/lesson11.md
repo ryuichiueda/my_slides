@@ -86,13 +86,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   * 3. オブジェクトの作成
   * 4. コールバック関数の書き換え
     * オブジェクトのパブリッシャや変数を使うように
+* 書き換えたら動作確認を
 
 ```python
  10 rclpy.init()
  11 node = Node("talker")
- 12 talker = Talker()
+ 12 talker = Talker()      #オブジェクトを作成（__init__が実行される。）
  13
- 14 def cb():
+ 14 def cb():              #関数内のnやpubをtalkerのものに変更
  15     msg = Int16()
  16     msg.data = talker.n
  17     talker.pub.publish(msg)
