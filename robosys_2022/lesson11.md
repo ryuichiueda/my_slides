@@ -102,3 +102,11 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
  20 node.create_timer(0.5, cb)
  21 rclpy.spin(node)
 ```
+
+---
+
+### メソッドの追加
+
+* `cb`関数も`Talker`の<span style="color:red">メソッド</span>にしてしまいましょう
+  * メソッド: オブジェクト内の変数などを操作するための<br />関数（のようなもの）
+
