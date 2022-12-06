@@ -74,7 +74,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   7         self.pub = node.create_publisher(Int16, "countup", 10)
   8         self.n = 0
   9         # ↑ selfはオブジェクトのこと
-            # ↑ オブジェクトにひとつパブリッシャと変数をもたせる
+            # ↑ オブジェクトにひとつパブリッシャと変数をもたせる。
 （次ページに続く）
 ```
 
@@ -86,7 +86,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
   * 3. オブジェクトの作成
   * 4. コールバック関数の書き換え
     * オブジェクトのパブリッシャや変数を使うように
-* 書き換えたら動作確認を
+* 書き換えたら動作確認（テスト）を
 
 ```python
  10 rclpy.init()
@@ -110,7 +110,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * `cb`関数も`Talker`の<span style="color:red">メソッド</span>にしてしまいましょう
   * メソッド: オブジェクト内の変数などを操作するための<br />関数（のようなもの）<br />　
 * 手順
-  * 1. まず、`create_timer`をメソッドに
+  * 1. まず、`create_timer`を`__init__`内で実行するようにする
     * いきなり`cb`をメソッドにすると難しいので
   * 2. その後、`cb`をメソッドに
 
@@ -121,16 +121,64 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ```python
   5 class Talker():
-  6     def __init__(self):
-  （中略）
-  9
- 10     def set_timer(self, node):     #nodeは外にあるので引数でもらう
- 11         node.create_timer(0.5, cb) #cbはグローバルなものを使用
-（中略）
- 19 rclpy.init()
- 20 node = Node("talker")
- 21 talker = Talker()
- 22 talker.set_timer(node)  #メソッドの呼び出し
- 23 rclpy.spin(node)
+  6     def __init__(self, node): #nodeを__init__の引数に追加
+  7         self.pub = node.create_publisher(Int16, "countup", 10)
+  8         self.n = 0
+  9         node.create_timer(0.5, cb) #ここでタイマーをしかける。
+ 10
+ （中略）
+ 16
+ 17 rclpy.init()
+ 18 node = Node("talker")
+ 19 talker = Talker(node) #処理のためにnodeを渡す。
+ 20 rclpy.spin(node)
 ```
 
+---
+
+### `cb`の移動
+
+```python
+  5 class Talker():
+  6     def __init__(self, node):
+  7         self.pub = node.create_publisher(Int16, "countup", 10)
+  8         self.n = 0
+  9         node.create_timer(0.5, self.cb) #selfをつける。
+ 10
+ 11     def cb(self):      #インデントをあげてselfを引数に
+ 12         msg = Int16()
+ 13         msg.data = self.n     #talker -> self
+ 14         self.pub.publish(msg) #talker -> self
+ 15         self.n += 1           #talker -> self
+```
+
+* これで、「`Talker`の」コールバック関数であることが<br />コードの構造で分かるように
+
+---
+
+### クラスの「外側」の観察
+
+* パブリッシャに関する処理はすべて`Talker`クラス内に<br />記述されている状態
+  * 要約されたコードになって読みやすく
+
+```python
+ 17 rclpy.init()
+ 18 node = Node("talker")
+ 19 talker = Talker(node) #この一行でパブリッシャが動き出す。
+ 20 rclpy.spin(node)
+```
+
+* ただし、変なクラスを作るとかえって読みにくくなるので、考えることが必要
+  * なにをまとめると分かりやすいコードになるのか
+
+---
+
+## 3. まとめ
+
+* Pythonのクラスを作成
+  * クラスの中にパブリッシャの機能を整理して実装
+  * `listener.py`でもやってみましょう<br />　
+* 他のコードの整理方法
+  * モジュールに関数のコレクションを作るという方法
+    * 数学の関数など、同類ではあるものの互いに独立しているもののコレクションとして作成
+  * 今後は「構造」に注目してプログラミングを！
