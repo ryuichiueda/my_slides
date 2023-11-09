@@ -16,7 +16,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 今日やること
 
-* 作ってきたROS2のパッケージのコードをクラスで整理
+* 作ってきたROS 2のパッケージのコードをクラスで整理
   1. オブジェクトとクラスの説明
   1. 実践
   1. まとめ
@@ -35,7 +35,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * `pub.publish(msg)`
   * 注意: オブジェクトの持っている変数や関数は、<br />正確には「属性」（attribute）と呼ばれる<br />　
 * ひとつのオブジェクトで関連する属性を<br />まとめて管理可能
-  * ROS2のノードと同様、機能をうまく切り分けていくと<br />分かりやすいソフトウェアに
+  * ROS 2のノードと同様、機能をうまく切り分けていくと<br />分かりやすいソフトウェアに
 
 ---
 

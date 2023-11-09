@@ -112,7 +112,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     * https://youtu.be/Utvf4YmMJpk <br />　
 * テストに利用するコンテナ 
     * https://hub.docker.com/repository/docker/ryuichiueda/ubuntu22.04-ros2
-        * 講師がUbuntu 22.04 LTSにROS2をセットアップしたもの
+        * 講師がUbuntu 22.04 LTSにROS 2をセットアップしたもの
         * ワークスペース: コンテナ内の`/root/ros2_ws/`に存在
     * これをGitHub Actionsでダウンロードして使用
 
@@ -146,10 +146,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 4. まとめ
 
-* ROS2のパッケージをテストした
+* ROS 2のパッケージをテストした
     * 今回はいろいろ応用が効くようにシェルスクリプトで
         * 補足: もっと便利なやりかたがあるはずなので、興味があれば調査を<br />　
-* ROS2のパッケージをGitHub Actionsでテストした
+* ROS 2のパッケージをGitHub Actionsでテストした
     * 環境を整えるワークフローを書くのが結構面倒だが、1度ワークフローを完成されられればあとは簡単
     * GUIつきのROSパッケージでもテスト可能
         * ROS1の例: [ryuichiueda/emcl2](https://github.com/ryuichiueda/emcl2)
