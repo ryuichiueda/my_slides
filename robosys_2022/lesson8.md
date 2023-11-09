@@ -1,6 +1,6 @@
 # ロボットシステム学
 
-## 第8回: <span style="text-transform:none">Robot Operating System (ROS2)</span>
+## 第8回: <span style="text-transform:none">Robot Operating System (ROS 2)</span>
 
 千葉工業大学 上田 隆一
 
@@ -17,9 +17,9 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 今日やること
 
 1. ROSの概要の理解
-2. ROS2のインストール
+2. ROS 2のインストール
 3. ROSのノードと通信の基礎
-4. ROS2プログラミング
+4. ROS 2プログラミング
 5. まとめ
 * 参考図書
     * 近藤 豊: [ROS2ではじめよう 次世代ロボットプログラミング](https://gihyo.jp/book/2019/978-4-297-10742-0), 技術評論社, 2019. 
@@ -90,12 +90,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ### ROSのバージョン
 
-* ROS1（もともとROSと呼ばれていたもの）
+* ROS 1（もともとROSと呼ばれていたもの）
   * オリジナルのROS
   * 主に研究のフレームワークとして発達
   * まだまだ使われる/研究室でも使う
     * 習得は2021年までの講義資料でどうぞ（https://youtu.be/PL85Pw_zQH0 ）<br />　
-* ROS2（今回扱うもの）
+* ROS 2（今回扱うもの）
   * ROSが普及して、当初想定していなかった利用場面が増加
     * セキュリティー、製品化、シビアな通信環境、・・・
   * アーキテクチャから作り直し
@@ -103,7 +103,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 2. ROS2のインストール
+## 2. ROS 2のインストール
 
 ---
 
@@ -125,7 +125,7 @@ $ vi ~/.bashrc
 
 ---
 
-### ROS2のインストール
+### ROS 2のインストール
 
 * [インストールスクリプト](https://github.com/ryuichiueda/ros2_setup_scripts/blob/master/setup.bash)
     * 手順は次の通り
@@ -208,7 +208,7 @@ ros2 is an extensible command-line tool for ROS 2.
 
 ---
 
-## 4. ROS2プログラミング
+## 4. ROS 2プログラミング
 
 * 先ほど動かしたtalker、listenerに相当するノードを作成
   * 言語: Python
@@ -346,7 +346,7 @@ setup(
   * コードの前半
     * オブジェクト: 今のところは様々な機能を持つ変数と考えて良い
   ```python
-    1 import rclpy                     #ROS2のクライアントのためのライブラリ
+    1 import rclpy                     #ROS 2のクライアントのためのライブラリ
     2 from rclpy.node import Node      #ノードを実装するためのNodeクラス（クラスは第10回で）
     3 from std_msgs.msg import Int16   #通信の型（16ビットの符号付き整数）
     4
@@ -403,7 +403,7 @@ setup(
 ### ビルド
 
 * 他に利用するパッケージを確認してインストール
-    * `humble`はUbuntu 22.04用のROS2のバージョン
+    * `humble`はUbuntu 22.04用のROS 2のバージョン
     * 20.04の場合は`foxy`
     ```bash
     $ cd ~/ros2_ws
@@ -480,7 +480,7 @@ setup(
 
 ## 5. まとめ
 
-* ROS（ROS2）
+* ROS（ROS 2）
   * 独立したプログラム（プロセス、ノード）を連携<br />　
 * パッケージを作り、ふたつのノードを記述
   * 単にプログラムを走らせるだけでなく、様々な手続き
