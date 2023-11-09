@@ -143,6 +143,7 @@ usage: ros2 [-h] Call `ros2 <command> -h` for more detailed usage. ...
 ros2 is an extensible command-line tool for ROS 2.
 （以下略）
 ```
+* <span style="color:red">さらに`~/.bashrc`に`export ROS_LOCALHOST_ONLY=1`と記述</span>
 
 ---
 
