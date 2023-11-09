@@ -136,7 +136,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * [Software Package Data Exchange](https://spdx.github.io/spdx-spec/)
     * ソフトウェアライセンスなどの書き方を統一するプロジェクト
         * ソフトウェアライセンスについては後半で<br />　
-* [SPDX file tags](https://spdx.github.io/spdx-spec/file-tags/)
+* [SPDX file tags](https://spdx.github.io/spdx-spec/v2.3/file-tags/)
     * 前ページ例2のように，ファイルの権利関係などを記述するためのタグ（目印）
         * 以前は，コードを書いたら権利について10行くらいコメントを書いていたが，それを大幅に省略
     * 積極的に使わせてもらいましょう
