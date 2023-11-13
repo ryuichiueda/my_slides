@@ -128,7 +128,8 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 余談: コンパイラがやたら丁寧
 
 * C/C++のものよりも細かくワーニングが出る
-    * ワーニングには対処を
+    * データを使っていない
+    * 変数、関数、引数を使っていない
     ```rust
     $ cargo build
     （いろいろ省略）
@@ -139,10 +140,20 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     　|  
       = help: maybe it is overwritten before being read?
     ```
-    * 他に出るワーニング（ありがたい）
-        * 変数、関数、引数を使っていない
-        * 他
-* 変数の使用状況の他、メモリが安全に使われているかまでコンパイラが見ている
-    * より正確にはbollow checkerが見ている
+    * ワーニングに対処することでコードが散らからなくなる
 
 ---
+
+## 関数
+
+```rust
+1 fn chan(s: String) -> String {
+2    s + "-chan"
+3 }
+4
+5 fn main() {
+6     let x = "neko".to_string();
+7     let y = chan(x);
+8     println!("{}", y);
+9 }
+```
