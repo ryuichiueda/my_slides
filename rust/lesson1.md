@@ -71,4 +71,30 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     Hello, world! # 出力
     ```
 
+---
 
+## 変数
+
+* `let`で定義
+   ```rust
+   1 fn main() {
+   2     let x = 1;
+   3     println!("{}", x);
+   4 }
+   ```
+* 基本、変数は（変数なのに）定数
+   ```rust
+   1 fn main() {
+   2     let x = 1;
+   3     x = 2;    //cargo buildするとエラーが出る
+   4     println!("{}", x);
+   5 }
+   ```
+   * `mut`（ミュータブル）をつける
+   ```rust
+   1 fn main() {
+   2     let mut x = 1;
+   3     x = 2; 
+   4     println!("{}", x);
+   5 } //ただし、「1」を使ってないぞとワーニング
+   ```
