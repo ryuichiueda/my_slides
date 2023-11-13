@@ -274,15 +274,16 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * `Vec<任意の型>`でベクタが定義可能
     * ベクタ: 配列（のようなもの）
-	```rust
-        1 fn main() {
-        2     let v = vec![1, 2, 3]; //vec!マクロで初期化
-        3     let w :Vec<i32> = vec![4, 5, 6]; //型を明示
-        4     println!("{:?}", &v);
-        5     println!("{:?}", &w);
-        6 }
-	```
-* 可変なベクタ
+    * C++のvector型
+    ```rust
+    1 fn main() {
+    2     let v = vec![1, 2, 3]; //vec!マクロで初期化
+    3     let w :Vec<i32> = vec![4, 5, 6]; //型を明示
+    4     println!("{:?}", &v);
+    5     println!("{:?}", &w);
+    6 }
+    ```
+    * 可変なベクタ
     ```rust
     1 fn main() {
     2     let mut v = vec![1, 2, 3];
@@ -290,5 +291,19 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     4     v.pop();
     5     println!("{:?}", &v); 
     6 }   // ↑ [10000, 1, 2]と出力
+    ```
+
+---
+
+## <span style="text-transform:none">Option</span>型
+
+* 値があるかどうか分からないもので利用される
+    ```rust
+    1 use std::env;
+    2
+    3 fn main() {
+    4     let arg = env::args().nth(1);
+    5     println!("{:?}", &arg);
+    6 }
     ```
 
