@@ -33,6 +33,29 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
+## 「メモリ管理」
+
+* C++やCでよくある話
+    * 参照の先がなくなっている
+
+```cpp
+ 1 #include <iostream>
+ 2
+ 3 int main() {
+ 4     int *hoge = new int[2];
+ 5     hoge[0] = 1;
+ 6     hoge[1] = 2;
+ 7
+ 8     int &hoge_ref = hoge[1];
+ 9
+10     std::cout << hoge_ref << std::endl;
+11     delete [] hoge;
+12     std::cout << hoge_ref << std::endl; //変なところを参照
+13 }
+```
+
+---
+
 ## 早速使ってみる1
 
 * 環境のセットアップ
@@ -115,5 +138,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     　|  
       = help: maybe it is overwritten before being read?
     ```
+    * 他に出るワーニング（ありがたい）
+        * 変数、関数、引数を使っていない
+        * 他
+* 変数の使用状況の他、メモリが安全に使われているかまでコンパイラが見ている
+    * より正確にはbollow checkerが見ている
 
 ---
