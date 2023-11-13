@@ -56,11 +56,19 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 早速使ってみる2
 
 * コードがもう書いてある
+    ```bash
+    $ cd src
+    $ cat main.rs
+    fn main() {
+        println!("Hello, world!");
+    }
+    ```
+* コンパイル/ビルド/実行してみる
+    ```bash
+    $ cargo build
+       Compiling hello v0.1.0 (/home/ueda/tmp/hello)
+        Finished dev [unoptimized + debuginfo] target(s) in 0.23s
+    Hello, world! # 出力
+    ```
 
-```bash
-$ cd src
-$ cat main.rs
-fn main() {
-    println!("Hello, world!");
-}
-```
+
