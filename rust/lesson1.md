@@ -315,3 +315,20 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
         ```
    * C/C++のNULLやPythonのNoneなどと異なり型のレベルで「ない」を表現
 
+
+---
+
+## <span style="text-transform:none">match</span>による場合分け
+
+```rust
+1 use std::env;
+2
+3 fn main() {
+4     let arg = env::args().nth(1);
+5     match arg {
+6         Some(a) => println!("引数は「{}」", &a),
+7         None    =>  println!("引数ないです"),
+8     }
+9 }
+```
+
