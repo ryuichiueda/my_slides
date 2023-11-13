@@ -55,7 +55,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 対策
     * Java, Python, Ruby, ...: ガベージコレクタ（実行時にうまくやる） 
     * <span style="color:red">Rust: 言語の仕組みで防止+コンパイル時に全部チェック</span>
-        * 実行時はC/C++と同じようにガベージコレクタなし（原理的には同等に速い）
+        * 実行時はC/C++と同じようにガベージコレクタなし（原理的には同等に速い。ロボット向き。）
 
 ---
 
