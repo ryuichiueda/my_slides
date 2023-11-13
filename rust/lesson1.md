@@ -270,4 +270,25 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
+## ベクタ型
+
+* `Vec<任意の型>`でベクタが定義可能
+    * ベクタ: 配列（のようなもの）
+	```rust
+        1 fn main() {
+        2     let v = vec![1, 2, 3]; //vec!マクロで初期化
+        3     let w :Vec<i32> = vec![4, 5, 6]; //型を明示
+        4     println!("{:?}", &v);
+        5     println!("{:?}", &w);
+        6 }
+	```
+* 可変なベクタ
+    ```rust
+    1 fn main() {
+    2     let mut v = vec![1, 2, 3];
+    3     v.insert(0, 10000);
+    4     v.pop();
+    5     println!("{:?}", &v); 
+    6 }   // ↑ [10000, 1, 2]と出力
+    ```
 
