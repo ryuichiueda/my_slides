@@ -224,29 +224,50 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
+## 参照を利用した変数の書き換え
+
+* `&mut`で引数をとると、呼び出し側の元の変数を書き換え可能
+    ```rust
+    1 fn chan(s: &mut String) {
+    2     s.push_str("-chan");
+    3 }
+    4 
+    5 fn main() {
+    6     let mut x = "neko".to_string();
+    7     chan(&mut x); //可変な変数の参照を渡す
+    8     println!("{}", x);
+    9 }
+    ```
+
+---
+
 ## 参照と借用
 
 * 貸しているものは渡せない
-    * これをコンパイルするとどうなる？
-        ```rust
-        1 fn main() {
-        2     let x = "neko".to_string();
-        3     let y = &x; //移動していないが借用している
-        4     let z = x;  //xからデータがなくなる（yはどうなる？）
-        5     println!("{}", y);
-        6 }
-        ```
-        * 「borrowされているからmoveできない」という出力
-        ```rust
-        $ cargo run
-        （略）
-        error[E0505]: cannot move out of `x` because it is borrowed
-         --> src/main.rs:4:13
-        　|
-        3 |     let y = &x;
-        　|             -- borrow of `x` occurs here
-        4 |     let z = x;
-        　|             ^ move out of `x` occurs here
-        5 |     println!("{}", y);
-        　|                    - borrow later used here
-        ```
+* これをコンパイルするとどうなる？
+    ```rust
+    1 fn main() {
+    2     let x = "neko".to_string();
+    3     let y = &x; //移動していないが借用している
+    4     let z = x;  //xからデータがなくなる（yはどうなる？）
+    5     println!("{}", y);
+    6 }
+    ```
+    * 「borrowされているからmoveできない」という出力
+    ```rust
+    $ cargo run
+    （略）
+    error[E0505]: cannot move out of `x` because it is borrowed
+     --> src/main.rs:4:13
+    　|
+    3 |     let y = &x;
+    　|             -- borrow of `x` occurs here
+    4 |     let z = x;
+    　|             ^ move out of `x` occurs here
+    5 |     println!("{}", y);
+    　|                    - borrow later used here
+    ```
+
+---
+
+
