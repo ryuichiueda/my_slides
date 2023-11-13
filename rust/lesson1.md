@@ -306,4 +306,12 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     5     println!("{:?}", &arg);
     6 }
     ```
+    * 実行
+        ```bash
+        $ ../target/debug/hello
+        None         #ない
+        $ ../target/debug/hello aaa
+        Some("aaa")  # むき出しの"aaa"ではなく、Some()にくるまれて返ってくる
+        ```
+   * C/C++のNULLやPythonのNoneなどと異なり型のレベルで「ない」を表現
 
