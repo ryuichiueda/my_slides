@@ -146,14 +146,52 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## 関数
 
-```rust
-1 fn chan(s: String) -> String {
-2    s + "-chan"
-3 }
-4
-5 fn main() {
-6     let x = "neko".to_string();
-7     let y = chan(x);
-8     println!("{}", y);
-9 }
-```
+* `fn 関数名(引数) -> 戻り値の型`で定義
+    ```rust
+    1 fn chan(s: String) -> String { //s: 引数、String: 文字列型
+    2    s + "-chan" // return s + "-chan"; でもよい
+    3 }
+    4
+    5 fn main() {
+    6     let x = "neko".to_string(); //xを文字列型として定義
+    7     let y = chan(x);            //xをchanに渡す
+    8     println!("{}", y);          //yをプリント
+    9 }
+    ```
+    * （まだわからなくていいけど）`println!`は関数ではなくマクロ。様々な型を受け入れ可能
+
+---
+
+## 所有権
+
+* 前のページのコードに次のように追記するとエラーが発生
+    ```rust
+    5 fn main() {
+    6     let x = "neko".to_string(); //xを文字列型として定義
+    7     let y = chan(x);            //xをchanに渡す
+    8     println!("{}", y);          //yをプリント
+    8     println!("{}", x);          //xをプリント
+    9 }
+    ```
+    * エラーの内容（<span style="color:red">move</span>がどうたらと出てくる）
+    ```rust
+    $ cargo build
+    error[E0382]: borrow of moved value: `x`
+     --> src/main.rs:9:20
+    　|
+    6 |     let x = "neko".to_string();
+    　|         - move occurs because `x` has type `String`, which does not implement the `Copy` trait
+    7 |     let y = chan(x);
+    　|                  - value moved here
+    8 |     println!("{}", y);
+    9 |     println!("{}", x);
+    　|                    ^ value borrowed here after move
+    ```
+
+---
+
+## 所有権（続き）
+
+* 基本的に、変数の値（=名前のついたデータ）は<span style="color:red">関数に渡すとそっちにデータが移ってしまう</span>
+    * 変数（名前）のほうは何もデータを指さなくなる
+
