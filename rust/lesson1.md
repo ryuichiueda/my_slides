@@ -90,7 +90,7 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
    4     println!("{}", x);
    5 }
    ```
-   * `mut`（ミュータブル）をつける
+   * 変えたければ`mut`（ミュータブル）をつける
    ```rust
    1 fn main() {
    2     let mut x = 1;
@@ -98,3 +98,22 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
    4     println!("{}", x);
    5 } //ただし、「1」を使ってないぞとワーニング
    ```
+
+---
+
+## 余談: コンパイラがやたら丁寧
+
+* C/C++のものよりも細かくワーニングが出る
+    * ワーニングには対処を
+    ```rust
+    $ cargo build
+    （いろいろ省略）
+     --> src/main.rs:2:13
+    　|
+    2 |     let mut x = 1;
+    　|             ^
+    　|  
+      = help: maybe it is overwritten before being read?
+    ```
+
+---
