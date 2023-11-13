@@ -37,22 +37,25 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * C++やCでよくある話
     * 参照の先がなくなっている
-
-```cpp
- 1 #include <iostream>
- 2
- 3 int main() {
- 4     int *hoge = new int[2];
- 5     hoge[0] = 1;
- 6     hoge[1] = 2;
- 7
- 8     int &hoge_ref = hoge[1];
- 9
-10     std::cout << hoge_ref << std::endl;
-11     delete [] hoge;
-12     std::cout << hoge_ref << std::endl; //変なところを参照
-13 }
-```
+    ```cpp
+     1 #include <iostream>
+     2
+     3 int main() {
+     4     int *hoge = new int[2];
+     5     hoge[0] = 1;
+     6     hoge[1] = 2;
+     7
+     8     int &hoge_ref = hoge[1];
+     9
+    10     std::cout << hoge_ref << std::endl;
+    11     delete [] hoge;
+    12     std::cout << hoge_ref << std::endl; //変なところを参照
+    13 }
+    ```
+* 対策
+    * Java, Python, Ruby, ...: ガベージコレクタ（実行時にうまくやる） 
+    * <span style="color:red">Rust: コンパイル時に全部チェック</span>
+        * 実行時はC/C++と同じようにガベージコレクタなし（原理的には同等に速い）
 
 ---
 
