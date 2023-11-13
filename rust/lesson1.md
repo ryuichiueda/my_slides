@@ -194,8 +194,59 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 基本的に、変数の値（=名前のついたデータ）は<span style="color:red">関数や`=`で別の変数に渡すとデータが移ってしまう</span>
     * 変数（名前）のほうは何もデータを指さなくなる
-    * 数値など簡単な型のデータ以外は明示的に指示しないとデータが複製されない
+    * <span style="font-size:50%">数値など簡単な型のデータ以外は</span>明示的に指示しないとデータが複製されない
         * C/C++だと大きなデータでも引数に渡すとコピーされるので挙動が違う
+        * Pythonみたいに参照だらけにはならない
     * 「所有権」という考え方
         * 「move」とは所有権の移動
 
+
+---
+
+## 参照と借用
+
+* `&`をつけると参照になる
+    * 参照: この場合はデータの覗き窓と考えるとよい
+    * 下のコードでは`x`の所有権は失われていない
+        * 関数が一時的に「借用」した状態になる
+    ```rust
+     1 fn chan(s: &String) -> String { //引数を参照に
+     2    s.clone() + "-chan" //clone: 参照から値をコピー
+     3 }
+     4 
+     5 fn main() {
+     6     let x = "neko".to_string();
+     7     let y = chan(&x); //参照として渡す
+     8     println!("{}", y);
+     9     println!("{}", x);
+    10 } //このコードではエラーもワーニングも出ない
+    ```
+
+---
+
+## 参照と借用
+
+* 貸しているものは渡せない
+    * これをコンパイルするとどうなる？
+        ```rust
+        1 fn main() {
+        2     let x = "neko".to_string();
+        3     let y = &x; //移動していないが借用している
+        4     let z = x;  //xからデータがなくなる（yはどうなる？）
+        5     println!("{}", y);
+        6 }
+        ```
+        * 「borrowされているからmoveできない」という出力
+        ```rust
+        $ cargo run
+        （略）
+        error[E0505]: cannot move out of `x` because it is borrowed
+         --> src/main.rs:4:13
+        　|
+        3 |     let y = &x;
+        　|             -- borrow of `x` occurs here
+        4 |     let z = x;
+        　|             ^ move out of `x` occurs here
+        5 |     println!("{}", y);
+        　|                    - borrow later used here
+        ```
