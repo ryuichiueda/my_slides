@@ -29,4 +29,38 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 * 2006年、MozillaのエンジニアGraydon Hoareの個人プロジェクトとしてスタート
     * 「C/C++で書かれたもののバグが多すぎる（メモリまわり）」
     * 他のガベージコレクタを有する言語は遅い<br/>　
-* <span style="font-size:35%">（いろいろあったと思うけど全部すっ飛ばすと）</span>→独自の
+* <span style="font-size:35%">（いろいろあったと思うけど全部すっ飛ばすと）</span>→独自のメモリ管理方法で安全性と軽さを両立する言語となる
+
+---
+
+## 早速使ってみる1
+
+* 環境のセットアップ
+    ```bash
+    $ sudo apt install cargo
+    ```
+    * `cargo`: Rustのビルドシステム兼パッケージマネージャ<br />　
+* プロジェクトを作る
+    ```bash
+    $ cargo new hello
+     Created binary (application) `hello` package
+    $ cd hello
+    $ ls -l
+    合計 8
+    -rw-rw-r-- 1 ueda ueda  174 11月 13 10:01 Cargo.toml #設定ファイル
+    drwxrwxr-x 2 ueda ueda 4096 11月 13 10:01 src #この中にソースを置く
+    ```
+
+---
+
+## 早速使ってみる2
+
+* コードがもう書いてある
+
+```bash
+$ cd src
+$ cat main.rs
+fn main() {
+    println!("Hello, world!");
+}
+```
