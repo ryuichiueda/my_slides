@@ -293,6 +293,41 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
     6 }   // ↑ [10000, 1, 2]と出力
     ```
 
+
+---
+
+## 列挙型
+
+* C/C++のenumと異なり、データも持たせることができる
+    ```rust
+     1 #[derive(Debug)] // {:?}でプリントできるように書く（アトリビュート）
+     2 enum NumOrStr {
+     3     Num(i32),
+     4     Str(String),
+     5     Hoge,
+     6 }
+     7
+     8 fn main() {
+     9     // x, y, zは同じ型
+    10     let x = NumOrStr::Num(10);
+    11     let y = NumOrStr::Str("waowao".to_string());
+    12     let z = NumOrStr::Hoge;
+    13
+    14     println!("x: {:?}, y: {:?}, z: {:?}", x, y, z);
+    15 }
+    ```
+    * 実行
+        ```bash
+        $ cargo run
+        x: Num(10), y: Str("waowao"), z: Hoge
+        ```
+
+
+---
+
+## 列挙型と<span style="text-transform:none">match</span>による場合分け
+
+
 ---
 
 ## <span style="text-transform:none">Option</span>型
