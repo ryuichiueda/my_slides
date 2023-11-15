@@ -352,14 +352,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## <span style="text-transform:none">Option</span>型
 
+* 列挙型として定義されている
+    * `Some(値)`あるいは`None`
 * 値があるかどうか分からないもので利用される
     ```rust
-    1 use std::env;
-    2
-    3 fn main() {
-    4     let arg = env::args().nth(1);
-    5     println!("{:?}", &arg);
-    6 }
+    fn main() {
+        let arg = std::env::args().nth(1);
+        println!("{:?}", &arg);
+    }
     ```
     * 実行
         ```bash
@@ -376,14 +376,13 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## <span style="text-transform:none">match</span>による場合分け
 
 ```rust
-1 use std::env;
-2
-3 fn main() {
-4     let arg = env::args().nth(1);
-5     match arg {
-6         Some(a) => println!("引数は「{}」", &a),
-7         None    =>  println!("引数ないです"),
-8     }
-9 }
+1 fn main() {
+2     match std::env::args().nth(1) {
+3         Some(a) => println!("引数は「{}」", &a),
+4         None    =>  println!("引数ないです"),
+5     }
+6 }
 ```
 
+* 他、似たものに`Result`型がある
+    * 値は`Ok(値)`あるいは`Err(エラーの理由等のデータ)`
