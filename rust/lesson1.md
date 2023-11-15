@@ -386,3 +386,50 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 * 他、似たものに`Result`型がある
     * 値は`Ok(値)`あるいは`Err(エラーの理由等のデータ)`
+
+---
+
+## if式
+
+
+---
+
+## <span style="text-transform:none">use</span>キーワード
+
+* [17ページ](/rust/lesson1.html#/17)のコードの`std::env::args().nth(1)`
+   * stdモジュールのenvサブモジュールの<br />argsという関数の返すデータのnthメソッド→長い
+   * 次のように`use`をヘッダに置くと短くできる<br />（この例だとあまり短くならないけど）
+        ```rust
+        1 use std::env;
+        2
+        3 fn main() {
+        4     let arg = env::args().nth(1);
+        5     println!("{:?}", &arg);
+        6 }
+        ```
+
+---
+
+## 構造体
+
+* C/C++と考え方は同じ
+    ```rust
+     1 struct Lecture{
+     2     name: String,
+     3     day: String,
+     4 }
+     5 
+     6 fn main() {
+     7     let rust = Lecture {
+     8         name: "Rust入門".to_string(),
+     9         day: "きんようび".to_string(),
+    10     };
+    11 
+    12     println!("講義名: {}, 曜日: {}", &rust.name, &rust.day);
+    13 }
+    ```
+
+---
+
+## 構造体の関連関数・メソッド
+
