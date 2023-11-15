@@ -325,8 +325,28 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ---
 
-## 列挙型と<span style="text-transform:none">match</span>による場合分け
+## 列挙型とベクタ型と<span style="text-transform:none">match</span>
 
+* Rustでは列挙型を積極的に利用
+    * 同じ型のデータとして様々なものを同じベクタ型に記録可能
+    * `match`で場合分け
+        ```rust
+         8 fn main() {
+         9     let mut v = vec![NumOrStr::Num(10)];
+        10     v.push( NumOrStr::Str("waowao".to_string()) );
+        11     v.push( NumOrStr::Hoge );
+        12
+        13     println!("{:?}", &v);
+        14
+        15     for e in v {
+        16         match e { //=>の左側のパターンにマッチすると右側の処理が走る
+        17             NumOrStr::Num(n) => println!("数字だよ {}", n),
+        18             NumOrStr::Str(s) => println!("文字列だよ {}", s),
+        19             NumOrStr::Hoge   => println!("HOGE!!!!"),
+        20         }
+        21     }
+        22 }
+        ```
 
 ---
 
