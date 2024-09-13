@@ -141,12 +141,13 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 
 ---
 
-## ファイルとディレクトリ
+## ファイルの配置（Windows）
 
-* GUIで観察してみましょう<br />（`nautilus`や`explorer.exe`で）
+* GUIで観察してみましょう<br />（`explorer.exe`で）
     * 「木構造」になっている
         * フォルダの「<span style="color:red">下（中）</span>」にファイルがある
         * フォルダの下のフォルダの下にさらにファイル
+        * 「<span style="color:red">上</span>」をたどっていくとドライブ
 
 <img width=48% src="figs/explorer1.png" />
 <img width=48% src="figs/explorer2.png" />
