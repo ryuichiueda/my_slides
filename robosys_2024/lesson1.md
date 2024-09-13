@@ -186,6 +186,25 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 
 ---
 
+## ディレクトリの操作
+
+* 使うコマンド
+    * 移動: <span style="color:red">`cd`</span>、作成: <span style="color:red">`mkdir`</span>、削除: <span style="color:red">`rmdir`</span>、確認: <span style="color:red">`pwd`</span>
+
+```bash
+$ cd /etc/            <- /etc/に移動
+$ cd ..               <- /etc/の上に移動（これより上には行けない「root」）
+$ cd                  <- 「/home/ユーザ」に移動（ホームディレクトリ）
+$ mkdir hoge          <- hogeというディレクトリを作成
+$ cd ./hoge           <- 今作ったhogeに移動（「./」: 今いるディレクトリ）
+$ pwd                 <- 今いるディレクトリのパスを確認
+/home/ueda/hoge
+$ cd ..
+$ rmdir ./hoge        <- hogeを削除
+```
+
+---
+
 ## コマンドの書き方
 
 * 「名前 引数 引数 ...」と打ち込む
@@ -225,26 +244,6 @@ $ ls                  #lsするとa.txt、b.txtは消えている
         * <span style="color:red">`echo`</span>: 引数で指定した文字列や変数を表示
         * 変数があるように、シェルはプログラム言語でもある
 
-
-
----
-
-## ディレクトリの操作
-
-* 使うコマンド
-    * 移動: <span style="color:red">`cd`</span>、作成: <span style="color:red">`mkdir`</span>、削除: <span style="color:red">`rmdir`</span>、確認: <span style="color:red">`pwd`</span>
-
-```bash
-$ cd /etc/            <- /etc/に移動
-$ cd ..               <- /etc/の上に移動（これより上には行けない「root」）
-$ cd                  <- 「/home/ユーザ」に移動（ホームディレクトリ）
-$ mkdir hoge          <- hogeというディレクトリを作成
-$ cd ./hoge           <- 今作ったhogeに移動（「./」: 今いるディレクトリ）
-$ pwd                 <- 今いるディレクトリのパスを確認
-/home/ueda/hoge
-$ cd ..
-$ rmdir ./hoge        <- hogeを削除
-```
 
 ---
 
