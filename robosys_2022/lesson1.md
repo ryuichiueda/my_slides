@@ -71,10 +71,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 参考文献（<span style="text-transform:none">Python</span>）
 
 * はじめての人向け
-    * 森 巧尚: Python 1年生 体験してわかる！会話でまなべる！プログラミングのしくみ, 翔泳社, 2017. <br />　
+    * 森 巧尚: Python 1年生 第2版, 翔泳社, 2022. <br />　
 * そうでない人向け
     * 各個人のレベルによりけりなので特に指定しませんが、文法の解説が中心のもの
-    * 企業のエンジニアやビジネスマン向けのような応用中心のものは回避を
+    * 企業のエンジニアやビジネスマン向け、「AI」とついているような応用中心のものは回避を
 
 ---
 
