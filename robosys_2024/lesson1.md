@@ -71,10 +71,10 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 ## 参考文献（<span style="text-transform:none">Python</span>）
 
 * はじめての人向け
-    * 森 巧尚: Python 1年生 体験してわかる！会話でまなべる！プログラミングのしくみ, 翔泳社, 2017. <br />
+    * 森 巧尚: Python 1年生 第2版, 翔泳社, 2022. <br />　
 * そうでない人向け
     * 各個人のレベルによりけりなので特に指定しませんが、文法の解説が中心のもの
-    * 企業のエンジニアやビジネスマン向けのような応用中心のものは回避を
+    * 企業のエンジニアやビジネスマン向け、「AI」とついているような応用中心のものは回避を
 
 ---
 
@@ -88,16 +88,14 @@ This work is licensed under a <a rel="license" href="http://creativecommons.org/
 
 ## <span style="text-transform:none">Linux</span>環境の準備
 
-* Ubuntu（20.04 LTS or 22.04 LTSを標準とします）
+* Ubuntu（24.04 LTSを標準とします）
     * 特殊なものは自己責任でご使用を<br />　
 * ハードウェア（仮想マシン）環境
     * Windows Subsystem for Linux 2（WSL2）
-    * PC
-    * 仮想マシン
-    * ラズパイ<br />　
+    * PC（ネイティブ環境）
+    * 仮想マシン<br />　
 * WSL2以外はGUI環境つきでインストール
-    * 昨年度までと異なるので注意
-    * 講義は昨年度までと同様CLI（コマンドラインインタフェース）中心
+    * 講義はCLI（コマンドラインインタフェース）中心
 
 ---
 
