@@ -148,7 +148,8 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
         * フォルダの「<span style="color:red">下（中）</span>」にファイルがある
         * フォルダの下のフォルダの下にさらにファイル
 
-<img width=50% src="figs/explorar.png" /><br />
+<img width=48% src="figs/explorar1.png" />
+<img width=48% src="figs/explorar2.png" />
 
 ---
 
