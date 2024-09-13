@@ -154,16 +154,35 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 
 ---
 
-* Linuxの場合: 同じ
-    * 見え方が違う
-```bash
-$ ls /mnt/c/
-$ ls /etc/
-```
-    * `/`でフォルダやファイル名を区切ってファイルの場所を表す
-        * <span style="color:red">「パス」</span>
-        * 都道府県や市町村を`/`で区切って表現しているようなもの
-        * 「フォルダ」は「<span style="color:red">ディレクトリ</span>」と呼ぶ
+## ファイルの配置（Linux）
+
+* 基本はWindowsと同じ
+    * nautilusを使えばほぼ同じ
+    * explorerと同じく端末には「いまいる場所」がある
+        * `pwd`と打つと確認可能
+        ```bash
+        ueda@x1win:~$ pwd
+        /home/ueda        # /の下のhomeの下のueda
+        ```
+
+* 違い: 一番上にドライブがない
+
+
+
+---
+
+## ファイルに関する用語の確認
+
+※講義を聞く/課題を出すときに重要
+
+* 「フォルダ」は<span style="color:red">「ディレクトリ」</span>と呼ぶ
+    * 「フォルダ」は比喩<br />
+* 一番上のディレクトリ「/」: <span style="color:red">「ルート」</span>
+    * 根という意味（木構造の根っこ）<br />
+* `pwd`で出てくる文字列の名前: <span style="color:red">「パス」</span>
+    * 住所の都道府県や市町村を`/`で区切って表現しているようなもの
+    * ファイル名が含まれてもパスと呼ばれる
+        * 例: `/etc/passwd`（etcディレクトリのpasswdファイル）
 
 ---
 
