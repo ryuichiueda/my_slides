@@ -33,11 +33,12 @@
     "grunt-zip": "^0.14.0",
     "load-grunt-tasks": "^5.1.0",
     "mustache": "^3.2.1",
-    "node-sass": "^7.0.3",
     "socket.io": "^4.7.2"
   },
   "license": "MIT",
   "dependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.78.0",
     "shelljs": "^0.8.3"
   },
   "bugs": {
