@@ -135,16 +135,20 @@ Ubuntu$ ls /etc/
 WSL$ explorer.exe
 WSL$ explorer.exe .
 ### Ubuntuで特定のフォルダを開く###
-Ubuntu$ nautilus /etc/
+Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 ```
         * 最初はCLIでのファイル操作は難しいので、ストレスを感じたらGUIに逃げましょう。（最初から全部GUIはNG）
 
 ---
 
-## ファイルとディレクトリ
+## ファイルとディレクトリ（GUIで見てみましょう）
 
 * 普通の人が使うPC: フォルダの下にファイルや別のフォルダを置いてデータを整理
     * `nautilus`や`explorer.exe`で観察してみましょう<br />　
+* ファイルの置かれ方
+
+
+---
 * Linuxの場合: 同じ
     * 見え方が違う
 ```bash
