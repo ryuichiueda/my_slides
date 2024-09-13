@@ -143,12 +143,12 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 
 ## ファイルとディレクトリ
 
-* GUIで観察してみましょう
-    * `nautilus`や`explorer.exe`で観察<br />　
+* GUIで観察してみましょう<br />（`nautilus`や`explorer.exe`で）
+    * 「木構造」になっている
+        * フォルダの「<span style="color:red">下（中）</span>」にファイルがある
+        * フォルダの下のフォルダの下にさらにファイル
 
-* 普通の人が使うPC: フォルダの下にファイルや別のフォルダを置いてデータを整理
-* ファイルの置かれ方
-
+<img width=50% src="figs/explorar.png" /><br />
 
 ---
 
