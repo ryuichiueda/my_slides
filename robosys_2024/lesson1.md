@@ -141,14 +141,17 @@ Ubuntu$ open /etc/  # Ubuntu$ nautilus /etc/ でもOK
 
 ---
 
-## ファイルとディレクトリ（GUIで見てみましょう）
+## ファイルとディレクトリ
+
+* GUIで観察してみましょう
+    * `nautilus`や`explorer.exe`で観察<br />　
 
 * 普通の人が使うPC: フォルダの下にファイルや別のフォルダを置いてデータを整理
-    * `nautilus`や`explorer.exe`で観察してみましょう<br />　
 * ファイルの置かれ方
 
 
 ---
+
 * Linuxの場合: 同じ
     * 見え方が違う
 ```bash
